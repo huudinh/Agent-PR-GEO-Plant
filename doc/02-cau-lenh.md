@@ -105,7 +105,17 @@ Không mô hình nào xuất 58.000 ký tự trong một lần trả lời. Đâ
 ① Xin **JSON** thay vì Excel (gọn hơn mỗi lượt), rồi chạy `python tools/build-botruyvan.py --scope <key>` để tự ghép thành file 6 sheet.
 ② Chỉ làm **5 cụm Tầng A** — 85 truy vấn, ~5 lượt. Phần này chiếm ~50% điểm ưu tiên và là việc của 90 ngày đầu; 10 cụm còn lại để kỳ sau.
 
-## 2B.1 Mở việc — bắt Agent báo khối lượng trước
+## 2B.1 Câu ngắn nhất — chỉ cần thế này
+
+```
+Tạo bộ truy vấn Geo cho dịch vụ trồng răng đầy đủ 6 tab
+```
+
+Agent tự tra chỉ mục, tìm đúng bộ Implant, rồi trả lời đại ý: *"255 truy vấn, cần ~15 lượt, mỗi lượt 1 cụm. Bắt đầu từ cụm hạng 1 nhé?"* — rồi mới viết.
+
+Không cần viết hoa đúng, không cần nhắc tên file mẫu, không cần nói "Implant" — gõ *trồng răng* là đủ.
+
+## 2B.1b Khi Agent trả sai bố cục — nhắc thẳng tên file chuẩn
 
 ```
 Tôi muốn làm bộ truy vấn GEO cho dịch vụ trồng răng Implant,
@@ -114,9 +124,9 @@ Trước khi viết, cho tôi biết bộ này bao nhiêu truy vấn, cần mấ
 và nên bắt đầu từ cụm nào.
 ```
 
-Agent phải trả lời đại ý: *"255 truy vấn, cần ~15 lượt, mỗi lượt 1 cụm. Bắt đầu từ cụm hạng 1 nhé?"* — rồi mới viết.
+Dùng khi file nhận được thiếu sheet hoặc sai thứ tự cột — nghĩa là Agent chưa đọc `template/Mau-Truy-Van-Geo.xlsx` trong Tri thức.
 
-## 2B.1b Viết cụm đầu tiên
+## 2B.1c Viết cụm đầu tiên
 
 ```
 Bắt đầu đi. Viết đủ 17 truy vấn của cụm hạng 1,

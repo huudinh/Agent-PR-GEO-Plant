@@ -120,29 +120,32 @@ PROMPTS = [
      "và mỗi thứ thiếu đó đang làm kẹt phần nào của kế hoạch?",
      "Agent phải liệt kê đủ, không giấu khoảng trống"),
 
-    ("bo", "① Mở việc — Agent báo khối lượng trước", "Bộ truy vấn",
+    ("bo", "① Câu ngắn nhất — chỉ cần thế này", "Bộ truy vấn",
+     "Tạo bộ truy vấn Geo cho dịch vụ trồng răng đầy đủ 6 tab",
+     "Agent tự tra chỉ mục, báo 255 truy vấn cần ~15 lượt, rồi hỏi bắt đầu từ cụm nào"),
+    ("bo", "② Nói rõ bám cấu trúc chuẩn", "Bộ truy vấn",
      "Tôi muốn làm bộ truy vấn GEO cho dịch vụ trồng răng Implant,\n"
      "giống hệt cấu trúc chuẩn Mau-Truy-Van-Geo.xlsx.\n"
      "Trước khi viết, cho tôi biết bộ này bao nhiêu truy vấn, cần mấy lượt mới xong,\n"
      "và nên bắt đầu từ cụm nào.",
-     "255 truy vấn ≈ 58.000 ký tự — không lượt nào trả hết được. Agent phải nói rõ rồi mới làm"),
-    ("bo", "①b Viết cụm đầu tiên", "Bộ truy vấn",
+     "Dùng khi Agent trả sai bố cục — nhắc thẳng tên file cấu trúc chuẩn"),
+    ("bo", "③ Viết cụm đầu tiên", "Bộ truy vấn",
      "Bắt đầu đi. Viết đủ 17 truy vấn của cụm hạng 1,\n"
      "rồi xuất file Excel 6 tab với cụm đó đã đầy.",
      "Mỗi lượt một cụm. Sheet 1·2·4·5·6 đầy ngay từ lần xuất đầu"),
-    ("bo", "② Hỏi nên bắt đầu từ đâu", "Bộ truy vấn",
+    ("bo", "④ Hỏi nên bắt đầu từ đâu", "Bộ truy vấn",
      "Tôi muốn làm bộ truy vấn GEO cho dịch vụ bọc răng sứ.\n"
      "Bộ này gồm những cụm chủ đề nào, và nên viết cụm nào trước thì có lợi nhất?",
      "Agent liệt kê 15 cụm kèm tầng · giai đoạn · CORE · số bài, rồi đề xuất thứ tự"),
-    ("bo", "③ Viết tiếp cụm kế tiếp", "Bộ truy vấn",
+    ("bo", "⑤ Viết tiếp cụm kế tiếp", "Bộ truy vấn",
      "Viết tiếp giúp tôi cụm kế tiếp của bộ này, rồi xuất lại file Excel đã cập nhật.",
      "Không cần nhớ đã làm tới đâu — Agent tự nhảy sang cụm hạng kế và báo còn bao nhiêu"),
-    ("bo", "④ Dựng phần nền trước khi viết", "Bộ truy vấn",
+    ("bo", "⑥ Dựng phần nền trước khi viết", "Bộ truy vấn",
      "Tôi muốn bắt đầu bộ truy vấn cho dịch vụ niềng răng.\n"
      "Trước mắt dựng giúp tôi phần chân dung khách hàng, hành vi 6 giai đoạn\n"
      "và bản đồ nội dung — chưa cần viết truy vấn vội.",
      "Làm phần nền trước thì các cụm viết sau bám đúng chân dung khách, đỡ phải sửa"),
-    ("bo", "⑤ Soát lại cụm vừa viết", "Bộ truy vấn",
+    ("bo", "⑦ Soát lại cụm vừa viết", "Bộ truy vấn",
      "Soát lại cụm bạn vừa viết giúp tôi: đã trộn câu dài và câu ngắn chưa,\n"
      "phủ được mấy góc hỏi, có truy vấn nào trùng ý nhau không,\n"
      "và có lọt số giá hay tên bác sĩ nào chưa xác minh không?",

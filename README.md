@@ -72,9 +72,35 @@ Cộng thêm **7 trang local** cho 7 hub có cơ sở thật.
 
 - **Bộ não:** [`SYSTEM-PROMPT.md`](SYSTEM-PROMPT.md) — dán vào ô Chỉ dẫn/Instructions.
 - **Tri thức:** [`knowledge/`](knowledge/) — 6 file `.md` upload vào Knowledge.
-- **Dữ liệu nguồn:** [`data/bo-truy-van/`](data/bo-truy-van/) — 10 file JSON, mỗi file một bộ dịch vụ với 15 cụm C01–C15.
+- **Dữ liệu nguồn:** [`data/bo-truy-van/`](data/bo-truy-van/) — 10 file JSON cấp **cụm** (15 cụm C01–C15 mỗi bộ) · [`data/truy-van/`](data/truy-van/) — JSON cấp **truy vấn** (17 dòng mỗi cụm).
 
 Bộ não biết *cách làm*; knowledge cấp *dữ liệu + luật*; file JSON là *nguồn sự thật về khối lượng* — sửa JSON rồi chạy lại `tools/build-index.py`.
+
+---
+
+## Bộ truy vấn GEO — 10 bộ · 6 sheet mỗi bộ
+
+[`doc/BotruyvanGEO-Paris/`](doc/BotruyvanGEO-Paris/) — sinh tự động bằng `tools/build-botruyvan.py`, theo **mẫu chuẩn 6 sheet** của bộ Kangnam (`HCI-Knowledge/KN-BotruyvanGEO/`):
+
+| Sheet | Nội dung | Ai dùng |
+|---|---|---|
+| `1. Hướng dẫn` | Insight · phân bổ 80/20 · nhóm đối tượng · cách dùng 6 sheet · 6 quy tắc viết | Leader |
+| `2. Hành vi KH` | 6 giai đoạn S1–S6: khách nghĩ gì · nỗi sợ · khát khao · trigger · Paris phải có gì | Content · Tư vấn |
+| `3. Bộ truy vấn Master` | **255 truy vấn × 17 cột** + khối xếp hạng 15 cụm. Nguồn sự thật | SEO · Content |
+| `4. Bản đồ nội dung` | Cụm → dạng bài → trang đích → sóng → phụ trách → trạng thái | Manager |
+| `5. Prompt đo lường` | 20 prompt đo Share of Voice trong AI, có cột ChatGPT/Gemini/AI-ov | SEO lead |
+| `6. Rào pháp lý` | R0–R13, **tự đếm** số truy vấn và CORE chịu từng rào | Pháp chế |
+
+**Trạng thái nội dung:**
+
+| Bộ | Truy vấn đã viết | Ghi chú |
+|---|---|---|
+| `02-implant.xlsx` | **255 / 255** ✅ | Bộ mẫu chuẩn — dùng làm khuôn khi viết 9 bộ còn lại |
+| 9 bộ còn lại | 0 / 255 | Đủ 6 sheet; sheet 3 đã điền sẵn mọi cột suy ra được (cụm · giai đoạn · nhiệt độ · ưu tiên · tầng · điểm · rào · trang đích · đối tượng), chỉ trống cột **TRUY VẤN** và **KHỐI TRẢ LỜI** |
+
+Viết thêm một bộ: tạo `data/truy-van/<key>.json` theo đúng cấu trúc của `implant.json` rồi chạy `python tools/build-botruyvan.py --scope <key>`.
+
+> ⚠ **CƠ HỘI GEO = 1 cho mọi cụm** vì Paris chưa có mốc traffic AI. Sau tháng Setup đo xong mốc gốc thì phải chấm lại 1–3 và chạy lại script.
 
 ---
 
@@ -135,6 +161,10 @@ python tools/build-index.py                                    # sinh lại ch�
 python tools/build-geo-plan.py --start 2027-01 --months 6      # sinh file kế hoạch 2 TAB
 python tools/build-geo-plan.py --start 2026-11 --months 4 --scope implant,allon,invisalign
 python tools/build-geo-plan.py --start 2027-01 --months 12 --tiers A,B,C -o ke-hoach-2027.xlsx
+
+python tools/build-botruyvan.py                 # sinh 10 bộ truy vấn .xlsx 6 sheet
+python tools/build-botruyvan.py --scope implant # chỉ một bộ
+python tools/build-artifact.py                  # sinh lại trang hướng dẫn HTML
 ```
 
 `build-index.py` tự soát ba bất biến của mỗi bộ và **dừng nếu lệch**: đúng 15 cụm C01–C15 · tổng % điểm = 100 · phân bổ tầng A/B/C/D = 5/5/3/2.
@@ -165,10 +195,12 @@ python tools/build-geo-plan.py --start 2027-01 --months 12 --tiers A,B,C -o ke-h
 ```
 SYSTEM-PROMPT.md       Bộ não Agent
 knowledge/             6 file tri thức (.md) — upload vào Knowledge
-data/bo-truy-van/      10 bộ truy vấn (.json) — NGUỒN SỰ THẬT về khối lượng
+data/bo-truy-van/      10 bộ truy vấn cấp CỤM (.json) — NGUỒN SỰ THẬT về khối lượng
+data/truy-van/         Truy vấn chi tiết từng dòng (.json) — hiện có bộ implant
+doc/BotruyvanGEO-Paris/ 10 bộ truy vấn .xlsx 6 sheet (sinh tự động)
 doc/                   Hướng dẫn cài đặt · câu lệnh · output mẫu · changelog
 template/              File mẫu Excel 2 TAB (sinh từ script)
-tools/                 build-index.py · build-geo-plan.py
+tools/                 build-index.py · build-geo-plan.py · build-botruyvan.py · build-artifact.py
 artifact/              Trang HTML hướng dẫn sử dụng + prompt mẫu
 ```
 

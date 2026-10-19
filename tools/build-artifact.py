@@ -840,6 +840,9 @@ def build():
       "python tools/build-geo-plan.py --start 2027-01 --months 6\n"
       "python tools/build-geo-plan.py --start 2026-11 --months 4 --scope implant,allon,invisalign\n"
       "python tools/build-geo-plan.py --start 2027-01 --months 12 --tiers A,B,C -o ke-hoach-2027.xlsx\n\n"
+      '<span class="c"># sinh 10 bộ truy vấn GEO .xlsx 6 sheet (theo mẫu chuẩn Kangnam)</span>\n'
+      "python tools/build-botruyvan.py\n"
+      "python tools/build-botruyvan.py --scope implant\n\n"
       '<span class="c"># sinh lại chính trang hướng dẫn này từ nội dung repo</span>\n'
       "python tools/build-artifact.py\n\n"
       '<span class="c"># key hợp lệ của --scope</span>\n'

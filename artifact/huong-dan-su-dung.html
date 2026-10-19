@@ -2044,6 +2044,10 @@ python tools/build-geo-plan.py --start 2027-01 --months 6
 python tools/build-geo-plan.py --start 2026-11 --months 4 --scope implant,allon,invisalign
 python tools/build-geo-plan.py --start 2027-01 --months 12 --tiers A,B,C -o ke-hoach-2027.xlsx
 
+<span class="c"># sinh 10 bộ truy vấn GEO .xlsx 6 sheet (theo mẫu chuẩn Kangnam)</span>
+python tools/build-botruyvan.py
+python tools/build-botruyvan.py --scope implant
+
 <span class="c"># sinh lại chính trang hướng dẫn này từ nội dung repo</span>
 python tools/build-artifact.py
 

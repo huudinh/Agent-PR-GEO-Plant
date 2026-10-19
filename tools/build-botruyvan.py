@@ -443,6 +443,10 @@ def sheet3(wb, d, rows):
                   "Existing 2 · Cold 1) × Ưu tiên (P1 3 · P2 2 · P3 1) × CƠ HỘI GEO. "
                   "⚠ Paris chưa có mốc traffic AI → CƠ HỘI GEO = 1 cho mọi cụm; chấm lại sau tháng Setup.",
         size=9, italic=True, color="C11B26")
+    put(ws, 3, 19, "Hai cột điểm có nguồn khác nhau và LỆCH NHAU LÀ BÌNH THƯỜNG: «ĐIỂM CỤM» cộng "
+                   "bottom-up từ 17 truy vấn của cụm; «% ĐIỂM (chỉ mục)» lấy từ knowledge/geo-bo-truy-van-index.md "
+                   "— đây là con số Agent dùng để lập kế hoạch. Sau tháng Setup có mốc traffic thật thì "
+                   "chấm lại CƠ HỘI GEO và hợp nhất hai nguồn.", size=9, italic=True, color="C11B26")
 
     header_row(ws, 4, ["ID", "CỤM CHỦ ĐỀ", "GIAI ĐOẠN", "TRUY VẤN KHÁCH GÕ VÀO AI",
                        "GÓC HỎI (fan-out)", "NHIỆT ĐỘ", "ƯU TIÊN", "GIÁ TRỊ DT", "NHÓM 80/20",

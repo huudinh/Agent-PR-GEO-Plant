@@ -77,6 +77,24 @@ Cụm "khi nào KHÔNG nên làm" của 3 bộ Răng sứ · Implant · Niềng 
 
 ---
 
+## v1.1 — 19/10/2026 · Bộ truy vấn GEO theo mẫu chuẩn 6 sheet
+
+Áp dụng **mẫu template** của bộ Kangnam (`HCI-Knowledge/KN-BotruyvanGEO/*.xlsx`) cho Paris.
+
+**Công cụ mới** — `tools/build-botruyvan.py`: sinh 10 file `.xlsx` 6 sheet vào `doc/BotruyvanGEO-Paris/`, giữ nguyên tên sheet, thứ tự cột và cách đọc của bộ gốc. Sheet 1 · 2 · 4 · 6 và khối xếp hạng cụm của sheet 3 sinh tự động từ `data/bo-truy-van/*.json`; sheet 6 **tự đếm** số truy vấn và CORE chịu từng rào R0–R13.
+
+**Tầng dữ liệu mới** — `data/truy-van/<key>.json`: cấp truy vấn (17 dòng mỗi cụm) gồm câu khách gõ vào AI, góc hỏi fan-out, nhiệt độ, ưu tiên, từ khoá, brief khối trả lời, rào pháp lý và nhóm đối tượng. Thiếu file này thì sheet 3 vẫn đủ 255 dòng với mọi cột suy ra được đã điền sẵn.
+
+**Bộ `implant` hoàn chỉnh 255/255 truy vấn** làm khuôn cho 9 bộ còn lại — 64 CORE, 8 nhóm đối tượng, mỗi truy vấn có brief BLUF + số liệu + điều bất lợi phải nói thẳng.
+
+**Hai điểm khác bộ gốc Kangnam, đều có lý do:**
+- Bảng màu chuyển sang bộ nhận diện Nha khoa Paris (80% trắng/kem · 15% xanh · 5% đỏ).
+- **CƠ HỘI GEO = 1 cho MỌI cụm** vì Paris chưa có mốc traffic AI nào để chấm 2–3. Kangnam chấm được 1–3 nhờ có GA4 thật. Hệ quả: cột `ĐIỂM CỤM` (cộng bottom-up từ truy vấn) và cột `% ĐIỂM (chỉ mục)` lệch nhau — đã ghi chú ngay trên sheet 3 và phải hợp nhất sau tháng Setup.
+
+**Giới hạn tên sheet Excel 31 ký tự** → mỗi bộ có tên ngắn ≤8 ký tự trong `TEN_NGAN`; script dừng nếu vượt.
+
+---
+
 ## ⚠ Khoảng trống dữ liệu lớn nhất của bản 1.0
 
 Khác với Kangnam (có GA4 thật: 2.131 phiên AI, 17 landing page phân loại), **Paris chưa cung cấp bất kỳ số liệu nào**. Agent được thiết kế để **nói rõ điều này** thay vì lấp bảng bằng số bịa.
@@ -100,6 +118,6 @@ Khác với Kangnam (có GA4 thật: 2.131 phiên AI, 17 landing page phân lo�
 |---|---|
 | Đối chiếu **sitemap thật** của `nhakhoaparis.vn` | Mọi `trang_dich` trong JSON hiện là `MỚI:` (tạo mới) hoặc `⚠ đối chiếu` (chưa xác minh). Chỉ 2 URL đã biết chắc: `/hoan-my-bang-gia-dich-vu-nha-khoa.html` và `/tim-phong-kham.html` |
 | Nạp số GA4 + thứ hạng từ khoá thật | Để xếp lại **Cơ hội GEO** của 150 cụm và hiệu chỉnh thứ tự ưu tiên |
-| Bộ truy vấn chi tiết từng dòng | JSON hiện dừng ở mức **cụm** (15 cụm/bộ). Chưa có danh sách 17 truy vấn cụ thể của mỗi cụm như bộ Kangnam có trong sheet `3. Bo truy van Master` |
+| Viết truy vấn chi tiết cho 9 bộ còn lại | Bộ `implant` đã đủ 255/255 truy vấn làm mẫu. 9 bộ còn lại mới có khung sheet 3 — cần điền cột TRUY VẤN và KHỐI TRẢ LỜI (2.295 dòng) |
 | Bổ sung bộ dịch vụ còn thiếu | Cầu răng sứ · răng toàn sứ riêng · đính đá · cắt lợi trùm — hiện gom trong `rangsu` và `tongquat` |
 | Danh sách bác sĩ đầy đủ theo cơ sở | Mở khoá cụm C14 cho 2 bộ còn bị chặn và cho phép gán bác sĩ theo từng hub local |

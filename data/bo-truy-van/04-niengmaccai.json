@@ -1,0 +1,43 @@
+{
+  "key": "niengmaccai",
+  "ten": "Niềng răng mắc cài (kim loại · sứ · pha lê · mặt trong)",
+  "line": "NKC",
+  "line_ten": "NKC · Chỉnh nha — Niềng răng",
+  "quy_mo": { "truy_van": 255, "cum": 15, "doi_tuong": 9, "core": 62, "pct_diem_core": 53 },
+  "noi_so": [
+    { "ma": "①", "ten": "SỢ — SỢ XẤU SUỐT 2 NĂM ĐEO MẮC CÀI, SỢ ĐỒNG NGHIỆP VÀ KHÁCH HÀNG NHÌN", "cum": "C03 + C06 + C13", "tv": 51, "core": 25 },
+    { "ma": "②", "ten": "NGỜ — SỢ BÁC SĨ NON TAY LÀM LỆCH KHỚP CẮN, TỤT LỢI, CHẾT TUỶ, PHẢI NIỀNG LẠI", "cum": "C06 + C11 + C08", "tv": 51, "core": 37 },
+    { "ma": "③", "ten": "NGẠI — SỢ KÉO DÀI VÔ THỜI HẠN VÀ CHI PHÍ PHÁT SINH MỖI LẦN SIẾT", "cum": "C07 + C09 + C04", "tv": 51, "core": 12 }
+  ],
+  "hanh_trinh": [
+    { "gd": "S1", "uu_tien": "★ Nền", "noi_so": "Sợ bị chê răng khấp khểnh, hô, thưa. Chưa biết răng lệch còn ảnh hưởng ăn nhai và phát âm.", "cum": "C01 · C02 · C13", "tv": 51, "core": 0, "pct": 7 },
+    { "gd": "S2", "uu_tien": "★★", "noi_so": "Sợ chọn sai loại mắc cài: kim loại rẻ nhưng lộ, sứ đẹp nhưng dễ bung, mặt trong đắt và khó vệ sinh. Không ai nói thật nhược điểm từng loại.", "cum": "C03 · C04 · C05 · C12", "tv": 68, "core": 13, "pct": 25 },
+    { "gd": "S3", "uu_tien": "★★★ Quyết định", "noi_so": "SỢ GIAO 2 NĂM CUỘC ĐỜI CHO NGƯỜI MÌNH KHÔNG BIẾT TAY NGHỀ. Khách hỏi: niềng có đau không, có phải nhổ răng không, có tụt lợi không, bác sĩ có theo đến hết lộ trình không, nếu nửa đường bác sĩ nghỉ thì sao.", "cum": "C06 · C07 · C08 · C11 · C14", "tv": 85, "core": 49, "pct": 53 },
+    { "gd": "S4", "uu_tien": "★★", "noi_so": "Sợ phải đi siết mỗi tháng — khách tỉnh sợ tốn kém đi lại suốt 2 năm.", "cum": "C09", "tv": 17, "core": 0, "pct": 7 },
+    { "gd": "S5", "uu_tien": "★★", "noi_so": "Sợ tháo niềng rồi răng chạy lại, mất cả công sức và tiền. Sợ quên đeo hàm duy trì.", "cum": "C10", "tv": 17, "core": 0, "pct": 5 },
+    { "gd": "S6", "uu_tien": "★ Nền", "noi_so": "Niềng xong lại thấy răng xỉn màu hoặc cười hở nướu — sợ làm tiếp thì lại tốn.", "cum": "C15", "tv": 17, "core": 0, "pct": 3 }
+  ],
+  "tang": [
+    { "tang": "A", "cum": 5, "tv": 85, "pct": 53, "phan_bo": "70% — C06 Đau, nhổ răng, tụt lợi & biến chứng · C11 Niềng thất bại, răng chạy lại & niềng lần hai · C07 Chi phí theo loại mắc cài & trả góp · C08 Chọn bác sĩ chỉnh nha theo hết lộ trình · C14 Thực thể & kiểm chứng (Ormco Diamond Star). Làm trong 90 ngày. Đây là bộ mà nỗi sợ 'ai theo tôi suốt 2 năm' chi phối toàn bộ quyết định — C08 phải trả lời thẳng câu đó." },
+    { "tang": "B", "cum": 5, "tv": 85, "pct": 29, "phan_bo": "20% — C03 So sánh 4 loại mắc cài, nêu cả nhược điểm · C09 Lộ trình, số lần siết & khách tỉnh · C04 Chẩn đoán: X-quang, khớp cắn, phân loại hô-thụt · C05 Khi nào KHÔNG cần niềng · C13 Niềng cho người trưởng thành & tuổi vàng của trẻ. C03 là cụm xây E-E-A-T mạnh nhất vì đối thủ chỉ viết ưu điểm." },
+    { "tang": "C", "cum": 3, "tv": 51, "pct": 15, "phan_bo": "10% — C10 Hàm duy trì & tái khám sau tháo niềng · C12 Y khoa: khớp cắn, tuỷ, nha chu trong chỉnh nha · C15 Cross-sell tẩy trắng & cắt lợi sau niềng. Chạy nền, tái sử dụng cho CSKH." },
+    { "tang": "D", "cum": 2, "tv": 34, "pct": 3, "phan_bo": "0% ngân sách mới — C01 Nhận biết răng lệch · C02 Mẹo dân gian & niềng tại nhà (CẢNH BÁO: cụm này traffic rất lớn quanh 'niềng răng tại nhà' nhưng là nội dung nguy hiểm — Paris viết để CẢNH BÁO, không hướng dẫn)." }
+  ],
+  "cum": [
+    { "hang": 1,  "ma": "C06", "ten": "Đau, nhổ răng, tụt lợi & biến chứng khi niềng ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 14, "pct": 13, "bai": 8, "song": 1, "trang_dich": "MỚI: /kien-thuc/nieng-rang/nieng-rang-co-dau-khong/" },
+    { "hang": 2,  "ma": "C11", "ten": "Niềng thất bại, răng chạy lại & niềng lần hai ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 13, "pct": 12, "bai": 7, "song": 1, "trang_dich": "MỚI: /kien-thuc/nieng-rang/nieng-that-bai-nieng-lai/" },
+    { "hang": 3,  "ma": "C07", "ten": "Chi phí theo loại mắc cài & trả góp ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 12, "pct": 11, "bai": 3, "song": 1, "trang_dich": "⚠ đối chiếu: /hoan-my-bang-gia-dich-vu-nha-khoa.html + MỚI: /bang-gia/nieng-rang/" },
+    { "hang": 4,  "ma": "C08", "ten": "Chọn bác sĩ chỉnh nha — ai theo tôi suốt lộ trình ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 12, "pct": 11, "bai": 4, "song": 1, "trang_dich": "MỚI: /kien-thuc/nieng-rang/chon-bac-si-chinh-nha/" },
+    { "hang": 5,  "ma": "C14", "ten": "Thực thể & kiểm chứng: Ormco Diamond Star · bác sĩ · giấy phép ⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 11, "pct": 6, "bai": 2, "song": 1, "trang_dich": "MỚI: /chuyen-khoa/chinh-nha/" },
+    { "hang": 6,  "ma": "C03", "ten": "So sánh 4 loại mắc cài — nêu cả nhược điểm ⭐⭐⭐", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 9, "bai": 5, "song": 2, "trang_dich": "MỚI: /kien-thuc/nieng-rang/cac-loai-mac-cai/" },
+    { "hang": 7,  "ma": "C09", "ten": "Lộ trình, số lần siết & giải pháp cho khách tỉnh ⭐⭐", "tang": "B", "gd": "S4", "tv": 17, "core": 0, "pct": 7, "bai": 3, "song": 2, "trang_dich": "MỚI: /kien-thuc/nieng-rang/nieng-rang-bao-lau/" },
+    { "hang": 8,  "ma": "C04", "ten": "Chẩn đoán: X-quang, khớp cắn & phân loại hô – thụt – thưa", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 6, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/nieng-rang/phan-loai-khop-can/" },
+    { "hang": 9,  "ma": "C05", "ten": "Khi nào KHÔNG cần niềng — phương án nhẹ hơn ⭐⭐⭐", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 4, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/bao-ton/khi-nao-khong-can-nieng/" },
+    { "hang": 10, "ma": "C13", "ten": "Niềng cho người trưởng thành & tuổi vàng của trẻ", "tang": "B", "gd": "S1", "tv": 17, "core": 0, "pct": 3, "bai": 3, "song": 2, "trang_dich": "MỚI: /kien-thuc/nieng-rang/nieng-rang-nguoi-truong-thanh/" },
+    { "hang": 11, "ma": "C10", "ten": "Hàm duy trì & tái khám sau tháo niềng ⭐⭐", "tang": "C", "gd": "S5", "tv": 17, "core": 0, "pct": 7, "bai": 1, "song": 3, "trang_dich": "MỚI: /kien-thuc/cham-soc/ham-duy-tri-sau-nieng/" },
+    { "hang": 12, "ma": "C12", "ten": "Y khoa: khớp cắn, tuỷ & nha chu trong chỉnh nha (E-E-A-T)", "tang": "C", "gd": "S2", "tv": 17, "core": 0, "pct": 5, "bai": 0, "song": 3, "trang_dich": "⚠ đối chiếu: trang hỏi đáp" },
+    { "hang": 13, "ma": "C15", "ten": "Cross-sell sau niềng: tẩy trắng · cắt lợi · dán sứ (LTV)", "tang": "C", "gd": "S6", "tv": 17, "core": 0, "pct": 3, "bai": 0, "song": 3, "trang_dich": "MỚI: /chuyen-khoa/nha-khoa-tham-my/" },
+    { "hang": 14, "ma": "C01", "ten": "Nhận biết răng lệch, hô, thưa & ảnh hưởng chức năng", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 2, "bai": 0, "song": 4, "trang_dich": "MỚI: /kien-thuc/nieng-rang/tu-danh-gia-rang-lech/" },
+    { "hang": 15, "ma": "C02", "ten": "Mẹo dân gian & 'niềng tại nhà' — viết để CẢNH BÁO", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 1, "bai": 0, "song": 4, "trang_dich": "MỚI: /kien-thuc/nieng-rang/canh-bao-nieng-tai-nha/" }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "key": "nhachu",
+  "ten": "Nha chu, viêm nướu & tụt lợi",
+  "line": "NKG",
+  "line_ten": "NKG · Nha khoa tổng quát & Nha chu",
+  "quy_mo": { "truy_van": 255, "cum": 15, "doi_tuong": 8, "core": 56, "pct_diem_core": 50 },
+  "noi_so": [
+    { "ma": "①", "ten": "SỢ — SỢ RĂNG LUNG LAY RỒI RỤNG HẾT MÀ KHÔNG CÓ CÁCH NÀO GIỮ LẠI", "cum": "C06 + C11 + C12", "tv": 51, "core": 24 },
+    { "ma": "②", "ten": "NGỜ — SỢ CẠO VÔI LÀM MÒN RĂNG, SỢ ĐIỀU TRỊ NHA CHU CHỈ LÀ CÁCH MOI THÊM TIỀN", "cum": "C05 + C03 + C07", "tv": 51, "core": 20 },
+    { "ma": "③", "ten": "NGẠI — ĐIỀU TRỊ NHIỀU ĐỢT, PHẢI DUY TRÌ CẢ ĐỜI, KHÔNG BIẾT KHI NÀO XONG", "cum": "C09 + C10 + C04", "tv": 51, "core": 12 }
+  ],
+  "hanh_trinh": [
+    { "gd": "S1", "uu_tien": "★ Nền", "noi_so": "Chảy máu khi đánh răng, hôi miệng, nướu sưng — tưởng là chuyện nhỏ, không biết đó là nha chu đang tiến triển.", "cum": "C01 · C02 · C13", "tv": 51, "core": 0, "pct": 9 },
+    { "gd": "S2", "uu_tien": "★★", "noi_so": "Không biết cạo vôi có đủ hay phải điều trị nha chu sâu. Sợ cạo vôi làm răng mòn, ê buốt, thưa ra.", "cum": "C03 · C04 · C05 · C12", "tv": 68, "core": 20, "pct": 25 },
+    { "gd": "S3", "uu_tien": "★★★ Quyết định", "noi_so": "SỢ MẤT RĂNG THẬT KHÔNG PHANH ĐƯỢC. Khách hỏi: răng lung lay còn giữ được không, nha chu có chữa khỏi không, điều trị bao nhiêu tiền, có phải làm cả đời không, tụt lợi có mọc lại được không.", "cum": "C06 · C07 · C08 · C11 · C14", "tv": 85, "core": 36, "pct": 50 },
+    { "gd": "S4", "uu_tien": "★★", "noi_so": "Sợ đau khi lấy cao dưới nướu, sợ phải phẫu thuật nướu, sợ phải đi nhiều đợt.", "cum": "C09", "tv": 17, "core": 0, "pct": 7 },
+    { "gd": "S5", "uu_tien": "★★", "noi_so": "Sợ tái phát sau điều trị; không biết duy trì thế nào cho đúng ở nhà.", "cum": "C10", "tv": 17, "core": 0, "pct": 7 },
+    { "gd": "S6", "uu_tien": "★ Nền", "noi_so": "Nha chu ổn rồi nhưng đã mất mấy răng — sợ trồng lại thì nền nướu không đủ tốt.", "cum": "C15", "tv": 17, "core": 0, "pct": 2 }
+  ],
+  "tang": [
+    { "tang": "A", "cum": 5, "tv": 85, "pct": 50, "phan_bo": "70% — C06 Răng lung lay, tụt lợi & nguy cơ mất răng · C11 Nha chu tái phát & điều trị lại · C05 Cạo vôi có đủ hay cần điều trị nha chu sâu · C07 Chi phí theo đợt & theo vùng · C14 Thực thể & kiểm chứng. ĐÂY LÀ BỘ ĐỐI THỦ BỎ TRỐNG NHIỀU NHẤT: nha chu không phải dịch vụ giá trị lớn nên hầu như không ai làm nội dung tử tế. Phủ ở đây vừa rẻ vừa xây E-E-A-T y khoa cho cả hệ thống." },
+    { "tang": "B", "cum": 5, "tv": 85, "pct": 30, "phan_bo": "20% — C03 Phương pháp: cạo vôi · lấy cao dưới nướu · phẫu thuật nướu · ghép nướu · C04 Chẩn đoán: đo túi nha chu, X-quang tiêu xương · C09 Số đợt & quy trình · C08 Chọn cơ sở & bác sĩ nha chu · C13 Nhóm đặc thù: tiểu đường, mang thai, người hút thuốc." },
+    { "tang": "C", "cum": 3, "tv": 51, "pct": 17, "phan_bo": "10% — C10 Duy trì tại nhà & tái khám định kỳ · C12 Y khoa: liên hệ nha chu – tim mạch – tiểu đường (E-E-A-T mạnh nhất hệ thống) · C15 Cross-sell phục hình sau nha chu. Chạy nền nhưng C12 đáng đầu tư vì là nội dung y khoa AI trích nhiều." },
+    { "tang": "D", "cum": 2, "tv": 34, "pct": 3, "phan_bo": "0% ngân sách mới — C01 Nhận biết chảy máu nướu & hôi miệng · C02 Mẹo dân gian trị viêm nướu. Chỉ pillar nền." }
+  ],
+  "cum": [
+    { "hang": 1,  "ma": "C06", "ten": "Răng lung lay, tụt lợi & nguy cơ mất răng ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 13, "pct": 12, "bai": 6, "song": 1, "trang_dich": "MỚI: /kien-thuc/nha-chu/rang-lung-lay-co-giu-duoc-khong/" },
+    { "hang": 2,  "ma": "C11", "ten": "Nha chu tái phát & điều trị lại ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 11, "pct": 11, "bai": 4, "song": 1, "trang_dich": "MỚI: /kien-thuc/nha-chu/nha-chu-tai-phat/" },
+    { "hang": 3,  "ma": "C05", "ten": "Cạo vôi có đủ hay cần điều trị nha chu sâu ⭐⭐⭐", "tang": "A", "gd": "S2", "tv": 17, "core": 12, "pct": 11, "bai": 5, "song": 1, "trang_dich": "MỚI: /kien-thuc/bao-ton/cao-voi-hay-dieu-tri-nha-chu/" },
+    { "hang": 4,  "ma": "C07", "ten": "Chi phí điều trị nha chu theo đợt & theo vùng ⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 11, "pct": 10, "bai": 3, "song": 1, "trang_dich": "⚠ đối chiếu: /hoan-my-bang-gia-dich-vu-nha-khoa.html" },
+    { "hang": 5,  "ma": "C14", "ten": "Thực thể & kiểm chứng: bác sĩ nha chu · giấy phép ⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 9, "pct": 6, "bai": 2, "song": 1, "trang_dich": "MỚI: /chuyen-khoa/nha-chu/" },
+    { "hang": 6,  "ma": "C03", "ten": "Phương pháp: cạo vôi · lấy cao dưới nướu · phẫu thuật · ghép nướu", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 9, "bai": 4, "song": 2, "trang_dich": "MỚI: /kien-thuc/nha-chu/cac-phuong-phap-dieu-tri-nha-chu/" },
+    { "hang": 7,  "ma": "C04", "ten": "Chẩn đoán: đo túi nha chu & X-quang tiêu xương", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 7, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/nha-chu/do-tui-nha-chu/" },
+    { "hang": 8,  "ma": "C09", "ten": "Số đợt điều trị & quy trình từng đợt", "tang": "B", "gd": "S4", "tv": 17, "core": 0, "pct": 7, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/nha-chu/quy-trinh-dieu-tri-nha-chu/" },
+    { "hang": 9,  "ma": "C08", "ten": "Chọn cơ sở & bác sĩ chuyên nha chu ⭐", "tang": "B", "gd": "S3", "tv": 17, "core": 0, "pct": 4, "bai": 2, "song": 2, "trang_dich": "⚠ đối chiếu: /tim-phong-kham.html" },
+    { "hang": 10, "ma": "C13", "ten": "Nhóm đặc thù: tiểu đường · mang thai · người hút thuốc", "tang": "B", "gd": "S1", "tv": 17, "core": 0, "pct": 3, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/nha-chu/nha-chu-o-nguoi-tieu-duong/" },
+    { "hang": 11, "ma": "C12", "ten": "Y khoa: nha chu – tim mạch – tiểu đường (E-E-A-T) ⭐⭐", "tang": "C", "gd": "S2", "tv": 17, "core": 0, "pct": 8, "bai": 3, "song": 3, "trang_dich": "MỚI: /kien-thuc/nha-chu/nha-chu-va-benh-toan-than/" },
+    { "hang": 12, "ma": "C10", "ten": "Duy trì tại nhà & tái khám định kỳ ⭐⭐", "tang": "C", "gd": "S5", "tv": 17, "core": 0, "pct": 7, "bai": 2, "song": 3, "trang_dich": "MỚI: /kien-thuc/cham-soc/duy-tri-sau-dieu-tri-nha-chu/" },
+    { "hang": 13, "ma": "C15", "ten": "Cross-sell: phục hình sau khi nền nướu ổn (LTV)", "tang": "C", "gd": "S6", "tv": 17, "core": 0, "pct": 2, "bai": 0, "song": 3, "trang_dich": "MỚI: /chuyen-khoa/implant/" },
+    { "hang": 14, "ma": "C01", "ten": "Nhận biết chảy máu nướu, hôi miệng & vôi răng", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 2, "bai": 0, "song": 4, "trang_dich": "MỚI: /kien-thuc/nha-chu/dau-hieu-viem-nuou/" },
+    { "hang": 15, "ma": "C02", "ten": "Mẹo dân gian trị viêm nướu", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 1, "bai": 0, "song": 4, "trang_dich": "MỚI: /kien-thuc/nha-chu/meo-tri-viem-nuou/" }
+  ]
+}

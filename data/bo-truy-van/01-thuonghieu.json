@@ -1,0 +1,43 @@
+{
+  "key": "thuonghieu",
+  "ten": "Thương hiệu Nha khoa Paris (brand tổng)",
+  "line": "BRAND",
+  "line_ten": "BRAND · Thương hiệu tổng",
+  "quy_mo": { "truy_van": 255, "cum": 15, "doi_tuong": 10, "core": 60, "pct_diem_core": 52 },
+  "noi_so": [
+    { "ma": "①", "ten": "NGỜ — SỢ CHỌN NHẦM CHUỖI LỚN MÀ MỖI CƠ SỞ MỘT CHẤT LƯỢNG", "cum": "C08 + C14 + C06", "tv": 51, "core": 36 },
+    { "ma": "②", "ten": "NGỜ — SỢ REVIEW TRÊN MẠNG LÀ GIẢ, KHÔNG BIẾT TIN AI", "cum": "C06 + C11 + C12", "tv": 51, "core": 13 },
+    { "ma": "③", "ten": "NGẠI — SỢ BỊ ĐỘI GIÁ GIỮA LỘ TRÌNH, SỢ TRẢ GÓP CÓ BẪY", "cum": "C07 + C04 + C09", "tv": 51, "core": 11 }
+  ],
+  "hanh_trinh": [
+    { "gd": "S1", "uu_tien": "★ Nền", "noi_so": "Sợ không biết gì rồi bị dẫn dắt. Không phân biệt được phòng khám có giấy phép KCB và cơ sở làm răng trôi nổi.", "cum": "C01 · C02 · C13", "tv": 51, "core": 0, "pct": 7 },
+    { "gd": "S2", "uu_tien": "★★", "noi_so": "Sợ chuỗi lớn nhưng mỗi cơ sở một tay nghề. Sợ đến nơi lại không làm được dịch vụ mình cần, phải đi cơ sở khác.", "cum": "C03 · C04 · C05 · C12", "tv": 68, "core": 0, "pct": 24 },
+    { "gd": "S3", "uu_tien": "★★★ Quyết định", "noi_so": "NGỜ LÀ NỖI SỢ LỚN NHẤT: bác sĩ trên quảng cáo có phải người trực tiếp làm? Vật liệu có chính hãng? Giá công khai có phải giá cuối? Bảo hành ai chịu khi cơ sở đổi chủ?", "cum": "C06 · C07 · C08 · C11 · C14", "tv": 85, "core": 60, "pct": 52 },
+    { "gd": "S4", "uu_tien": "★★", "noi_so": "Sợ xin nghỉ làm rồi đến nơi phải chờ, phải quay lại lần nữa mới được bác sĩ khám.", "cum": "C09", "tv": 17, "core": 0, "pct": 8 },
+    { "gd": "S5", "uu_tien": "★★", "noi_so": "Sợ làm xong ở cơ sở này, chuyển tỉnh thì cơ sở khác không nhận tái khám, không nhận bảo hành.", "cum": "C10", "tv": 17, "core": 0, "pct": 6 },
+    { "gd": "S6", "uu_tien": "★ Nền", "noi_so": "Sợ bị bán chồng dịch vụ không cần thiết cho cả nhà.", "cum": "C15", "tv": 17, "core": 0, "pct": 3 }
+  ],
+  "tang": [
+    { "tang": "A", "cum": 5, "tv": 85, "pct": 52, "phan_bo": "70% — C14 Thực thể thương hiệu & kiểm chứng · C08 Chọn cơ sở & bác sĩ · C07 Chi phí minh bạch & trả góp · C06 Khủng hoảng niềm tin & review thật-giả · C11 Bảo hành, khiếu nại & làm lại. Làm trong 90 ngày. C14 phải ra TRƯỚC MỌI CỤM KHÁC vì nó là khối bằng chứng nuôi cả C06, C07, C08." },
+    { "tang": "B", "cum": 5, "tv": 85, "pct": 31, "phan_bo": "20% — C12 Giấy phép, phạm vi chuyên môn & phân tuyến · C04 Khám – chẩn đoán – kế hoạch điều trị · C05 Bảo tồn: khi nào KHÔNG nên làm · C09 Đặt lịch, tiếp nhận & số buổi · C13 Nhóm khách đặc thù (khách tỉnh · Việt kiều · gia đình). Mở khi Tầng A xong ~60%; riêng C12 nên làm sớm vì là bằng chứng gốc của C08 và C14." },
+    { "tang": "C", "cum": 3, "tv": 51, "pct": 14, "phan_bo": "10% — C10 Hậu điều trị đa cơ sở & chuyển tỉnh · C03 Hệ sinh thái dịch vụ & taxonomy · C15 Cross-sell gia đình. Chạy nền, tái sử dụng nội dung CSKH và Zalo OA." },
+    { "tang": "D", "cum": 2, "tv": 34, "pct": 3, "phan_bo": "0% ngân sách mới — C01 Nhận biết loại hình cơ sở nha khoa · C02 Quan niệm & mẹo dân gian về răng. Chỉ viết pillar nền một lần, dùng lại khối tiêu chí cho C08 và C12." }
+  ],
+  "cum": [
+    { "hang": 1,  "ma": "C14", "ten": "Thực thể thương hiệu & kiểm chứng (GEO Entity) ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 14, "pct": 13, "bai": 5, "song": 1, "trang_dich": "Trang chủ + MỚI: /ve-nha-khoa-paris.html" },
+    { "hang": 2,  "ma": "C08", "ten": "Chọn cơ sở & bác sĩ — tự kiểm tra thế nào ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 13, "pct": 12, "bai": 4, "song": 1, "trang_dich": "⚠ đối chiếu: /tim-phong-kham.html + MỚI: /doi-ngu-bac-si.html" },
+    { "hang": 3,  "ma": "C07", "ten": "Chi phí minh bạch, bảng giá & trả góp ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 12, "pct": 11, "bai": 3, "song": 1, "trang_dich": "⚠ đối chiếu: /hoan-my-bang-gia-dich-vu-nha-khoa.html" },
+    { "hang": 4,  "ma": "C06", "ten": "Khủng hoảng niềm tin: review thật – giả, nha khoa bị tố ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 11, "pct": 10, "bai": 5, "song": 1, "trang_dich": "MỚI: /kien-thuc/chon-nha-khoa/doc-review-nha-khoa/" },
+    { "hang": 5,  "ma": "C11", "ten": "Bảo hành, khiếu nại & làm lại khi không hài lòng ⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 10, "pct": 6,  "bai": 4, "song": 1, "trang_dich": "MỚI: /chinh-sach-bao-hanh.html" },
+    { "hang": 6,  "ma": "C12", "ten": "Giấy phép KCB, phạm vi chuyên môn & phân tuyến cơ sở", "tang": "B", "gd": "S2", "tv": 17, "core": 0,  "pct": 9,  "bai": 3, "song": 2, "trang_dich": "MỚI: /kien-thuc/chon-nha-khoa/giay-phep-phong-kham-nha-khoa/" },
+    { "hang": 7,  "ma": "C04", "ten": "Khám – chẩn đoán – kế hoạch điều trị & báo giá trước", "tang": "B", "gd": "S2", "tv": 17, "core": 0,  "pct": 8,  "bai": 3, "song": 2, "trang_dich": "MỚI: /kien-thuc/quy-trinh/kham-va-ke-hoach-dieu-tri/" },
+    { "hang": 8,  "ma": "C05", "ten": "Bảo tồn: khi nào KHÔNG nên can thiệp ⭐⭐⭐", "tang": "B", "gd": "S2", "tv": 17, "core": 0,  "pct": 7,  "bai": 3, "song": 2, "trang_dich": "MỚI: /kien-thuc/bao-ton/khi-nao-khong-nen-lam-rang/" },
+    { "hang": 9,  "ma": "C09", "ten": "Đặt lịch, tiếp nhận & số buổi điều trị", "tang": "B", "gd": "S4", "tv": 17, "core": 0,  "pct": 4,  "bai": 2, "song": 2, "trang_dich": "MỚI: /dat-lich-hen.html" },
+    { "hang": 10, "ma": "C13", "ten": "Nhóm khách đặc thù: khách tỉnh · Việt kiều · gia đình", "tang": "B", "gd": "S1", "tv": 17, "core": 0,  "pct": 3,  "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/chon-nha-khoa/khach-tinh-xa-lam-rang/" },
+    { "hang": 11, "ma": "C10", "ten": "Hậu điều trị đa cơ sở & chuyển tỉnh ⭐", "tang": "C", "gd": "S5", "tv": 17, "core": 0,  "pct": 6,  "bai": 0, "song": 3, "trang_dich": "MỚI: /kien-thuc/cham-soc/tai-kham-chuyen-co-so/" },
+    { "hang": 12, "ma": "C03", "ten": "Hệ sinh thái dịch vụ & taxonomy chuyên khoa", "tang": "C", "gd": "S2", "tv": 17, "core": 0,  "pct": 5,  "bai": 0, "song": 3, "trang_dich": "⚠ đối chiếu: trang danh mục dịch vụ" },
+    { "hang": 13, "ma": "C15", "ten": "Cross-sell gia đình & gói Teeth Spa (LTV)", "tang": "C", "gd": "S6", "tv": 17, "core": 0,  "pct": 3,  "bai": 0, "song": 3, "trang_dich": "MỚI: /goi-gia-dinh.html" },
+    { "hang": 14, "ma": "C01", "ten": "Nhận biết loại hình cơ sở nha khoa (phòng khám · chuỗi · bệnh viện)", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 2, "bai": 0, "song": 4, "trang_dich": "MỚI: /kien-thuc/chon-nha-khoa/phan-biet-co-so-nha-khoa/" },
+    { "hang": 15, "ma": "C02", "ten": "Quan niệm & mẹo dân gian về răng (đặc thù VN)", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 1, "bai": 0, "song": 4, "trang_dich": "MỚI: /kien-thuc/meo-dan-gian-ve-rang/" }
+  ]
+}

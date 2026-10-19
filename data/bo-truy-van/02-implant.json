@@ -1,0 +1,43 @@
+{
+  "key": "implant",
+  "ten": "Trồng răng Implant",
+  "line": "NKI",
+  "line_ten": "NKI · Implant & Phục hình mất răng",
+  "quy_mo": { "truy_van": 255, "cum": 15, "doi_tuong": 9, "core": 64, "pct_diem_core": 54 },
+  "noi_so": [
+    { "ma": "①", "ten": "NGỜ — SỢ TRỤ IMPLANT BỊ TRÁO, KHÔNG CHÍNH HÃNG, VÀI NĂM ĐÀO THẢI MÀ KHÔNG CÒN AI BẢO HÀNH", "cum": "C03 + C11 + C14", "tv": 51, "core": 37 },
+    { "ma": "②", "ten": "SỢ — SỢ ĐAU, SỢ KHOAN VÀO XƯƠNG, SỢ BIẾN CHỨNG VIÊM – TIÊU XƯƠNG – TỔN THƯƠNG DÂY THẦN KINH", "cum": "C06 + C04 + C09", "tv": 51, "core": 14 },
+    { "ma": "③", "ten": "NGẠI — SỢ CHI PHÍ LỚN BỊ ĐỘI THÊM: GHÉP XƯƠNG, NÂNG XOANG, ABUTMENT, MÃO TÍNH RIÊNG", "cum": "C07 + C08 + C05", "tv": 51, "core": 26 }
+  ],
+  "hanh_trinh": [
+    { "gd": "S1", "uu_tien": "★ Nền", "noi_so": "Mất răng lâu năm: sợ già đi, sợ mặt hóp lệch, sợ nhai kém rồi đau dạ dày. Chưa biết tiêu xương là gì và nó không tự dừng lại.", "cum": "C01 · C02 · C13", "tv": 51, "core": 0, "pct": 6 },
+    { "gd": "S2", "uu_tien": "★★", "noi_so": "Sợ bị tư vấn cấy nhiều trụ hơn cần. Không biết cầu răng hay tháo lắp có hợp với mình hơn không, và không ai nói thật điều đó.", "cum": "C03 · C04 · C05 · C12", "tv": 68, "core": 20, "pct": 25 },
+    { "gd": "S3", "uu_tien": "★★★ Quyết định", "noi_so": "SỢ ĐẶT MỘT KHOẢN LỚN VÀO MỘT VẬT MÌNH KHÔNG KIỂM TRA ĐƯỢC. Trụ có đúng hãng không? Ai cầm tay khoan? Hỏng thì ai chịu? Giá công khai có phải giá cuối?", "cum": "C06 · C07 · C08 · C11 · C14", "tv": 85, "core": 44, "pct": 54 },
+    { "gd": "S4", "uu_tien": "★★", "noi_so": "Sợ đau khi cấy và sợ phải chờ 3–6 tháng tích hợp xương mà trong thời gian đó không có răng để ăn, để nói.", "cum": "C09", "tv": 17, "core": 0, "pct": 7 },
+    { "gd": "S5", "uu_tien": "★★", "noi_so": "Sợ mình là ca đào thải. Sợ bỏ tái khám rồi vài năm sau viêm quanh trụ mà không biết.", "cum": "C10", "tv": 17, "core": 0, "pct": 5 },
+    { "gd": "S6", "uu_tien": "★ Nền", "noi_so": "Sợ làm từng phần mãi mà không giải quyết gốc, rồi tốn thêm một lần nữa.", "cum": "C15", "tv": 17, "core": 0, "pct": 3 }
+  ],
+  "tang": [
+    { "tang": "A", "cum": 5, "tv": 85, "pct": 54, "phan_bo": "70% — C11 Đào thải trụ & làm lại · C06 Đau, rủi ro & biến chứng · C03 Trụ Implant & vật liệu chính hãng · C07 Chi phí bóc tách trụ–abutment–mão · C14 Thực thể & kiểm chứng đối tác Straumann. ĐÂY LÀ BỘ CÓ LỢI THẾ GEO LỚN NHẤT CỦA PARIS: quan hệ đối tác top 1 Straumann là bằng chứng đối thủ khó sao chép. C03 được đẩy lên Tầng A (khác mặc định) vì rào cản NGỜ về vật liệu nặng hơn mọi rào khác ở bộ này." },
+    { "tang": "B", "cum": 5, "tv": 85, "pct": 29, "phan_bo": "20% — C08 Chọn cơ sở & bác sĩ implant · C05 Bảo tồn: khi nào KHÔNG nên cấy implant · C04 Chẩn đoán CT Conebeam · ghép xương · nâng xoang · C09 Quy trình, số buổi & thời gian tích hợp · C13 Nhóm bệnh lý nền (tiểu đường · loãng xương · cao tuổi). C05 tuy Tầng B nhưng là khác biệt E-E-A-T lớn nhất — trang trụ cột của C05 phải ra cùng đợt Tầng A." },
+    { "tang": "C", "cum": 3, "tv": 51, "pct": 14, "phan_bo": "10% — C10 Chăm sóc & tái khám sau implant · C12 Y khoa: tiêu xương · khớp cắn · nha chu · C15 Cross-sell toàn hàm. Chạy nền. Nội dung hậu điều trị được Perplexity/Claude trích mạnh nên rẻ mà hiệu quả." },
+    { "tang": "D", "cum": 2, "tv": 34, "pct": 3, "phan_bo": "0% ngân sách mới — C01 Nhận biết hệ quả mất răng · C02 Quan niệm & mẹo dân gian khi mất răng. Chỉ viết pillar nền." }
+  ],
+  "cum": [
+    { "hang": 1,  "ma": "C11", "ten": "Đào thải trụ, Implant hỏng & làm lại ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 14, "pct": 13, "bai": 8, "song": 1, "trang_dich": "MỚI: /kien-thuc/implant/implant-bi-dao-thai-lam-lai/" },
+    { "hang": 2,  "ma": "C06", "ten": "Đau, rủi ro & biến chứng cấy ghép ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 14, "pct": 11, "bai": 8, "song": 1, "trang_dich": "MỚI: /kien-thuc/implant/bien-chung-trong-rang-implant/" },
+    { "hang": 3,  "ma": "C03", "ten": "Trụ Implant & vật liệu — loại nào, có chính hãng không ⭐⭐⭐", "tang": "A", "gd": "S2", "tv": 17, "core": 13, "pct": 11, "bai": 6, "song": 1, "trang_dich": "MỚI: /kien-thuc/implant/cac-loai-tru-implant/" },
+    { "hang": 4,  "ma": "C07", "ten": "Chi phí: bóc tách trụ – abutment – mão & trả góp ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 12, "pct": 11, "bai": 4, "song": 1, "trang_dich": "⚠ đối chiếu: /hoan-my-bang-gia-dich-vu-nha-khoa.html + MỚI: /bang-gia/implant/" },
+    { "hang": 5,  "ma": "C14", "ten": "Thực thể & kiểm chứng: đối tác Straumann · bác sĩ · giấy phép ⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 11, "pct": 6, "bai": 2, "song": 1, "trang_dich": "MỚI: /chuyen-khoa/implant/" },
+    { "hang": 6,  "ma": "C08", "ten": "Chọn cơ sở & bác sĩ implant — tiêu chí kiểm chứng được ⭐⭐", "tang": "B", "gd": "S3", "tv": 17, "core": 0, "pct": 9, "bai": 3, "song": 2, "trang_dich": "MỚI: /kien-thuc/implant/chon-nha-khoa-trong-implant/" },
+    { "hang": 7,  "ma": "C05", "ten": "Bảo tồn: khi nào KHÔNG nên cấy implant (cầu răng · tháo lắp) ⭐⭐⭐", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 8, "bai": 4, "song": 2, "trang_dich": "MỚI: /kien-thuc/implant/khi-nao-khong-nen-cay-implant/" },
+    { "hang": 8,  "ma": "C04", "ten": "Chẩn đoán: CT Conebeam · ghép xương · nâng xoang", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 7, "bai": 3, "song": 2, "trang_dich": "MỚI: /kien-thuc/implant/ghep-xuong-nang-xoang/" },
+    { "hang": 9,  "ma": "C09", "ten": "Quy trình, số buổi & thời gian tích hợp xương", "tang": "B", "gd": "S4", "tv": 17, "core": 0, "pct": 4, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/implant/quy-trinh-cay-implant/" },
+    { "hang": 10, "ma": "C13", "ten": "Nhóm bệnh lý nền: tiểu đường · loãng xương · cao tuổi", "tang": "B", "gd": "S1", "tv": 17, "core": 0, "pct": 3, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/implant/implant-cho-nguoi-benh-nen/" },
+    { "hang": 11, "ma": "C10", "ten": "Chăm sóc, vệ sinh & tái khám sau implant ⭐", "tang": "C", "gd": "S5", "tv": 17, "core": 0, "pct": 6, "bai": 0, "song": 3, "trang_dich": "MỚI: /kien-thuc/cham-soc/cham-soc-sau-cay-implant/" },
+    { "hang": 12, "ma": "C12", "ten": "Y khoa & chức năng: tiêu xương · khớp cắn · nha chu (E-E-A-T)", "tang": "C", "gd": "S2", "tv": 17, "core": 0, "pct": 5, "bai": 0, "song": 3, "trang_dich": "⚠ đối chiếu: trang hỏi đáp" },
+    { "hang": 13, "ma": "C15", "ten": "Cross-sell: từ 1 trụ → toàn hàm · All-On (LTV)", "tang": "C", "gd": "S6", "tv": 17, "core": 0, "pct": 3, "bai": 0, "song": 3, "trang_dich": "MỚI: /chuyen-khoa/all-on-4-6/" },
+    { "hang": 14, "ma": "C01", "ten": "Nhận biết hệ quả mất răng: tiêu xương · lệch mặt · nhai kém", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 2, "bai": 0, "song": 4, "trang_dich": "MỚI: /kien-thuc/implant/mat-rang-lau-nam-hau-qua/" },
+    { "hang": 15, "ma": "C02", "ten": "Quan niệm & mẹo dân gian khi mất răng", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 1, "bai": 0, "song": 4, "trang_dich": "MỚI: /kien-thuc/implant/quan-niem-ve-mat-rang/" }
+  ]
+}

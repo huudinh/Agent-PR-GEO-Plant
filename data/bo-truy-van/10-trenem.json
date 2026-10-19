@@ -1,0 +1,43 @@
+{
+  "key": "trenem",
+  "ten": "Nha khoa trẻ em & gói gia đình",
+  "line": "NKF",
+  "line_ten": "NKF · Nha khoa trẻ em & Gia đình",
+  "quy_mo": { "truy_van": 255, "cum": 15, "doi_tuong": 8, "core": 56, "pct_diem_core": 50 },
+  "noi_so": [
+    { "ma": "①", "ten": "SỢ — SỢ CON SỢ NHA SĨ RỒI ÁM ẢNH CẢ ĐỜI, KHÔNG CHỊU HÁ MIỆNG LẦN SAU", "cum": "C06 + C09 + C13", "tv": 51, "core": 25 },
+    { "ma": "②", "ten": "NGỜ — SỢ BỊ CHỈ ĐỊNH NHỔ RĂNG SỮA, TRÁM, NIỀNG SỚM KHI CON CHƯA CẦN", "cum": "C05 + C04 + C03", "tv": 51, "core": 12 },
+    { "ma": "③", "ten": "NGẠI — SỢ ĐỂ MUỘN THÌ HỎNG CẢ HÀM VĨNH VIỄN, NHƯNG CŨNG SỢ CAN THIỆP QUÁ SỚM", "cum": "C11 + C12 + C07", "tv": 51, "core": 19 }
+  ],
+  "hanh_trinh": [
+    { "gd": "S1", "uu_tien": "★ Nền", "noi_so": "Bố mẹ: thấy con sâu răng sữa nhưng nghe nói 'răng sữa rồi cũng rụng'. Chưa biết răng sữa hỏng ảnh hưởng răng vĩnh viễn.", "cum": "C01 · C02 · C13", "tv": 51, "core": 0, "pct": 10 },
+    { "gd": "S2", "uu_tien": "★★", "noi_so": "Không biết mấy tuổi thì đưa con đi khám, mấy tuổi là 'tuổi vàng' để chỉnh nha. Sợ bị bán niềng sớm khi chưa cần.", "cum": "C03 · C04 · C05 · C12", "tv": 68, "core": 19, "pct": 25 },
+    { "gd": "S3", "uu_tien": "★★★ Quyết định", "noi_so": "BỐ MẸ QUYẾT ĐỊNH THEO MỘT NỖI SỢ KHÁC NGƯỜI LỚN: không sợ cho mình, sợ cho con. Sợ con bị cưỡng chế, sợ con khóc, sợ bác sĩ không biết dỗ trẻ, sợ con ám ảnh. Chi phí là rào thứ hai.", "cum": "C06 · C07 · C08 · C11 · C14", "tv": 85, "core": 37, "pct": 50 },
+    { "gd": "S4", "uu_tien": "★★", "noi_so": "Sợ con không hợp tác nên một buổi không xong, phải quay lại nhiều lần. Sợ phải gây mê để điều trị cho con.", "cum": "C09", "tv": 17, "core": 0, "pct": 7 },
+    { "gd": "S5", "uu_tien": "★★", "noi_so": "Sợ không biết tập cho con đánh răng đúng; sợ tái sâu ngay sau khi trám.", "cum": "C10", "tv": 17, "core": 0, "pct": 6 },
+    { "gd": "S6", "uu_tien": "★ Nền", "noi_so": "Muốn cả nhà cùng theo một nơi nhưng sợ gói gia đình chỉ là cách bán thêm.", "cum": "C15", "tv": 17, "core": 0, "pct": 2 }
+  ],
+  "tang": [
+    { "tang": "A", "cum": 5, "tv": 85, "pct": 50, "phan_bo": "70% — C06 Con sợ nha sĩ & cách xử lý không cưỡng chế · C13 Theo từng mốc tuổi: răng sữa · hỗn hợp · tuổi vàng chỉnh nha · C05 Khi nào CHƯA cần can thiệp · C07 Chi phí nha khoa trẻ em & gói gia đình · C14 Thực thể & kiểm chứng. C13 ĐƯỢC ĐẨY LÊN TẦNG A (khác mọi bộ khác) vì ở nha khoa trẻ em, 'mấy tuổi thì làm gì' chính là câu hỏi quyết định — không phải 'làm ở đâu'. C05 cũng lên Tầng A vì bố mẹ sợ bị bán sớm hơn sợ để muộn." },
+    { "tang": "B", "cum": 5, "tv": 85, "pct": 31, "phan_bo": "20% — C03 Dịch vụ cho trẻ: trám · fluoride · trâm bít hố rãnh · nhổ răng sữa · C04 Khám định kỳ & theo dõi mọc răng · C09 Quy trình thân thiện & buổi làm quen · C08 Chọn cơ sở có bác sĩ quen trẻ · C11 Răng vĩnh viễn mọc lệch vì răng sữa hỏng." },
+    { "tang": "C", "cum": 3, "tv": 51, "pct": 16, "phan_bo": "10% — C10 Tập đánh răng & dinh dưỡng chống sâu · C12 Y khoa: mọc răng, thở miệng, tật xấu ở trẻ (E-E-A-T) · C15 Gói gia đình & Teeth Spa (ĐÒN BẨY LTV MẠNH NHẤT CỦA PARIS: một khách hài lòng kéo cả nhà). Chạy nền nhưng C15 nên gắn CRM từ sớm." },
+    { "tang": "D", "cum": 2, "tv": 34, "pct": 3, "phan_bo": "0% ngân sách mới — C01 Nhận biết sâu răng sữa · C02 Quan niệm 'răng sữa rồi cũng rụng'. Chỉ pillar nền — nhưng C02 là quan niệm sai phổ biến nhất, pillar này nên viết sớm." }
+  ],
+  "cum": [
+    { "hang": 1,  "ma": "C06", "ten": "Con sợ nha sĩ — xử lý không cưỡng chế ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 13, "pct": 12, "bai": 5, "song": 1, "trang_dich": "MỚI: /kien-thuc/tre-em/con-so-di-nha-si/" },
+    { "hang": 2,  "ma": "C13", "ten": "Theo mốc tuổi: răng sữa · hỗn hợp · tuổi vàng chỉnh nha ⭐⭐⭐", "tang": "A", "gd": "S1", "tv": 17, "core": 12, "pct": 12, "bai": 6, "song": 1, "trang_dich": "MỚI: /kien-thuc/tre-em/moc-tuoi-kham-rang-cho-tre/" },
+    { "hang": 3,  "ma": "C05", "ten": "Khi nào CHƯA cần can thiệp cho trẻ ⭐⭐⭐", "tang": "A", "gd": "S2", "tv": 17, "core": 11, "pct": 11, "bai": 4, "song": 1, "trang_dich": "MỚI: /kien-thuc/bao-ton/khi-nao-chua-can-nieng-cho-tre/" },
+    { "hang": 4,  "ma": "C07", "ten": "Chi phí nha khoa trẻ em & gói gia đình ⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 11, "pct": 9, "bai": 3, "song": 1, "trang_dich": "⚠ đối chiếu: /hoan-my-bang-gia-dich-vu-nha-khoa.html" },
+    { "hang": 5,  "ma": "C14", "ten": "Thực thể & kiểm chứng: bác sĩ nha khoa trẻ em · giấy phép ⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 9, "pct": 6, "bai": 2, "song": 1, "trang_dich": "MỚI: /chuyen-khoa/nha-khoa-tre-em/" },
+    { "hang": 6,  "ma": "C03", "ten": "Dịch vụ cho trẻ: trám · fluoride · trâm bít hố rãnh · nhổ răng sữa", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 9, "bai": 4, "song": 2, "trang_dich": "MỚI: /kien-thuc/tre-em/dich-vu-nha-khoa-cho-tre/" },
+    { "hang": 7,  "ma": "C04", "ten": "Khám định kỳ & theo dõi mọc răng", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 7, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/tre-em/kham-rang-dinh-ky-cho-tre/" },
+    { "hang": 8,  "ma": "C09", "ten": "Quy trình thân thiện & buổi làm quen trước điều trị ⭐⭐", "tang": "B", "gd": "S4", "tv": 17, "core": 0, "pct": 7, "bai": 3, "song": 2, "trang_dich": "MỚI: /kien-thuc/tre-em/quy-trinh-than-thien-voi-tre/" },
+    { "hang": 9,  "ma": "C08", "ten": "Chọn cơ sở có bác sĩ quen làm với trẻ ⭐", "tang": "B", "gd": "S3", "tv": 17, "core": 0, "pct": 5, "bai": 2, "song": 2, "trang_dich": "⚠ đối chiếu: /tim-phong-kham.html" },
+    { "hang": 10, "ma": "C11", "ten": "Răng vĩnh viễn mọc lệch vì răng sữa hỏng ⭐⭐", "tang": "B", "gd": "S3", "tv": 17, "core": 0, "pct": 3, "bai": 3, "song": 2, "trang_dich": "MỚI: /kien-thuc/tre-em/rang-vinh-vien-moc-lech/" },
+    { "hang": 11, "ma": "C12", "ten": "Y khoa: mọc răng, thở miệng & tật xấu ở trẻ (E-E-A-T) ⭐⭐", "tang": "C", "gd": "S2", "tv": 17, "core": 0, "pct": 7, "bai": 2, "song": 3, "trang_dich": "MỚI: /kien-thuc/tre-em/tho-mieng-o-tre/" },
+    { "hang": 12, "ma": "C10", "ten": "Tập đánh răng & dinh dưỡng chống sâu ⭐", "tang": "C", "gd": "S5", "tv": 17, "core": 0, "pct": 6, "bai": 1, "song": 3, "trang_dich": "MỚI: /kien-thuc/cham-soc/tap-danh-rang-cho-tre/" },
+    { "hang": 13, "ma": "C15", "ten": "Gói gia đình & Teeth Spa chuẩn Pháp (LTV) ⭐⭐⭐", "tang": "C", "gd": "S6", "tv": 17, "core": 0, "pct": 3, "bai": 2, "song": 3, "trang_dich": "MỚI: /goi-gia-dinh.html" },
+    { "hang": 14, "ma": "C01", "ten": "Nhận biết sâu răng sữa & dấu hiệu sớm", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 2, "bai": 0, "song": 4, "trang_dich": "MỚI: /kien-thuc/tre-em/dau-hieu-sau-rang-sua/" },
+    { "hang": 15, "ma": "C02", "ten": "Quan niệm 'răng sữa rồi cũng rụng' — viết để sửa", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 1, "bai": 1, "song": 4, "trang_dich": "MỚI: /kien-thuc/tre-em/rang-sua-co-can-dieu-tri/" }
+  ]
+}

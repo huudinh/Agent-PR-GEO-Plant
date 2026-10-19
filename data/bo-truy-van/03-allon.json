@@ -1,0 +1,43 @@
+{
+  "key": "allon",
+  "ten": "All-On 4/6 & phục hình toàn hàm",
+  "line": "NKI",
+  "line_ten": "NKI · Implant & Phục hình mất răng",
+  "quy_mo": { "truy_van": 255, "cum": 15, "doi_tuong": 7, "core": 58, "pct_diem_core": 52 },
+  "noi_so": [
+    { "ma": "①", "ten": "NGẠI — SỢ BỎ RA MỘT KHOẢN RẤT LỚN MÀ KHÔNG BIẾT ĐÃ ĐÚNG CHỈ ĐỊNH CHƯA", "cum": "C07 + C05 + C04", "tv": 51, "core": 24 },
+    { "ma": "②", "ten": "NGỜ — SỢ 4 TRỤ KHÔNG ĐỦ GÁNH CẢ HÀM, VÀI NĂM SỤP CẢ KHUNG", "cum": "C06 + C11 + C03", "tv": 51, "core": 34 },
+    { "ma": "③", "ten": "SỢ — NGƯỜI CAO TUỔI SỢ KHÔNG CHỊU ĐƯỢC CA ĐẠI PHẪU, SỢ GÂY MÊ", "cum": "C13 + C09 + C12", "tv": 51, "core": 0 }
+  ],
+  "hanh_trinh": [
+    { "gd": "S1", "uu_tien": "★ Nền", "noi_so": "Mất răng gần hết hoặc đang dùng hàm giả tháo lắp: sợ hàm rơi khi nói, sợ không ăn được, sợ con cháu thấy mình già.", "cum": "C01 · C02 · C13", "tv": 51, "core": 0, "pct": 7 },
+    { "gd": "S2", "uu_tien": "★★", "noi_so": "Không phân biệt được All-On 4, All-On 6 và cấy từng trụ rời. Sợ bị chọn phương án đắt hơn mức cần.", "cum": "C03 · C04 · C05 · C12", "tv": 68, "core": 24, "pct": 26 },
+    { "gd": "S3", "uu_tien": "★★★ Quyết định", "noi_so": "ĐÂY LÀ CA CHI PHÍ LỚN NHẤT CỦA NGÀNH NHA. Khách hỏi: 4 trụ có đủ chịu lực? Khung răng dùng được bao lâu? Hỏng một trụ thì tháo cả hàm? Ai bảo hành và bảo hành bao nhiêu năm?", "cum": "C06 · C07 · C08 · C11 · C14", "tv": 85, "core": 34, "pct": 52 },
+    { "gd": "S4", "uu_tien": "★★", "noi_so": "Sợ ca mổ dài, sợ gây mê ở tuổi cao, sợ sau mổ sưng không dám gặp ai.", "cum": "C09", "tv": 17, "core": 0, "pct": 7 },
+    { "gd": "S5", "uu_tien": "★★", "noi_so": "Sợ không biết vệ sinh dưới khung răng, sợ viêm mà phát hiện muộn.", "cum": "C10", "tv": 17, "core": 0, "pct": 5 },
+    { "gd": "S6", "uu_tien": "★ Nền", "noi_so": "Sợ hàm trên làm rồi hàm dưới lại phải làm tiếp, tốn thêm một lần nữa.", "cum": "C15", "tv": 17, "core": 0, "pct": 3 }
+  ],
+  "tang": [
+    { "tang": "A", "cum": 5, "tv": 85, "pct": 52, "phan_bo": "70% — C07 Chi phí toàn hàm & trả góp · C06 Rủi ro, chịu lực & biến chứng · C11 Hỏng trụ, sụp khung & làm lại · C03 Loại trụ, khung & vật liệu chính hãng · C14 Thực thể & kiểm chứng. Ca giá trị lớn nhất → nội dung phải minh bạch chi phí sớm nhất, vì NGẠI là rào cản số một ở bộ này." },
+    { "tang": "B", "cum": 5, "tv": 85, "pct": 30, "phan_bo": "20% — C05 Khi nào KHÔNG nên làm toàn hàm · C04 Chẩn đoán & lượng xương còn lại · C08 Chọn cơ sở đủ năng lực đại phẫu · C09 Quy trình & hồi phục · C13 Người cao tuổi & bệnh lý nền. C13 ở bộ này quan trọng hơn mọi bộ khác vì khách chủ lực là người trên 55 tuổi." },
+    { "tang": "C", "cum": 3, "tv": 51, "pct": 15, "phan_bo": "10% — C10 Vệ sinh & tái khám dưới khung răng · C12 Y khoa: khớp cắn, lực nhai, tiêu xương · C15 Cross-sell hàm còn lại. Chạy nền." },
+    { "tang": "D", "cum": 2, "tv": 34, "pct": 3, "phan_bo": "0% ngân sách mới — C01 Nhận biết mất răng toàn hàm · C02 Hàm giả tháo lắp truyền thống. Chỉ pillar nền." }
+  ],
+  "cum": [
+    { "hang": 1,  "ma": "C07", "ten": "Chi phí toàn hàm & trả góp — bóc tách từng cấu phần ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 13, "pct": 13, "bai": 4, "song": 1, "trang_dich": "⚠ đối chiếu: /hoan-my-bang-gia-dich-vu-nha-khoa.html + MỚI: /bang-gia/all-on-4-6/" },
+    { "hang": 2,  "ma": "C06", "ten": "Rủi ro, chịu lực & biến chứng All-On ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 12, "pct": 12, "bai": 6, "song": 1, "trang_dich": "MỚI: /kien-thuc/all-on/rui-ro-all-on-4-6/" },
+    { "hang": 3,  "ma": "C11", "ten": "Hỏng trụ, sụp khung & phương án làm lại ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 11, "pct": 10, "bai": 5, "song": 1, "trang_dich": "MỚI: /kien-thuc/all-on/all-on-bi-hong-lam-lai/" },
+    { "hang": 4,  "ma": "C03", "ten": "All-On 4 hay All-On 6 · loại trụ · khung & vật liệu ⭐⭐⭐", "tang": "A", "gd": "S2", "tv": 17, "core": 12, "pct": 11, "bai": 5, "song": 1, "trang_dich": "MỚI: /kien-thuc/all-on/all-on-4-khac-all-on-6/" },
+    { "hang": 5,  "ma": "C14", "ten": "Thực thể & kiểm chứng: đối tác hãng · bác sĩ · năng lực đại phẫu ⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 10, "pct": 6, "bai": 2, "song": 1, "trang_dich": "MỚI: /chuyen-khoa/all-on-4-6/" },
+    { "hang": 6,  "ma": "C05", "ten": "Khi nào KHÔNG nên làm toàn hàm ⭐⭐⭐", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 9, "bai": 3, "song": 2, "trang_dich": "MỚI: /kien-thuc/all-on/khi-nao-khong-nen-lam-toan-ham/" },
+    { "hang": 7,  "ma": "C04", "ten": "Chẩn đoán: lượng xương còn lại · CT Conebeam · thiết kế khớp cắn", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 7, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/all-on/danh-gia-xuong-truoc-all-on/" },
+    { "hang": 8,  "ma": "C08", "ten": "Chọn cơ sở đủ năng lực đại phẫu & bác sĩ implant toàn hàm ⭐⭐", "tang": "B", "gd": "S3", "tv": 17, "core": 0, "pct": 6, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/all-on/chon-noi-lam-all-on/" },
+    { "hang": 9,  "ma": "C09", "ten": "Quy trình, gây mê, số buổi & thời gian hồi phục", "tang": "B", "gd": "S4", "tv": 17, "core": 0, "pct": 5, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/all-on/quy-trinh-all-on-4-6/" },
+    { "hang": 10, "ma": "C13", "ten": "Người cao tuổi & bệnh lý nền — ai làm được, ai không ⭐⭐", "tang": "B", "gd": "S1", "tv": 17, "core": 0, "pct": 3, "bai": 3, "song": 2, "trang_dich": "MỚI: /kien-thuc/all-on/all-on-cho-nguoi-cao-tuoi/" },
+    { "hang": 11, "ma": "C10", "ten": "Vệ sinh dưới khung răng & tái khám định kỳ ⭐", "tang": "C", "gd": "S5", "tv": 17, "core": 0, "pct": 7, "bai": 1, "song": 3, "trang_dich": "MỚI: /kien-thuc/cham-soc/ve-sinh-rang-all-on/" },
+    { "hang": 12, "ma": "C12", "ten": "Y khoa: lực nhai, khớp cắn & tiêu xương sau toàn hàm (E-E-A-T)", "tang": "C", "gd": "S2", "tv": 17, "core": 0, "pct": 5, "bai": 0, "song": 3, "trang_dich": "⚠ đối chiếu: trang hỏi đáp" },
+    { "hang": 13, "ma": "C15", "ten": "Cross-sell hàm còn lại & duy trì dài hạn (LTV)", "tang": "C", "gd": "S6", "tv": 17, "core": 0, "pct": 3, "bai": 0, "song": 3, "trang_dich": "MỚI: /chuyen-khoa/implant/" },
+    { "hang": 14, "ma": "C01", "ten": "Nhận biết mất răng toàn hàm & hệ quả toàn thân", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 2, "bai": 0, "song": 4, "trang_dich": "MỚI: /kien-thuc/all-on/mat-rang-toan-ham/" },
+    { "hang": 15, "ma": "C02", "ten": "Hàm giả tháo lắp truyền thống — vì sao khách muốn đổi", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 1, "bai": 0, "song": 4, "trang_dich": "MỚI: /kien-thuc/all-on/ham-gia-thao-lap/" }
+  ]
+}

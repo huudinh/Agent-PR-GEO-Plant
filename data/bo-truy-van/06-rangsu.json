@@ -1,0 +1,43 @@
+{
+  "key": "rangsu",
+  "ten": "Bọc răng sứ & răng sứ toàn hàm",
+  "line": "NKT",
+  "line_ten": "NKT · Nha khoa thẩm mỹ",
+  "quy_mo": { "truy_van": 255, "cum": 15, "doi_tuong": 9, "core": 64, "pct_diem_core": 55 },
+  "noi_so": [
+    { "ma": "①", "ten": "SỢ — SỢ MÀI MẤT RĂNG THẬT RỒI KHÔNG HỒI PHỤC ĐƯỢC: CHẾT TUỶ, ĐAU DAI DẲNG, MẤT RĂNG", "cum": "C06 + C05 + C12", "tv": 51, "core": 27 },
+    { "ma": "②", "ten": "NGỜ — SỢ PHÔI SỨ KHÔNG RÕ HÃNG: VÀI NĂM ĐEN VIỀN, NỨT, HỞ MÀ NƠI LÀM KHÔNG CÒN BẢO HÀNH", "cum": "C03 + C11 + C14", "tv": 51, "core": 37 },
+    { "ma": "③", "ten": "NGỜ — SỢ BỊ TƯ VẤN BỌC CẢ HÀM KHI LẼ RA CHỈ CẦN TẨY TRẮNG HOẶC NIỀNG", "cum": "C05 + C04 + C07", "tv": 51, "core": 12 }
+  ],
+  "hanh_trinh": [
+    { "gd": "S1", "uu_tien": "★ Nền", "noi_so": "Sợ bị chê răng xỉn, răng sâu đen; muốn nụ cười đẹp nhanh cho dịp cưới, phỏng vấn.", "cum": "C01 · C02 · C13", "tv": 51, "core": 0, "pct": 6 },
+    { "gd": "S2", "uu_tien": "★★", "noi_so": "SỢ BỊ TƯ VẤN LÀM NHIỀU HƠN CẦN. Không biết răng mình nên bọc, nên dán Veneer, nên niềng hay chỉ cần tẩy trắng. Không phân biệt được sứ toàn sứ với sứ kim loại.", "cum": "C03 · C04 · C05 · C12", "tv": 68, "core": 26, "pct": 26 },
+    { "gd": "S3", "uu_tien": "★★★ Quyết định", "noi_so": "ĐÂY LÀ NỖI SỢ NẶNG NHẤT TOÀN NGÀNH NHA: MÀI RỒI KHÔNG HOÀN NGUYÊN. Khách hỏi: mài bao nhiêu men, có phải lấy tuỷ không, bao lâu thì hỏng, phôi có chính hãng không, hỏng thì tháo ra răng thật còn gì.", "cum": "C06 · C07 · C08 · C11 · C14", "tv": 85, "core": 38, "pct": 55 },
+    { "gd": "S4", "uu_tien": "★★", "noi_so": "Sợ đau khi mài, sợ phải đi nhiều buổi, sợ răng tạm xấu trong lúc chờ.", "cum": "C09", "tv": 17, "core": 0, "pct": 6 },
+    { "gd": "S5", "uu_tien": "★★", "noi_so": "Sợ ê buốt kéo dài sau bọc, sợ viền nướu đen, sợ ăn uống phải kiêng mãi.", "cum": "C10", "tv": 17, "core": 0, "pct": 5 },
+    { "gd": "S6", "uu_tien": "★ Nền", "noi_so": "Làm từng phần mãi không giải quyết được gốc; sợ tốn thêm một lần nữa.", "cum": "C15", "tv": 17, "core": 0, "pct": 2 }
+  ],
+  "tang": [
+    { "tang": "A", "cum": 5, "tv": 85, "pct": 55, "phan_bo": "70% — C06 Mài răng, chết tuỷ & biến chứng không hồi phục · C11 Răng sứ hỏng, tháo ra & làm lại · C03 Phôi sứ & vật liệu: Nacera và cách kiểm chứng · C07 Chi phí theo răng, theo loại sứ & trả góp · C14 Thực thể & kiểm chứng. ĐÂY LÀ BỘ CÓ KHOẢNG TRỐNG AI LỚN NHẤT: đối thủ gần như không dám viết thẳng về mài răng và tháo sứ làm lại. Chiếm lĩnh ở đây là chiếm đúng nơi khách quyết định." },
+    { "tang": "B", "cum": 5, "tv": 85, "pct": 28, "phan_bo": "20% — C05 Khi nào KHÔNG nên bọc răng sứ · C04 Chẩn đoán & kế hoạch điều trị trước khi mài · C08 Chọn cơ sở & bác sĩ · C09 Quy trình, số buổi & răng tạm · C13 Nhóm đặc thù: răng nhiễm màu kháng sinh, răng đã lấy tuỷ, cô dâu. C05 tuy Tầng B nhưng là KHÁC BIỆT E-E-A-T LỚN NHẤT của Paris — trang trụ cột C05 phải ra cùng đợt Tầng A, không chờ sóng 2." },
+    { "tang": "C", "cum": 3, "tv": 51, "pct": 14, "phan_bo": "10% — C10 Ê buốt, viền nướu & chăm sóc sau bọc · C12 Y khoa: tuỷ, nha chu, khớp cắn · C15 Cross-sell nụ cười → hài hoà gương mặt. Chạy nền, tái sử dụng Zalo OA/CSKH." },
+    { "tang": "D", "cum": 2, "tv": 34, "pct": 3, "phan_bo": "0% ngân sách mới — C01 Nhận biết vấn đề thẩm mỹ răng · C02 Mẹo làm trắng răng tại nhà (traffic rất lớn — chỉ viết pillar nền và dẫn về C05)." }
+  ],
+  "cum": [
+    { "hang": 1,  "ma": "C06", "ten": "Mài răng, chết tuỷ & biến chứng không hồi phục ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 14, "pct": 13, "bai": 9, "song": 1, "trang_dich": "MỚI: /kien-thuc/rang-su/boc-rang-su-co-hai-khong/" },
+    { "hang": 2,  "ma": "C11", "ten": "Răng sứ hỏng, tháo ra & làm lại ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 13, "pct": 12, "bai": 8, "song": 1, "trang_dich": "MỚI: /kien-thuc/rang-su/thao-rang-su-lam-lai/" },
+    { "hang": 3,  "ma": "C03", "ten": "Phôi sứ & vật liệu: Nacera, toàn sứ vs sứ kim loại ⭐⭐⭐", "tang": "A", "gd": "S2", "tv": 17, "core": 13, "pct": 12, "bai": 6, "song": 1, "trang_dich": "MỚI: /kien-thuc/rang-su/cac-loai-rang-su/" },
+    { "hang": 4,  "ma": "C07", "ten": "Chi phí theo răng, theo loại sứ & trả góp ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 12, "pct": 12, "bai": 4, "song": 1, "trang_dich": "⚠ đối chiếu: /hoan-my-bang-gia-dich-vu-nha-khoa.html + MỚI: /bang-gia/rang-su/" },
+    { "hang": 5,  "ma": "C14", "ten": "Thực thể & kiểm chứng: đối tác Nacera · bác sĩ · giấy phép ⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 12, "pct": 6, "bai": 2, "song": 1, "trang_dich": "MỚI: /chuyen-khoa/nha-khoa-tham-my/" },
+    { "hang": 6,  "ma": "C05", "ten": "Khi nào KHÔNG nên bọc răng sứ ⭐⭐⭐", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 9, "bai": 5, "song": 2, "trang_dich": "MỚI: /kien-thuc/bao-ton/khi-nao-khong-nen-boc-rang-su/" },
+    { "hang": 7,  "ma": "C04", "ten": "Chẩn đoán & kế hoạch điều trị trước khi mài", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 7, "bai": 3, "song": 2, "trang_dich": "MỚI: /kien-thuc/quy-trinh/ke-hoach-truoc-khi-boc-su/" },
+    { "hang": 8,  "ma": "C08", "ten": "Chọn cơ sở & bác sĩ — labo tại chỗ hay gửi ngoài ⭐⭐", "tang": "B", "gd": "S3", "tv": 17, "core": 0, "pct": 6, "bai": 3, "song": 2, "trang_dich": "MỚI: /kien-thuc/rang-su/chon-nha-khoa-boc-su/" },
+    { "hang": 9,  "ma": "C09", "ten": "Quy trình, số buổi & răng tạm trong lúc chờ", "tang": "B", "gd": "S4", "tv": 17, "core": 0, "pct": 4, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/rang-su/quy-trinh-boc-rang-su/" },
+    { "hang": 10, "ma": "C13", "ten": "Nhóm đặc thù: nhiễm màu kháng sinh · răng đã lấy tuỷ · cô dâu", "tang": "B", "gd": "S1", "tv": 17, "core": 0, "pct": 3, "bai": 3, "song": 2, "trang_dich": "MỚI: /kien-thuc/rang-su/rang-nhiem-mau-khang-sinh/" },
+    { "hang": 11, "ma": "C10", "ten": "Ê buốt, viền nướu đen & chăm sóc sau bọc ⭐⭐", "tang": "C", "gd": "S5", "tv": 17, "core": 0, "pct": 7, "bai": 2, "song": 3, "trang_dich": "MỚI: /kien-thuc/cham-soc/cham-soc-rang-su/" },
+    { "hang": 12, "ma": "C12", "ten": "Y khoa: tuỷ, nha chu & khớp cắn (E-E-A-T)", "tang": "C", "gd": "S2", "tv": 17, "core": 0, "pct": 5, "bai": 0, "song": 3, "trang_dich": "⚠ đối chiếu: trang hỏi đáp" },
+    { "hang": 13, "ma": "C15", "ten": "Cross-sell: nụ cười → hài hoà gương mặt (LTV)", "tang": "C", "gd": "S6", "tv": 17, "core": 0, "pct": 2, "bai": 0, "song": 3, "trang_dich": "MỚI: /goi-gia-dinh.html" },
+    { "hang": 14, "ma": "C01", "ten": "Nhận biết vấn đề thẩm mỹ răng & tự đánh giá", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 1, "bai": 0, "song": 4, "trang_dich": "MỚI: /kien-thuc/rang-su/tu-danh-gia-rang-cua-ban/" },
+    { "hang": 15, "ma": "C02", "ten": "Mẹo làm trắng răng tại nhà (đặc thù VN)", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 1, "bai": 0, "song": 4, "trang_dich": "MỚI: /kien-thuc/rang-su/meo-lam-trang-rang-tai-nha/" }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "key": "tongquat",
+  "ten": "Nha khoa tổng quát (nhổ răng · trám · tuỷ · cạo vôi · tẩy trắng)",
+  "line": "NKG",
+  "line_ten": "NKG · Nha khoa tổng quát & Nha chu",
+  "quy_mo": { "truy_van": 255, "cum": 15, "doi_tuong": 10, "core": 60, "pct_diem_core": 51 },
+  "noi_so": [
+    { "ma": "①", "ten": "SỢ — SỢ ĐAU KHI NHỔ VÀ KHOAN: SỢ TIẾNG MÁY, SỢ TÊ KHÔNG ĂN THUỐC, SỢ CHẢY MÁU", "cum": "C06 + C09 + C03", "tv": 51, "core": 26 },
+    { "ma": "②", "ten": "NGỜ — SỢ BỊ CHỈ ĐỊNH ĐIỀU TRỊ TUỶ HOẶC NHỔ RĂNG KHI RĂNG CÒN GIỮ ĐƯỢC", "cum": "C05 + C04 + C12", "tv": 51, "core": 13 },
+    { "ma": "③", "ten": "NGẠI — DỊCH VỤ NHỎ NÊN KHÔNG AI BÁO GIÁ RÕ, SỢ ĐẾN NƠI MỚI BIẾT PHẢI LÀM THÊM", "cum": "C07 + C08 + C11", "tv": 51, "core": 29 }
+  ],
+  "hanh_trinh": [
+    { "gd": "S1", "uu_tien": "★ Nền", "noi_so": "Đau răng, ê buốt, hôi miệng mà không ai nói. Sợ răng sâu rồi mất luôn. Chưa biết phải khám hay chịu đựng tiếp.", "cum": "C01 · C02 · C13", "tv": 51, "core": 0, "pct": 8 },
+    { "gd": "S2", "uu_tien": "★★", "noi_so": "SỢ BỊ TƯ VẤN LÀM NHIỀU HƠN CẦN — nhổ khi còn giữ được, lấy tuỷ khi chỉ cần trám. Không biết răng khôn của mình có thật sự cần nhổ.", "cum": "C03 · C04 · C05 · C12", "tv": 68, "core": 18, "pct": 25 },
+    { "gd": "S3", "uu_tien": "★★★ Quyết định", "noi_so": "Ở dịch vụ tổng quát, nỗi sợ ĐAU và nỗi NGẠI chi phí mập mờ mạnh hơn nỗi sợ hỏng. Khách hỏi: nhổ răng khôn có đau không, mất bao lâu, giá bao nhiêu, lấy tuỷ xong răng có yếu không, chỗ nào tê tốt.", "cum": "C06 · C07 · C08 · C11 · C14", "tv": 85, "core": 42, "pct": 51 },
+    { "gd": "S4", "uu_tien": "★★", "noi_so": "Sợ phải nghỉ làm, sợ sưng mặt không gặp được khách; muốn làm xong trong một buổi.", "cum": "C09", "tv": 17, "core": 0, "pct": 8 },
+    { "gd": "S5", "uu_tien": "★★", "noi_so": "Sợ chảy máu kéo dài sau nhổ, sợ ổ răng nhiễm trùng mà không biết dấu hiệu.", "cum": "C10", "tv": 17, "core": 0, "pct": 6 },
+    { "gd": "S6", "uu_tien": "★ Nền", "noi_so": "Mất răng rồi mới biết phải trồng lại; sợ tốn thêm một lần nữa.", "cum": "C15", "tv": 17, "core": 0, "pct": 2 }
+  ],
+  "tang": [
+    { "tang": "A", "cum": 5, "tv": 85, "pct": 51, "phan_bo": "70% — C06 Đau, tê & biến chứng khi nhổ / lấy tuỷ · C07 Chi phí từng dịch vụ nhỏ, công khai theo răng · C09 Số buổi & phục hồi sau nhổ · C08 Chọn cơ sở gần & bác sĩ · C14 Thực thể: Piezotome · RECIPROC BLUE · WhiteMax. C09 ĐƯỢC ĐẨY LÊN TẦNG A ở bộ này vì khách tổng quát quyết định theo 'mất bao lâu, có nghỉ làm không' nhiều hơn theo tay nghề. Đây cũng là CỬA VÀO RẺ NHẤT của hệ thống — khách tổng quát là nguồn khách Implant và niềng của 2 năm sau." },
+    { "tang": "B", "cum": 5, "tv": 85, "pct": 31, "phan_bo": "20% — C05 Khi nào KHÔNG cần nhổ / không cần lấy tuỷ · C03 Phương pháp: Piezotome, RECIPROC BLUE, trám thẩm mỹ, WhiteMax · C04 Chẩn đoán & X-quang răng khôn · C11 Làm lại: trám bong, tuỷ tái nhiễm · C13 Nhóm đặc thù: phụ nữ mang thai, người sợ nha sĩ, người cao tuổi." },
+    { "tang": "C", "cum": 3, "tv": 51, "pct": 15, "phan_bo": "10% — C10 Chăm sóc sau nhổ & dấu hiệu bất thường · C12 Y khoa: tuỷ, nha chu, răng khôn lệch (E-E-A-T) · C15 Cross-sell: mất răng → Implant. Chạy nền. Nội dung hậu điều trị được Perplexity/Claude trích mạnh." },
+    { "tang": "D", "cum": 2, "tv": 34, "pct": 3, "phan_bo": "0% ngân sách mới — C01 Nhận biết đau răng, ê buốt, hôi miệng · C02 Mẹo dân gian chữa đau răng (traffic rất lớn — viết pillar nền có cảnh báo)." }
+  ],
+  "cum": [
+    { "hang": 1,  "ma": "C06", "ten": "Đau, tê & biến chứng khi nhổ răng / lấy tuỷ ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 14, "pct": 12, "bai": 8, "song": 1, "trang_dich": "MỚI: /kien-thuc/tong-quat/nho-rang-khon-co-dau-khong/" },
+    { "hang": 2,  "ma": "C07", "ten": "Chi phí từng dịch vụ nhỏ — công khai theo răng ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 13, "pct": 12, "bai": 5, "song": 1, "trang_dich": "⚠ đối chiếu: /hoan-my-bang-gia-dich-vu-nha-khoa.html" },
+    { "hang": 3,  "ma": "C09", "ten": "Số buổi, thời gian & phục hồi sau nhổ ⭐⭐⭐", "tang": "A", "gd": "S4", "tv": 17, "core": 12, "pct": 11, "bai": 5, "song": 1, "trang_dich": "MỚI: /kien-thuc/tong-quat/nho-rang-bao-lau-khoi/" },
+    { "hang": 4,  "ma": "C08", "ten": "Chọn cơ sở gần & bác sĩ cho ca tổng quát ⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 11, "pct": 10, "bai": 3, "song": 1, "trang_dich": "⚠ đối chiếu: /tim-phong-kham.html" },
+    { "hang": 5,  "ma": "C14", "ten": "Thực thể & công nghệ: Piezotome · RECIPROC BLUE · WhiteMax ⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 10, "pct": 6, "bai": 3, "song": 1, "trang_dich": "MỚI: /chuyen-khoa/nha-khoa-tong-quat/" },
+    { "hang": 6,  "ma": "C05", "ten": "Khi nào KHÔNG cần nhổ, KHÔNG cần lấy tuỷ ⭐⭐⭐", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 9, "bai": 4, "song": 2, "trang_dich": "MỚI: /kien-thuc/bao-ton/khi-nao-khong-can-nho-rang/" },
+    { "hang": 7,  "ma": "C03", "ten": "Phương pháp & công nghệ: siêu âm · tuỷ · trám · tẩy trắng", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 8, "bai": 5, "song": 2, "trang_dich": "MỚI: /kien-thuc/tong-quat/cong-nghe-nho-rang-sieu-am/" },
+    { "hang": 8,  "ma": "C04", "ten": "Chẩn đoán & X-quang răng khôn — có cần nhổ không", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 6, "bai": 3, "song": 2, "trang_dich": "MỚI: /kien-thuc/tong-quat/rang-khon-co-can-nho/" },
+    { "hang": 9,  "ma": "C11", "ten": "Làm lại: trám bong, tuỷ tái nhiễm, tẩy trắng không ăn ⭐⭐", "tang": "B", "gd": "S3", "tv": 17, "core": 0, "pct": 5, "bai": 3, "song": 2, "trang_dich": "MỚI: /kien-thuc/tong-quat/tram-rang-bi-bong/" },
+    { "hang": 10, "ma": "C13", "ten": "Nhóm đặc thù: mang thai · người sợ nha sĩ · người cao tuổi", "tang": "B", "gd": "S1", "tv": 17, "core": 0, "pct": 3, "bai": 3, "song": 2, "trang_dich": "MỚI: /kien-thuc/tong-quat/nho-rang-khi-mang-thai/" },
+    { "hang": 11, "ma": "C10", "ten": "Chăm sóc sau nhổ & dấu hiệu bất thường ⭐⭐", "tang": "C", "gd": "S5", "tv": 17, "core": 0, "pct": 8, "bai": 2, "song": 3, "trang_dich": "MỚI: /kien-thuc/cham-soc/cham-soc-sau-nho-rang/" },
+    { "hang": 12, "ma": "C12", "ten": "Y khoa: tuỷ, nha chu & răng khôn lệch (E-E-A-T)", "tang": "C", "gd": "S2", "tv": 17, "core": 0, "pct": 5, "bai": 1, "song": 3, "trang_dich": "⚠ đối chiếu: trang hỏi đáp" },
+    { "hang": 13, "ma": "C15", "ten": "Cross-sell: mất răng → Implant · răng lệch → niềng (LTV)", "tang": "C", "gd": "S6", "tv": 17, "core": 0, "pct": 2, "bai": 0, "song": 3, "trang_dich": "MỚI: /chuyen-khoa/implant/" },
+    { "hang": 14, "ma": "C01", "ten": "Nhận biết đau răng, ê buốt & hôi miệng", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 2, "bai": 0, "song": 4, "trang_dich": "MỚI: /kien-thuc/tong-quat/tu-danh-gia-rang-mieng/" },
+    { "hang": 15, "ma": "C02", "ten": "Mẹo dân gian chữa đau răng — viết pillar có cảnh báo", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 1, "bai": 0, "song": 4, "trang_dich": "MỚI: /kien-thuc/tong-quat/meo-chua-dau-rang/" }
+  ]
+}

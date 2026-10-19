@@ -1,0 +1,43 @@
+{
+  "key": "veneer",
+  "ten": "Mặt dán sứ Veneer",
+  "line": "NKT",
+  "line_ten": "NKT · Nha khoa thẩm mỹ",
+  "quy_mo": { "truy_van": 255, "cum": 15, "doi_tuong": 7, "core": 58, "pct_diem_core": 52 },
+  "noi_so": [
+    { "ma": "①", "ten": "SỢ — SỢ VẪN PHẢI MÀI MEN DÙ ĐƯỢC QUẢNG CÁO LÀ 'KHÔNG MÀI', VÀ MEN KHÔNG MỌC LẠI", "cum": "C06 + C05 + C03", "tv": 51, "core": 27 },
+    { "ma": "②", "ten": "NGỜ — SỢ DÁN XONG BỊ BONG, HỞ VIỀN, NỨT KHI ĂN ĐỒ CỨNG MÀ KHÔNG AI BẢO HÀNH", "cum": "C11 + C14 + C10", "tv": 51, "core": 23 },
+    { "ma": "③", "ten": "NGẠI — SỢ TRẢ GIÁ CAO HƠN BỌC SỨ MÀ KHÔNG BIẾT CÓ ĐÚNG CHỈ ĐỊNH CHO RĂNG MÌNH", "cum": "C07 + C04 + C08", "tv": 51, "core": 20 }
+  ],
+  "hanh_trinh": [
+    { "gd": "S1", "uu_tien": "★ Nền", "noi_so": "Muốn nụ cười đẹp tự nhiên, thấy Veneer trên mạng xã hội nhưng chưa hiểu khác bọc sứ ở đâu.", "cum": "C01 · C02 · C13", "tv": 51, "core": 0, "pct": 7 },
+    { "gd": "S2", "uu_tien": "★★", "noi_so": "Sợ được bán Veneer trong khi răng mình cần niềng, hoặc ngược lại bị bọc sứ trong khi Veneer đủ. Không phân biệt được Veneer sứ, composite và 'dán sứ siêu mỏng'.", "cum": "C03 · C04 · C05 · C12", "tv": 68, "core": 27, "pct": 26 },
+    { "gd": "S3", "uu_tien": "★★★ Quyết định", "noi_so": "'KHÔNG MÀI RĂNG' LÀ CÂU QUẢNG CÁO KHÁCH NGỜ NHẤT. Khách hỏi: thật sự có mài không, mài bao nhiêu, bong thì dán lại được không, dùng được bao lâu, giá cao hơn bọc sứ để được gì.", "cum": "C06 · C07 · C08 · C11 · C14", "tv": 85, "core": 31, "pct": 52 },
+    { "gd": "S4", "uu_tien": "★★", "noi_so": "Sợ thử răng xong không giống mô phỏng, sợ không được xem trước khi dán cố định.", "cum": "C09", "tv": 17, "core": 0, "pct": 7 },
+    { "gd": "S5", "uu_tien": "★★", "noi_so": "Sợ bong mặt dán khi ăn, sợ đổi màu chỗ keo dán, sợ phải kiêng vĩnh viễn.", "cum": "C10", "tv": 17, "core": 0, "pct": 5 },
+    { "gd": "S6", "uu_tien": "★ Nền", "noi_so": "Dán mấy răng trước rồi thấy răng sau không đều màu, sợ làm tiếp lại tốn.", "cum": "C15", "tv": 17, "core": 0, "pct": 3 }
+  ],
+  "tang": [
+    { "tang": "A", "cum": 5, "tv": 85, "pct": 52, "phan_bo": "70% — C06 'Không mài răng' thật hay không & rủi ro men răng · C11 Bong, nứt, hở viền & dán lại · C05 Veneer hay bọc sứ hay niềng: khi nào KHÔNG nên Veneer · C07 Chi phí theo răng & so với bọc sứ · C14 Thực thể & kiểm chứng. C05 ĐƯỢC ĐẨY LÊN TẦNG A ở bộ này vì chỉ định sai là nguyên nhân số một của ca Veneer thất bại." },
+    { "tang": "B", "cum": 5, "tv": 85, "pct": 30, "phan_bo": "20% — C03 Loại mặt dán & vật liệu · C04 Chẩn đoán, thiết kế nụ cười & mô phỏng · C08 Chọn bác sĩ & labo · C09 Quy trình, thử răng & số buổi · C13 Nhóm đặc thù: răng thưa nhẹ, răng nhiễm màu, người làm nghề hình ảnh." },
+    { "tang": "C", "cum": 3, "tv": 51, "pct": 15, "phan_bo": "10% — C10 Chăm sóc & những gì phải kiêng · C12 Y khoa: men răng, khớp cắn & lực ăn nhai · C15 Cross-sell tẩy trắng răng còn lại. Chạy nền." },
+    { "tang": "D", "cum": 2, "tv": 34, "pct": 3, "phan_bo": "0% ngân sách mới — C01 Nhận biết nhu cầu thiết kế nụ cười · C02 Xu hướng răng đẹp trên mạng xã hội. Chỉ pillar nền." }
+  ],
+  "cum": [
+    { "hang": 1,  "ma": "C06", "ten": "'Không mài răng' thật hay không & rủi ro mất men ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 14, "pct": 13, "bai": 6, "song": 1, "trang_dich": "MỚI: /kien-thuc/veneer/dan-veneer-co-phai-mai-rang/" },
+    { "hang": 2,  "ma": "C11", "ten": "Bong, nứt, hở viền & dán lại ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 12, "pct": 11, "bai": 5, "song": 1, "trang_dich": "MỚI: /kien-thuc/veneer/veneer-bi-bong-lam-lai/" },
+    { "hang": 3,  "ma": "C05", "ten": "Veneer hay bọc sứ hay niềng — khi nào KHÔNG nên Veneer ⭐⭐⭐", "tang": "A", "gd": "S2", "tv": 17, "core": 13, "pct": 11, "bai": 5, "song": 1, "trang_dich": "MỚI: /kien-thuc/bao-ton/khi-nao-khong-nen-dan-veneer/" },
+    { "hang": 4,  "ma": "C07", "ten": "Chi phí theo răng & so sánh với bọc răng sứ ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 11, "pct": 11, "bai": 3, "song": 1, "trang_dich": "⚠ đối chiếu: /hoan-my-bang-gia-dich-vu-nha-khoa.html + MỚI: /bang-gia/veneer/" },
+    { "hang": 5,  "ma": "C14", "ten": "Thực thể & kiểm chứng: bác sĩ thẩm mỹ · ESCD · labo ⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 8, "pct": 6, "bai": 2, "song": 1, "trang_dich": "MỚI: /chuyen-khoa/nha-khoa-tham-my/" },
+    { "hang": 6,  "ma": "C03", "ten": "Loại mặt dán & vật liệu: sứ · composite · siêu mỏng", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 9, "bai": 4, "song": 2, "trang_dich": "MỚI: /kien-thuc/veneer/cac-loai-mat-dan-su/" },
+    { "hang": 7,  "ma": "C04", "ten": "Chẩn đoán, thiết kế nụ cười & mô phỏng trước khi làm", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 7, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/veneer/thiet-ke-nu-cuoi/" },
+    { "hang": 8,  "ma": "C08", "ten": "Chọn bác sĩ & labo — tay nghề quyết định kết quả ⭐⭐", "tang": "B", "gd": "S3", "tv": 17, "core": 0, "pct": 6, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/veneer/chon-bac-si-dan-veneer/" },
+    { "hang": 9,  "ma": "C09", "ten": "Quy trình, thử răng & số buổi", "tang": "B", "gd": "S4", "tv": 17, "core": 0, "pct": 5, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/veneer/quy-trinh-dan-veneer/" },
+    { "hang": 10, "ma": "C13", "ten": "Nhóm đặc thù: răng thưa nhẹ · nhiễm màu · nghề hình ảnh", "tang": "B", "gd": "S1", "tv": 17, "core": 0, "pct": 3, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/veneer/veneer-cho-rang-thua/" },
+    { "hang": 11, "ma": "C10", "ten": "Chăm sóc & những gì phải kiêng sau dán ⭐", "tang": "C", "gd": "S5", "tv": 17, "core": 0, "pct": 7, "bai": 1, "song": 3, "trang_dich": "MỚI: /kien-thuc/cham-soc/cham-soc-mat-dan-su/" },
+    { "hang": 12, "ma": "C12", "ten": "Y khoa: men răng, khớp cắn & lực ăn nhai (E-E-A-T)", "tang": "C", "gd": "S2", "tv": 17, "core": 0, "pct": 5, "bai": 0, "song": 3, "trang_dich": "⚠ đối chiếu: trang hỏi đáp" },
+    { "hang": 13, "ma": "C15", "ten": "Cross-sell: tẩy trắng các răng còn lại (LTV)", "tang": "C", "gd": "S6", "tv": 17, "core": 0, "pct": 3, "bai": 0, "song": 3, "trang_dich": "MỚI: /chuyen-khoa/nha-khoa-tham-my/" },
+    { "hang": 14, "ma": "C01", "ten": "Nhận biết nhu cầu thiết kế nụ cười", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 2, "bai": 0, "song": 4, "trang_dich": "MỚI: /kien-thuc/veneer/nu-cuoi-hai-hoa-la-gi/" },
+    { "hang": 15, "ma": "C02", "ten": "Xu hướng răng đẹp trên mạng xã hội", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 1, "bai": 0, "song": 4, "trang_dich": "MỚI: /kien-thuc/veneer/xu-huong-rang-dep/" }
+  ]
+}

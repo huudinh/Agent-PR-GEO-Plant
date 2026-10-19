@@ -1,0 +1,43 @@
+{
+  "key": "invisalign",
+  "ten": "Invisalign — niềng răng trong suốt",
+  "line": "NKC",
+  "line_ten": "NKC · Chỉnh nha — Niềng răng",
+  "quy_mo": { "truy_van": 255, "cum": 15, "doi_tuong": 8, "core": 60, "pct_diem_core": 53 },
+  "noi_so": [
+    { "ma": "①", "ten": "NGỜ — SỢ MUA ĐẮT MÀ KHAY KHÔNG PHẢI INVISALIGN CHÍNH HÃNG, CHỈ LÀ KHAY NỘI ĐỊA ĐỔI TÊN", "cum": "C03 + C14 + C07", "tv": 51, "core": 38 },
+    { "ma": "②", "ten": "NGỜ — SỢ TRẢ GIÁ CAO NHẤT MÀ KẾT QUẢ KHÔNG BẰNG MẮC CÀI, CA NẶNG KHÔNG KÉO NỔI", "cum": "C05 + C06 + C11", "tv": 51, "core": 22 },
+    { "ma": "③", "ten": "NGẠI — SỢ KHÔNG ĐỦ KỶ LUẬT ĐEO 20–22 GIỜ/NGÀY RỒI LỘ TRÌNH KÉO DÀI VÔ HẠN", "cum": "C09 + C10 + C04", "tv": 51, "core": 0 }
+  ],
+  "hanh_trinh": [
+    { "gd": "S1", "uu_tien": "★ Nền", "noi_so": "Người đi làm, người có nghề phải giao tiếp: muốn chỉnh răng nhưng không muốn ai biết mình đang niềng.", "cum": "C01 · C02 · C13", "tv": 51, "core": 0, "pct": 7 },
+    { "gd": "S2", "uu_tien": "★★", "noi_so": "Không phân biệt được Invisalign chính hãng với khay trong suốt nói chung. Sợ bị bán 'niềng trong suốt' giá Invisalign.", "cum": "C03 · C04 · C05 · C12", "tv": 68, "core": 26, "pct": 26 },
+    { "gd": "S3", "uu_tien": "★★★ Quyết định", "noi_so": "NGỜ VỀ VẬT LIỆU LÀ RÀO CAO NHẤT: khay có đúng Invisalign không, kiểm tra thế nào, phòng khám có phải đối tác được hãng công nhận không. Kèm nỗi sợ trả giá cao nhất mà ca nặng không kéo nổi.", "cum": "C06 · C07 · C08 · C11 · C14", "tv": 85, "core": 34, "pct": 53 },
+    { "gd": "S4", "uu_tien": "★★", "noi_so": "Sợ không đủ kỷ luật tự đeo, sợ quên khay khi đi ăn ngoài, sợ lộ trình bị kéo dài vì lỗi của mình.", "cum": "C09", "tv": 17, "core": 0, "pct": 6 },
+    { "gd": "S5", "uu_tien": "★★", "noi_so": "Sợ khay vàng, có mùi; sợ tháo xong răng chạy lại.", "cum": "C10", "tv": 17, "core": 0, "pct": 5 },
+    { "gd": "S6", "uu_tien": "★ Nền", "noi_so": "Niềng xong muốn trắng răng nhưng sợ dán sứ lại phải mài.", "cum": "C15", "tv": 17, "core": 0, "pct": 3 }
+  ],
+  "tang": [
+    { "tang": "A", "cum": 5, "tv": 85, "pct": 53, "phan_bo": "70% — C03 Invisalign chính hãng & cách tự kiểm chứng · C14 Thực thể: Paris hạng Black Diamond · C07 Chi phí theo số khay & trả góp · C06 Hiệu quả thật, giới hạn & rủi ro · C11 Không đạt kết quả & phương án chuyển mắc cài. C03 và C14 ĐƯỢC ĐẨY LÊN TẦNG A (khác mặc định) vì hạng Invisalign Black Diamond là bằng chứng mạnh nhất Paris có và là thứ đối thủ không sao chép được." },
+    { "tang": "B", "cum": 5, "tv": 85, "pct": 29, "phan_bo": "20% — C05 Khi nào mắc cài hợp hơn Invisalign · C08 Chọn bác sĩ có kinh nghiệm Invisalign · C09 Số khay, thời gian & kỷ luật đeo · C04 Chẩn đoán & mô phỏng ClinCheck 3D · C13 Nhóm nghề đặc thù & người trưởng thành. C05 là cụm dám nói điều bất lợi — AI trích mạnh nhất." },
+    { "tang": "C", "cum": 3, "tv": 51, "pct": 15, "phan_bo": "10% — C10 Vệ sinh khay & hàm duy trì · C12 Y khoa: lực chỉnh, khớp cắn, attachment · C15 Cross-sell thẩm mỹ sau niềng. Chạy nền." },
+    { "tang": "D", "cum": 2, "tv": 34, "pct": 3, "phan_bo": "0% ngân sách mới — C01 Nhận biết nhu cầu chỉnh nha vô hình · C02 Khay trong suốt mua online — viết để CẢNH BÁO." }
+  ],
+  "cum": [
+    { "hang": 1,  "ma": "C03", "ten": "Invisalign chính hãng & cách tự kiểm chứng khay ⭐⭐⭐", "tang": "A", "gd": "S2", "tv": 17, "core": 14, "pct": 13, "bai": 6, "song": 1, "trang_dich": "MỚI: /kien-thuc/invisalign/invisalign-chinh-hang/" },
+    { "hang": 2,  "ma": "C14", "ten": "Thực thể: Paris hạng Invisalign Black Diamond — ý nghĩa & kiểm chứng ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 13, "pct": 12, "bai": 4, "song": 1, "trang_dich": "MỚI: /chuyen-khoa/invisalign/" },
+    { "hang": 3,  "ma": "C07", "ten": "Chi phí theo số khay, mức ca & trả góp ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 12, "pct": 11, "bai": 4, "song": 1, "trang_dich": "⚠ đối chiếu: /hoan-my-bang-gia-dich-vu-nha-khoa.html + MỚI: /bang-gia/invisalign/" },
+    { "hang": 4,  "ma": "C06", "ten": "Hiệu quả thật, giới hạn & rủi ro của niềng trong suốt ⭐⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 11, "pct": 11, "bai": 5, "song": 1, "trang_dich": "MỚI: /kien-thuc/invisalign/invisalign-co-hieu-qua-khong/" },
+    { "hang": 5,  "ma": "C11", "ten": "Không đạt kết quả & phương án chuyển sang mắc cài ⭐⭐", "tang": "A", "gd": "S3", "tv": 17, "core": 10, "pct": 6, "bai": 4, "song": 1, "trang_dich": "MỚI: /kien-thuc/invisalign/invisalign-khong-hieu-qua/" },
+    { "hang": 6,  "ma": "C05", "ten": "Khi nào mắc cài hợp hơn Invisalign ⭐⭐⭐", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 9, "bai": 3, "song": 2, "trang_dich": "MỚI: /kien-thuc/bao-ton/invisalign-hay-mac-cai/" },
+    { "hang": 7,  "ma": "C08", "ten": "Chọn bác sĩ có kinh nghiệm Invisalign & số ca đã làm ⭐⭐", "tang": "B", "gd": "S3", "tv": 17, "core": 0, "pct": 7, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/invisalign/chon-bac-si-invisalign/" },
+    { "hang": 8,  "ma": "C09", "ten": "Số khay, thời gian & kỷ luật đeo 20–22 giờ", "tang": "B", "gd": "S4", "tv": 17, "core": 0, "pct": 6, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/invisalign/invisalign-bao-lau/" },
+    { "hang": 9,  "ma": "C04", "ten": "Chẩn đoán & mô phỏng ClinCheck 3D trước khi quyết", "tang": "B", "gd": "S2", "tv": 17, "core": 0, "pct": 4, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/invisalign/mo-phong-clincheck/" },
+    { "hang": 10, "ma": "C13", "ten": "Nhóm nghề đặc thù: MC · giáo viên · sale · người trưởng thành", "tang": "B", "gd": "S1", "tv": 17, "core": 0, "pct": 3, "bai": 2, "song": 2, "trang_dich": "MỚI: /kien-thuc/invisalign/invisalign-cho-nguoi-di-lam/" },
+    { "hang": 11, "ma": "C10", "ten": "Vệ sinh khay, mùi, khay vàng & hàm duy trì ⭐", "tang": "C", "gd": "S5", "tv": 17, "core": 0, "pct": 7, "bai": 1, "song": 3, "trang_dich": "MỚI: /kien-thuc/cham-soc/ve-sinh-khay-invisalign/" },
+    { "hang": 12, "ma": "C12", "ten": "Y khoa: lực chỉnh, attachment & khớp cắn (E-E-A-T)", "tang": "C", "gd": "S2", "tv": 17, "core": 0, "pct": 5, "bai": 0, "song": 3, "trang_dich": "⚠ đối chiếu: trang hỏi đáp" },
+    { "hang": 13, "ma": "C15", "ten": "Cross-sell sau niềng: tẩy trắng WhiteMax · Veneer (LTV)", "tang": "C", "gd": "S6", "tv": 17, "core": 0, "pct": 3, "bai": 0, "song": 3, "trang_dich": "MỚI: /chuyen-khoa/nha-khoa-tham-my/" },
+    { "hang": 14, "ma": "C01", "ten": "Nhận biết nhu cầu chỉnh nha mà không ai thấy", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 2, "bai": 0, "song": 4, "trang_dich": "MỚI: /kien-thuc/invisalign/nieng-vo-hinh-la-gi/" },
+    { "hang": 15, "ma": "C02", "ten": "Khay trong suốt mua online — viết để CẢNH BÁO", "tang": "D", "gd": "S1", "tv": 17, "core": 0, "pct": 1, "bai": 0, "song": 4, "trang_dich": "MỚI: /kien-thuc/invisalign/canh-bao-khay-online/" }
+  ]
+}

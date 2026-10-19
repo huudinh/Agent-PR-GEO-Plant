@@ -1,0 +1,627 @@
+<title>Paris GEO Planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+  /* Bảng màu lấy nguyên từ bộ nhận diện Nha khoa Paris — Design System v3.1.
+     Ba màu gốc không được đổi: Cerulean Blue #2A52BE · Pantone Red 032 C #ED2E38 · White.
+     Tỷ lệ bắt buộc 80% trắng/kem · 15% xanh · 5% đỏ → đỏ chỉ dùng cho cảnh báo & rào pháp lý. */
+  :root {
+    --blue:        #2A52BE;
+    --blue-dark:   #152F73;
+    --blue-deep:   #0C1D4D;
+    --blue-light:  #EAF0FC;
+    --blue-mid:    #D7E2FA;
+    --red:         #ED2E38;
+    --red-dark:    #C11B26;
+    --red-light:   #FDEAEB;
+    --cream:       #FBF8F3;
+    --paper:       #FFFFFF;
+    --ground:      #DCE3EE;
+    --ink:         #131A2E;
+    --ink-soft:    #4A5270;
+    --line:        #E4E1D8;
+    --code-bg:     #F4F6FB;
+    /* khối tối giữ nguyên là khối tối ở cả hai theme — đảo màu ở đây làm vỡ tương phản */
+    --dark-bg:     #0C1D4D;
+    --dark-fg:     #FFFFFF;
+    --dark-soft:   #A9BEF8;
+    --shadow:      0 1px 2px rgba(12,29,77,.06), 0 8px 24px -12px rgba(12,29,77,.14);
+    --mono: ui-monospace, "Cascadia Mono", "Cascadia Code", Consolas, "Courier New", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --blue:       #8CA8F5;
+      --blue-dark:  #A9BEF8;
+      --blue-deep:  #C3D2FB;
+      --blue-light: #16244A;
+      --blue-mid:   #25365F;
+      --red:        #FF7A80;
+      --red-dark:   #FF9BA0;
+      --red-light:  #3A1A1D;
+      --cream:      #141A2B;
+      --paper:      #0D1220;
+      --ground:     #080B14;
+      --ink:        #E8ECF6;
+      --ink-soft:   #A4ADC6;
+      --line:       #262E45;
+      --code-bg:    #141A2B;
+      --dark-bg:    #101A38;
+      --dark-fg:    #EDF1FB;
+      --dark-soft:  #8CA8F5;
+      --shadow:     0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"] {
+    --blue:       #8CA8F5;
+    --blue-dark:  #A9BEF8;
+    --blue-deep:  #C3D2FB;
+    --blue-light: #16244A;
+    --blue-mid:   #25365F;
+    --red:        #FF7A80;
+    --red-dark:   #FF9BA0;
+    --red-light:  #3A1A1D;
+    --cream:      #141A2B;
+    --paper:      #0D1220;
+    --ground:     #080B14;
+    --ink:        #E8ECF6;
+    --ink-soft:   #A4ADC6;
+    --line:       #262E45;
+    --code-bg:    #141A2B;
+    --dark-bg:    #101A38;
+    --dark-fg:    #EDF1FB;
+    --dark-soft:  #8CA8F5;
+    --shadow:     0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-block: 28px 64px;
+  }
+  h1, h2, h3 {
+    font-family: "Bricolage Grotesque", "Be Vietnam Pro", system-ui, sans-serif;
+    text-wrap: balance;
+    margin: 0;
+  }
+  h1 { font-size: clamp(28px, 5.2vw, 42px); font-weight: 800; line-height: 1.12; letter-spacing: -.015em; }
+  h2 { font-size: clamp(20px, 3.2vw, 25px); font-weight: 700; line-height: 1.26; color: var(--blue-deep); }
+  h3 { font-size: 17px; font-weight: 700; line-height: 1.35; }
+  p { margin: 0; }
+  a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  :focus-visible { outline: 2.5px solid var(--blue); outline-offset: 2px; border-radius: 3px; }
+
+  /* ── đầu trang ───────────────────────────────────────────── */
+  header.hero {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--blue);
+    border-radius: 4px;
+    padding: 26px 24px 24px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .eyebrow {
+    font-size: 11.5px; font-weight: 700; letter-spacing: .13em;
+    text-transform: uppercase; color: var(--blue);
+  }
+  .lede { font-size: 17px; color: var(--ink-soft); max-width: 62ch; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px; }
+  .fact {
+    font-size: 12.5px; font-weight: 600; font-variant-numeric: tabular-nums;
+    background: var(--blue-light); color: var(--blue-dark);
+    padding: 5px 11px; border-radius: 3px;
+  }
+  .fact b { font-weight: 800; }
+
+  /* ── mục ─────────────────────────────────────────────────── */
+  section { margin-block-start: 44px; }
+  .sechead { display: flex; align-items: baseline; gap: 11px; margin-block-end: 16px; }
+  .secnum {
+    font-family: var(--mono); font-size: 12px; font-weight: 700;
+    color: var(--blue); flex: none; padding-top: 4px;
+  }
+  .sectext { font-size: 15px; color: var(--ink-soft); max-width: 68ch; margin-block-start: 6px; }
+
+  .panel {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: 4px; padding: 20px;
+  }
+  .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(258px, 1fr)); gap: 14px; }
+  .grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(238px, 1fr)); gap: 14px; }
+
+  /* ── ba rào cản ──────────────────────────────────────────── */
+  .barrier {
+    background: var(--paper); border: 1px solid var(--line);
+    border-left: 3px solid var(--blue-mid); border-radius: 4px;
+    padding: 16px 17px; display: flex; flex-direction: column; gap: 9px;
+  }
+  .barrier.heavy { border-left-color: var(--red); }
+  .barrier-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .barrier-name { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 19px; letter-spacing: .02em; }
+  .tag {
+    font-size: 10.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+    padding: 3px 7px; border-radius: 3px; background: var(--blue-light); color: var(--blue-dark);
+  }
+  .tag.alert { background: var(--red-light); color: var(--red-dark); }
+  .barrier p { font-size: 14.5px; }
+  .barrier .fix { font-size: 13.5px; color: var(--ink-soft); }
+  .barrier .fix b { color: var(--ink); font-weight: 600; }
+
+  /* ── dãy bước ────────────────────────────────────────────── */
+  ol.steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; counter-reset: s; }
+  /* KHÔNG dùng grid/flex trên <li>: mỗi thẻ con (<b>, <code>, <span>) sẽ thành một item
+     riêng và text trần bị đẩy sang ô khác. Dùng padding + ::before tuyệt đối để nội dung
+     chảy liền mạch như một đoạn văn bình thường. */
+  ol.steps li {
+    counter-increment: s; position: relative;
+    padding: 13px 0 13px 37px; border-block-end: 1px solid var(--line);
+  }
+  ol.steps li:last-child { border-block-end: 0; }
+  ol.steps li::before {
+    content: counter(s); font-family: var(--mono); font-size: 12.5px; font-weight: 700;
+    color: var(--paper); background: var(--blue); width: 24px; height: 24px;
+    border-radius: 50%; display: grid; place-items: center;
+    position: absolute; left: 0; top: 15px;
+  }
+  ol.steps b { font-weight: 700; }
+  ol.steps .note { display: block; font-size: 13.5px; color: var(--ink-soft); margin-block-start: 3px; }
+
+  /* ── trục 6 bước ─────────────────────────────────────────── */
+  .axis { display: flex; flex-wrap: wrap; gap: 7px; align-items: stretch; }
+  .axis-step {
+    flex: 1 1 128px; background: var(--cream); border: 1px solid var(--line);
+    border-radius: 4px; padding: 11px 12px; display: flex; flex-direction: column; gap: 4px;
+  }
+  .axis-step .n { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--blue); }
+  .axis-step .t { font-size: 13.5px; font-weight: 700; line-height: 1.3; }
+  .axis-step .s { font-size: 12px; color: var(--ink-soft); line-height: 1.4; }
+  .axis-step.peak { background: var(--red-light); border-color: var(--red); }
+  .axis-step.peak .n { color: var(--red-dark); }
+
+  /* ── prompt ──────────────────────────────────────────────── */
+  .promptgroup { margin-block-start: 22px; }
+  .promptgroup > h3 {
+    display: flex; align-items: center; gap: 9px; margin-block-end: 11px;
+    padding-block-end: 7px; border-block-end: 2px solid var(--blue-mid);
+  }
+  .count { font-family: var(--mono); font-size: 11.5px; font-weight: 700; color: var(--ink-soft); }
+  .prompt {
+    background: var(--paper); border: 1px solid var(--line); border-radius: 4px;
+    overflow: hidden; margin-block-end: 11px;
+  }
+  .prompt-head {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    padding: 10px 13px; background: var(--cream); border-block-end: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+  .prompt-label { font-size: 13.5px; font-weight: 700; }
+  .prompt pre {
+    margin: 0; padding: 13px; background: var(--code-bg);
+    font-family: var(--mono); font-size: 13px; line-height: 1.62;
+    color: var(--ink); white-space: pre-wrap; word-break: break-word;
+  }
+  button.copy {
+    font-family: "Be Vietnam Pro", sans-serif; font-size: 12px; font-weight: 700;
+    color: var(--paper); background: var(--blue); border: 0; border-radius: 3px;
+    padding: 6px 13px; cursor: pointer; flex: none; transition: background .14s;
+  }
+  button.copy:hover { background: var(--blue-dark); }
+  button.copy[data-state="ok"] { background: var(--blue-deep); }
+  button.copy[data-state="fail"] { background: var(--red-dark); }
+
+  /* ── bảng ────────────────────────────────────────────────── */
+  .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 4px; background: var(--paper); }
+  table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 13px; border-block-end: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--blue); color: var(--paper); font-weight: 700; font-size: 12.5px; letter-spacing: .02em; }
+  tbody tr:nth-child(even) { background: var(--cream); }
+  tbody tr:last-child td { border-block-end: 0; }
+  code.r {
+    font-family: var(--mono); font-size: 12px; font-weight: 700;
+    background: var(--red-light); color: var(--red-dark); padding: 1px 5px; border-radius: 3px;
+    white-space: nowrap;
+  }
+  code.k {
+    font-family: var(--mono); font-size: 12.5px;
+    background: var(--code-bg); padding: 1px 5px; border-radius: 3px; border: 1px solid var(--line);
+  }
+
+  /* ── danh sách dấu hiệu ──────────────────────────────────── */
+  .signs { display: grid; grid-template-columns: repeat(auto-fit, minmax(282px, 1fr)); gap: 14px; }
+  .signbox { border: 1px solid var(--line); border-radius: 4px; background: var(--paper); overflow: hidden; }
+  .signbox > .cap {
+    padding: 9px 15px; font-size: 13px; font-weight: 700; letter-spacing: .03em;
+    background: var(--blue); color: var(--paper);
+  }
+  .signbox.bad > .cap { background: var(--red); }
+  .signbox ul { margin: 0; padding: 13px 15px 13px 30px; display: flex; flex-direction: column; gap: 8px; }
+  .signbox li { font-size: 14px; }
+
+  /* ── cảnh báo ────────────────────────────────────────────── */
+  .alertbox {
+    background: var(--red-light); border: 1px solid var(--red);
+    border-radius: 4px; padding: 18px 20px;
+    display: flex; flex-direction: column; gap: 11px;
+  }
+  .alertbox h3 { color: var(--red-dark); }
+  .alertbox p, .alertbox li { font-size: 14.5px; }
+  .alertbox ul { margin: 0; padding-left: 19px; display: flex; flex-direction: column; gap: 6px; }
+
+  blockquote {
+    margin: 0; padding: 17px 20px; background: var(--dark-bg);
+    border-radius: 4px; color: var(--dark-fg);
+    font-family: "Bricolage Grotesque", sans-serif; font-weight: 700;
+    font-size: clamp(16px, 2.4vw, 19px); line-height: 1.42;
+  }
+
+  pre.cli {
+    margin: 0; padding: 15px; background: var(--dark-bg); color: var(--dark-fg);
+    border-radius: 4px; font-family: var(--mono); font-size: 12.5px; line-height: 1.7;
+    overflow-x: auto;
+  }
+  pre.cli .c { color: var(--dark-soft); }
+
+  footer {
+    margin-block-start: 52px; padding-block-start: 20px; border-block-start: 1px solid var(--line);
+    font-size: 13px; color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 6px 16px;
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">Hướng dẫn sử dụng · Agent-PR-GEO-Plant</span>
+    <h1>Nha khoa Paris GEO Planner</h1>
+    <p class="lede">AI lập kế hoạch GEO theo tháng cho <code class="k">nhakhoaparis.vn</code> — đọc bộ truy vấn, xếp ưu tiên theo nỗi sợ của khách, rải theo tháng, rồi xuất file Excel 2 TAB giao được việc ngay.</p>
+    <div class="facts">
+      <span class="fact">v<b>1.0</b></span>
+      <span class="fact"><b>10</b> bộ dịch vụ</span>
+      <span class="fact"><b>150</b> cụm chủ đề</span>
+      <span class="fact"><b>389</b> bài cần sản xuất</span>
+      <span class="fact"><b>2.550</b> truy vấn</span>
+      <span class="fact"><b>14</b> rào pháp lý</span>
+      <span class="fact">Output <b>Excel 2 TAB</b></span>
+    </div>
+  </header>
+
+  <section>
+    <div class="sechead"><span class="secnum">01</span><h2>Nguyên tắc tối thượng</h2></div>
+    <blockquote>Nha khoa Paris không đi kể chuyện mình giỏi. Paris đi theo hành trình của khách, gỡ từng nỗi lo, rồi mới xuất hiện như giải pháp.</blockquote>
+    <p class="sectext">Hệ quả vận hành: thứ tự ưu tiên nội dung <b>không</b> theo doanh thu dịch vụ, mà theo điểm ưu tiên của cụm truy vấn. Vì vậy “Tháo răng sứ làm lại” và “Mài răng, chết tuỷ” luôn đứng trên “Các loại răng sứ”; và cụm Nha chu — doanh thu thấp nhất — vẫn được ưu tiên vì đối thủ bỏ trống hoàn toàn.</p>
+  </section>
+
+  <section>
+    <div class="sechead"><span class="secnum">02</span><h2>Ba rào cản chốt của khách nha khoa</h2></div>
+    <p class="sectext">Đây là bộ lọc chính của Agent. Mỗi đầu việc trong kế hoạch phải gỡ được ít nhất một rào, và Agent ghi rõ rào nào vào cột <i>Công việc chi tiết</i>.</p>
+    <div class="grid3" style="margin-top:16px">
+      <div class="barrier">
+        <div class="barrier-top"><span class="barrier-name">SỢ</span><span class="tag">Đau &amp; mất răng thật</span></div>
+        <p>Đau khi nhổ, khoan, cấy trụ. <b>Mài mất răng thật</b> — men răng không mọc lại. Niềng thì lâu, đau và xấu suốt thời gian đeo.</p>
+        <p class="fix">Gỡ bằng: <b>Piezotome</b> · <b>RECIPROC BLUE</b> · bác sĩ theo dõi từng giai đoạn · Invisalign trong suốt.</p>
+      </div>
+      <div class="barrier heavy">
+        <div class="barrier-top"><span class="barrier-name">NGỜ</span><span class="tag alert">Rào nặng nhất</span></div>
+        <p>Trụ Implant, phôi sứ, khay niềng <b>có chính hãng không</b>? Bác sĩ có giỏi? Giá có ẩn? Hỏng thì ai bảo hành?</p>
+        <p class="fix">Gỡ bằng: <b>Straumann</b> (top 1) · <b>Invisalign Black Diamond</b> · <b>Nacera</b> · <b>Ormco Diamond Star</b> · 100% BS tốt nghiệp ĐH Y có chứng chỉ hành nghề · giấy phép Sở Y tế.</p>
+      </div>
+      <div class="barrier">
+        <div class="barrier-top"><span class="barrier-name">NGẠI</span><span class="tag">Lộ trình &amp; chi phí</span></div>
+        <p>Điều trị nhiều buổi, đi lại nhiều lần, chi phí lớn, không biết khi nào xong.</p>
+        <p class="fix">Gỡ bằng: lộ trình rõ <b>số buổi và mốc thời gian</b> · trả góp · 7 cơ sở · đặt lịch linh hoạt.</p>
+      </div>
+    </div>
+    <div class="alertbox" style="margin-top:16px">
+      <h3>Vì sao NGỜ nặng hơn hẳn ngành thẩm mỹ</h3>
+      <p>Khách <b>không tự kiểm tra được vật liệu nằm trong miệng mình</b>. Đó là lý do cụm <b>C03 (vật liệu)</b> và <b>C14 (thực thể, kiểm chứng)</b> được đẩy lên Tầng A ở ba bộ Implant · Invisalign · Răng sứ, khác với phân bổ mặc định.</p>
+      <p>Nghịch lý phải nhớ: <b>bằng chứng mạnh nhất của Paris cũng là rào pháp lý dễ sai nhất.</b> Chữ “chính hãng” chỉ được gắn cho đúng 4 hãng trên — rào <code class="r">R7</code>.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sechead"><span class="secnum">03</span><h2>Trục 6 bước — không đảo, không bỏ bước</h2></div>
+    <p class="sectext">Mọi bài viết trong kế hoạch phải truy ngược được về một cụm truy vấn → một giai đoạn → một rào cản của một đối tượng thật. Bài nào không truy ngược được thì bị loại khỏi kế hoạch.</p>
+    <div class="axis" style="margin-top:16px">
+      <div class="axis-step"><span class="n">①</span><span class="t">Chọn lĩnh vực</span><span class="s">Bộ dịch vụ nào vào kế hoạch</span></div>
+      <div class="axis-step"><span class="n">②</span><span class="t">Đối tượng KH</span><span class="s">7–10 nhóm mỗi bộ + rào cản chi phối</span></div>
+      <div class="axis-step peak"><span class="n">③</span><span class="t">Giai đoạn S1–S6</span><span class="s">S3 Cân nhắc &amp; nỗi sợ là điểm quyết định, ~50% điểm ưu tiên</span></div>
+      <div class="axis-step"><span class="n">④</span><span class="t">Cụm truy vấn</span><span class="s">C01–C15 + tầng 80/20</span></div>
+      <div class="axis-step"><span class="n">⑤</span><span class="t">Cụm nội dung</span><span class="s">Quy ra số bài, trang đích, sóng</span></div>
+      <div class="axis-step"><span class="n">⑥</span><span class="t">GEO/SEO</span><span class="s">KPI đo được → Excel 2 TAB</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sechead"><span class="secnum">04</span><h2>Cài Agent — 3 bước</h2></div>
+    <div class="panel">
+      <ol class="steps">
+        <li><b>Instructions.</b> Dán toàn bộ khối giữa hai vạch ▼▲ trong <code class="k">SYSTEM-PROMPT.md</code> vào ô Chỉ dẫn (Gemini Gems) / Instructions (ChatGPT Custom GPT) / Custom instructions (Claude Project).
+          <span class="note">Với ChatGPT: bắt buộc bật <b>Code Interpreter &amp; Data Analysis</b>, nếu không Agent không sinh được file <code class="k">.xlsx</code>.</span></li>
+        <li><b>Knowledge.</b> Upload đủ <b>6 file</b> <code class="k">.md</code> trong thư mục <code class="k">knowledge/</code>.
+          <span class="note">Thiếu <code class="k">geo-bo-truy-van-index.md</code> → Agent bịa số bài. Thiếu <code class="k">geo-rao-phap-ly.md</code> → Agent gắn sai chữ “chính hãng” và đưa số giá vào kế hoạch.</span></li>
+        <li><b>Template.</b> Upload <code class="k">template/GEO-PLAN-MAU-6-THANG.xlsx</code> để Agent bám đúng format 2 TAB và bảng màu Paris.
+          <span class="note">Gemini không sinh được <code class="k">.xlsx</code> — Agent sẽ xuất bảng phẳng để bạn bấm <i>Export to Sheets</i>.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="sechead"><span class="secnum">05</span><h2>Công thức ra lệnh</h2></div>
+    <div class="prompt">
+      <div class="prompt-head">
+        <span class="prompt-label">Khung chung — ba thông tin bắt buộc</span>
+        <button class="copy" type="button">Copy</button>
+      </div>
+      <pre>Lập kế hoạch GEO cho [PHẠM VI] trong [SỐ THÁNG] tháng, bắt đầu từ [THÁNG/NĂM].
+[Ràng buộc nếu có: năng lực đội, tầng ưu tiên, line trọng điểm]</pre>
+    </div>
+    <p class="sectext">Thiếu <b>phạm vi</b>, <b>số tháng</b> hoặc <b>tháng bắt đầu</b> → Agent sẽ hỏi lại chứ không đoán.</p>
+    <div class="tablewrap" style="margin-top:14px">
+      <table>
+        <thead><tr><th style="width:27%">Cách gọi phạm vi</th><th>Giá trị hợp lệ</th></tr></thead>
+        <tbody>
+          <tr><td>Toàn hệ thống</td><td><code class="k">toàn hệ thống</code> — cả 10 bộ, 389 bài</td></tr>
+          <tr><td>Business line</td><td><code class="k">BRAND</code> 34 bài · <code class="k">NKI</code> Implant &amp; Phục hình 77 · <code class="k">NKC</code> Chỉnh nha 75 · <code class="k">NKT</code> Thẩm mỹ 81 · <code class="k">NKG</code> Tổng quát &amp; Nha chu 82 · <code class="k">NKF</code> Trẻ em &amp; Gia đình 40</td></tr>
+          <tr><td>Bộ dịch vụ</td><td>Thương hiệu · Implant · All-On 4/6 · Niềng mắc cài · Invisalign · Bọc răng sứ · Veneer · Nha khoa tổng quát · Nha chu · Nha khoa trẻ em</td></tr>
+          <tr><td>Một cụm xuyên bộ</td><td>ví dụ <i>“chỉ cụm C11 Hỏng &amp; làm lại của cả 10 bộ”</i></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sechead"><span class="secnum">06</span><h2>Thư viện prompt mẫu</h2></div>
+    <p class="sectext">Bấm <b>Copy</b> rồi dán thẳng vào Agent. Prompt đầu tiên nên dùng để kiểm tra Agent đã nạp đủ tri thức chưa.</p>
+
+    <div class="promptgroup">
+      <h3>Kiểm tra sau khi cài <span class="count">3 prompt</span></h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="prompt-label">Smoke test — chạy đầu tiên</span><button class="copy" type="button">Copy</button></div>
+        <pre>Bạn là ai, làm được gì? Nêu trục 6 bước, ba rào cản chốt của khách nha khoa,
+và cho biết Nha khoa Paris có bao nhiêu bộ truy vấn, bao nhiêu cụm, bao nhiêu bài cần sản xuất.</pre>
+      </div>
+      <div class="prompt">
+        <div class="prompt-head"><span class="prompt-label">Test rào R7 — chữ “chính hãng”</span><button class="copy" type="button">Copy</button></div>
+        <pre>Trụ Implant ở Nha khoa Paris có chính hãng không? Viết cho tôi một câu quảng cáo.</pre>
+      </div>
+      <div class="prompt">
+        <div class="prompt-head"><span class="prompt-label">Test rào R12 — giá là dữ liệu động</span><button class="copy" type="button">Copy</button></div>
+        <pre>Giá trồng implant ở Paris bao nhiêu? Đưa số vào kế hoạch giúp tôi.</pre>
+      </div>
+    </div>
+
+    <div class="promptgroup">
+      <h3>Lập kế hoạch <span class="count">7 prompt</span></h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="prompt-label">Toàn hệ thống · 6 tháng</span><button class="copy" type="button">Copy</button></div>
+        <pre>Lập kế hoạch GEO toàn hệ thống Nha khoa Paris trong 6 tháng, bắt đầu từ tháng 01/2027.
+Xuất file 2 TAB theo mẫu.</pre>
+      </div>
+      <div class="prompt">
+        <div class="prompt-head"><span class="prompt-label">Một business line</span><button class="copy" type="button">Copy</button></div>
+        <pre>Lập kế hoạch GEO cho line NKI — Implant & Phục hình mất răng (2 bộ: Implant và All-On 4/6)
+trong 4 tháng từ tháng 11/2026. Chỉ chạy Tầng A và B, Tầng C đẩy sang quý sau.</pre>
+      </div>
+      <div class="prompt">
+        <div class="prompt-head"><span class="prompt-label">Bốn dịch vụ giá trị lớn</span><button class="copy" type="button">Copy</button></div>
+        <pre>Quý tới Paris muốn dồn lực vào 4 dịch vụ giá trị lớn: Implant, All-On 4/6, Invisalign,
+răng sứ toàn hàm. Lập kế hoạch 3 tháng từ 01/2027, nêu rõ cụm nào bị đẩy sang backlog và vì sao.</pre>
+      </div>
+      <div class="prompt">
+        <div class="prompt-head"><span class="prompt-label">Có ràng buộc năng lực đội</span><button class="copy" type="button">Copy</button></div>
+        <pre>Lập kế hoạch GEO 3 tháng từ 01/2027 cho line NKT — Nha khoa thẩm mỹ.
+Đội content chỉ sản xuất được tối đa 20 bài/tháng — hãy cắt phạm vi cho khớp
+và nói rõ cụm nào bị đẩy sang backlog, vì sao.</pre>
+      </div>
+      <div class="prompt">
+        <div class="prompt-head"><span class="prompt-label">Dồn lực vào một rào cản</span><button class="copy" type="button">Copy</button></div>
+        <pre>Quý tới Paris muốn chiếm lĩnh toàn bộ chủ đề rào cản NGỜ về vật liệu trên AI Search
+— trụ Implant, phôi sứ, khay Invisalign có chính hãng không.
+Lập kế hoạch 3 tháng chỉ tập trung cụm C03 và C14 của cả 10 bộ.</pre>
+      </div>
+      <div class="prompt">
+        <div class="prompt-head"><span class="prompt-label">Chiếm khoảng trống đối thủ</span><button class="copy" type="button">Copy</button></div>
+        <pre>Lập kế hoạch 4 tháng từ 02/2027 cho hai bộ Nha khoa tổng quát và Nha chu
+— hai bộ đối thủ bỏ trống nhiều nhất. Giải thích vì sao đáng làm dù doanh thu thấp.</pre>
+      </div>
+      <div class="prompt">
+        <div class="prompt-head"><span class="prompt-label">Trang local 7 cơ sở</span><button class="copy" type="button">Copy</button></div>
+        <pre>Lập kế hoạch 4 tháng chỉ cho 7 trang cơ sở (Hà Nội, Hải Phòng, Quảng Ninh, Vinh,
+Đà Nẵng, TP.HCM, Bình Dương) từ 01/2027. Nêu rõ dữ liệu nào phải lấy từ /tim-phong-kham.html
+và rào pháp lý nào áp cho từng trang.</pre>
+      </div>
+    </div>
+
+    <div class="promptgroup">
+      <h3>Hỏi đáp — không lập kế hoạch <span class="count">5 prompt</span></h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="prompt-label">Brief sản xuất một cụm</span><button class="copy" type="button">Copy</button></div>
+        <pre>Cho tôi brief sản xuất cụm C06 Mài răng & chết tuỷ của bộ Bọc răng sứ:
+cần bao nhiêu bài, dạng gì, trang đích nào, gỡ rào cản nào, rào pháp lý nào.</pre>
+      </div>
+      <div class="prompt">
+        <div class="prompt-head"><span class="prompt-label">Hiểu thứ tự ưu tiên</span><button class="copy" type="button">Copy</button></div>
+        <pre>Vì sao cụm C03 Vật liệu nằm Tầng A ở bộ Implant trong khi ở bộ Nha chu chỉ ở Tầng B?</pre>
+      </div>
+      <div class="prompt">
+        <div class="prompt-head"><span class="prompt-label">Nỗi sợ theo giai đoạn</span><button class="copy" type="button">Copy</button></div>
+        <pre>Khách ở giai đoạn S3 của dịch vụ Invisalign đang sợ điều gì?
+Paris phải có nội dung gì để trả lời?</pre>
+      </div>
+      <div class="prompt">
+        <div class="prompt-head"><span class="prompt-label">Giao thức đo GEO</span><button class="copy" type="button">Copy</button></div>
+        <pre>Ba bộ prompt đo GEO của Paris gồm những gì? Chạy thế nào cho đúng giao thức?</pre>
+      </div>
+      <div class="prompt">
+        <div class="prompt-head"><span class="prompt-label">Dữ liệu còn thiếu</span><button class="copy" type="button">Copy</button></div>
+        <pre>Những dữ liệu nào Nha khoa Paris chưa cung cấp, và nó đang chặn trụ cột KPI nào?</pre>
+      </div>
+    </div>
+
+    <div class="promptgroup">
+      <h3>Tinh chỉnh sau khi có bản nháp <span class="count">3 prompt</span></h3>
+      <div class="prompt">
+        <div class="prompt-head"><span class="prompt-label">Đổi thứ tự một cụm</span><button class="copy" type="button">Copy</button></div>
+        <pre>Giữ nguyên bản kế hoạch, chỉ đổi: dồn toàn bộ cụm C14 Thực thể vào tháng 1
+vì cần schema bác sĩ và trang thực thể chạy trước mọi cụm khác.</pre>
+      </div>
+      <div class="prompt">
+        <div class="prompt-head"><span class="prompt-label">Giãn tiến độ</span><button class="copy" type="button">Copy</button></div>
+        <pre>Sản lượng tháng 1 đang 69 bài, quá tải. Giãn thành 8 tháng, giữ nguyên thứ tự ưu tiên.</pre>
+      </div>
+      <div class="prompt">
+        <div class="prompt-head"><span class="prompt-label">Thêm cột vào output</span><button class="copy" type="button">Copy</button></div>
+        <pre>Bổ sung cột "Trang đích" vào TAB Công việc triển khai, lấy từ bản đồ nội dung.
+Đánh dấu rõ trang nào là MỚI và trang nào cần đối chiếu sitemap.</pre>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sechead"><span class="secnum">07</span><h2>Agent sẽ từ chối hoặc cảnh báo</h2></div>
+    <p class="sectext">Agent không im lặng làm theo. Mỗi lần từ chối, nó nêu mã rào để Pháp chế biết đường duyệt.</p>
+    <div class="tablewrap" style="margin-top:14px">
+      <table>
+        <thead><tr><th style="width:40%">Nếu bạn yêu cầu</th><th>Agent sẽ</th></tr></thead>
+        <tbody>
+          <tr><td>“Giá implant 18 triệu, điền vào kế hoạch”</td><td>Từ chối — <code class="r">R12</code>: giá là dữ liệu động, chỉ ghi đầu việc lấy dải giá tại thời điểm chạy</td></tr>
+          <tr><td>“Viết ‘phôi sứ Zirconia chính hãng’”</td><td>Cảnh báo <code class="r">R7</code> — chỉ Straumann · Invisalign · Nacera · Ormco được gắn chữ này</td></tr>
+          <tr><td>“Thêm ‘niềng không đau’ vào tiêu đề”</td><td>Từ chối <code class="r">R1</code>; đề xuất “giảm cảm giác khó chịu nhờ công nghệ, bác sĩ theo dõi từng giai đoạn”</td></tr>
+          <tr><td>“Ghi bác sĩ X phụ trách line Nha chu”</td><td>Cảnh báo <code class="r">R4</code> — chỉ 3 bác sĩ đã có hồ sơ xác minh được gắn vào dịch vụ</td></tr>
+          <tr><td>“Dựng trang local cho Cần Thơ, Thanh Hoá”</td><td>Cảnh báo <code class="r">R3</code> — Paris không có cơ sở ở đó; đề xuất viết bài kiến thức nêu cơ sở gần nhất</td></tr>
+          <tr><td>“Gắn giấy phép 2032/HNO-GPHĐ/CL1 cho trang Đà Nẵng”</td><td>Từ chối <code class="r">R3</code> — mỗi cơ sở có giấy phép riêng do Sở Y tế tỉnh đó cấp</td></tr>
+          <tr><td>“Viết bài: khách này bọc sứ chỗ khác bị hỏng”</td><td>Cảnh báo <code class="r">R6</code> — tuyệt đối không phán xét nơi cũ; viết theo hướng phương án xử lý</td></tr>
+          <tr><td>“Đoán tình trạng răng khách qua ảnh họ gửi”</td><td>Từ chối <code class="r">R13</code> — không chẩn đoán, không kê đơn, không báo giá ca cụ thể</td></tr>
+          <tr><td>“Hứa niềng xong trong 12 tháng”</td><td>Từ chối <code class="r">R13</code> — nêu <b>dải</b> thời gian, nói rõ phụ thuộc từng ca</td></tr>
+          <tr><td>“Đặt KPI traffic AI tháng 1 là 3.000 phiên”</td><td>Cảnh báo không có mốc gốc nào → đề xuất % tăng trưởng, ghi <i>⚠ Cần xác minh từ Nha khoa Paris</i></td></tr>
+          <tr><td>“Bỏ qua bước đo GEO cho nhanh”</td><td>Cảnh báo mất mốc gốc → không đánh giá được tăng trưởng cả chu kỳ</td></tr>
+          <tr><td>“Làm Tầng B trước, Tầng A để sau”</td><td>Nêu đánh đổi của việc phá luật 80/20, rồi mới làm theo nếu bạn khẳng định lại</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sechead"><span class="secnum">08</span><h2>Đọc output cho đúng</h2></div>
+    <div class="signs">
+      <div class="signbox">
+        <div class="cap">✓ Năm dấu hiệu ĐÚNG</div>
+        <ul>
+          <li><b>CORE giảm dần theo tháng</b> — T1 <code class="k">69/69</code> → T4 <code class="k">65/33</code> → T6 <code class="k">61/0</code>. Tầng A dồn đầu chu kỳ đúng luật 80/20.</li>
+          <li><b>Mọi business line có mặt mọi tháng</b> — không dồn một line vào một tháng.</li>
+          <li><b>Mỗi ô Công việc chi tiết</b> có mã cụm + rào cản SỢ/NGỜ/NGẠI + mã rào pháp lý.</li>
+          <li><b>Màu đỏ chỉ xuất hiện ở dòng ★ tổng tháng</b> — đúng tỷ lệ 5% của bộ nhận diện Paris.</li>
+          <li><b>Tháng Setup có đủ R9 · R7 · R12</b> và ghi rõ “đây là mốc gốc, không đặt chỉ tiêu tăng trưởng”.</li>
+        </ul>
+      </div>
+      <div class="signbox bad">
+        <div class="cap">✕ Sáu dấu hiệu SAI</div>
+        <ul>
+          <li>Cột <i>Hiện tại</i> của trụ cột 3/4/5 có <b>số tuyệt đối</b> mà Paris chưa cung cấp → bịa số.</li>
+          <li>Bất kỳ <b>con số giá, % ưu đãi, lãi suất trả góp</b> nào trong file → vi phạm <code class="r">R12</code>.</li>
+          <li>Chữ <b>“chính hãng”</b> gắn cho vật liệu ngoài 4 hãng → vi phạm <code class="r">R7</code>.</li>
+          <li>Tháng Setup thiếu việc xin GXNNDQC hoặc thiếu việc khoá bộ đo GEO.</li>
+          <li>Tên bác sĩ ngoài 3 hồ sơ, hoặc gắn bác sĩ vào bộ Nha chu / Trẻ em → vi phạm <code class="r">R4</code>.</li>
+          <li>Có trang local cho tỉnh <b>không có cơ sở</b> → vi phạm <code class="r">R3</code>.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sechead"><span class="secnum">09</span><h2>Khoảng trống dữ liệu — biết trước khi dùng</h2></div>
+    <div class="alertbox">
+      <h3>⚠ Paris chưa cung cấp bất kỳ số GA4, thứ hạng từ khoá hay số lead nào</h3>
+      <p>Agent được thiết kế để <b>nói rõ điều này</b> thay vì lấp bảng bằng số bịa. Đây là trạng thái cố ý ghi nhận, không phải thiếu sót của kế hoạch.</p>
+      <ul>
+        <li><b>Trụ cột KPI 3 · 4 · 5</b> chỉ đặt được % tăng trưởng; cột <i>Hiện tại</i> để <i>⚠ Cần xác minh từ Nha khoa Paris</i>.</li>
+        <li><b>Cơ hội GEO của mọi cụm = 1</b> → thứ tự ưu tiên hiện dựa trên rào cản khách, chưa hiệu chỉnh bằng traffic thật.</li>
+        <li><b>Địa chỉ + SĐT + số giấy phép từng cơ sở</b> phải lấy tại <code class="k">/tim-phong-kham.html</code> ngay khi chạy — rào <code class="r">R3</code>.</li>
+        <li><b>Chưa có bác sĩ gán được</b> cho bộ Nha chu và Nha khoa trẻ em → cụm C14 của hai bộ này bị chặn bởi <code class="r">R4</code>.</li>
+        <li><b>Mọi trang đích</b> trong bản đồ nội dung hiện là <code class="k">MỚI:</code> hoặc <code class="k">⚠ đối chiếu</code> — phải soi sitemap thật trước khi giao việc.</li>
+      </ul>
+      <p><b>Hệ quả:</b> tháng Setup của mọi chu kỳ là tháng lấy mốc gốc. Sau tháng Setup, chạy lại bước ④ để xếp lại Cơ hội GEO theo traffic thật rồi điều chỉnh các tháng sau.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sechead"><span class="secnum">10</span><h2>Chạy công cụ cục bộ</h2></div>
+    <p class="sectext">Nếu bạn muốn sinh file Excel mà không qua Agent — dữ liệu nguồn là 10 file JSON trong <code class="k">data/bo-truy-van/</code>, sửa trực tiếp được bằng editor.</p>
+    <pre class="cli"><span class="c"># cài một lần</span>
+pip install openpyxl
+
+<span class="c"># sinh lại chỉ mục knowledge sau khi sửa JSON (tự soát 15 cụm · tổng % điểm = 100 · tầng 5/5/3/2)</span>
+python tools/build-index.py
+
+<span class="c"># sinh file kế hoạch 2 TAB</span>
+python tools/build-geo-plan.py --start 2027-01 --months 6
+python tools/build-geo-plan.py --start 2026-11 --months 4 --scope implant,allon,invisalign
+python tools/build-geo-plan.py --start 2027-01 --months 12 --tiers A,B,C -o ke-hoach-2027.xlsx
+
+<span class="c"># key hợp lệ của --scope</span>
+<span class="c"># thuonghieu · implant · allon · niengmaccai · invisalign</span>
+<span class="c"># rangsu · veneer · tongquat · nhachu · trenem</span></pre>
+    <p class="sectext">Script in ra ngay chênh lệch sản lượng tháng cao/thấp và kết luận ĐẠT/VƯỢT ràng buộc ≤25%.</p>
+  </section>
+
+  <footer>
+    <span><b>Agent-PR-GEO-Plant</b> v1.0</span>
+    <span>Kế thừa kiến trúc từ Agent-KN-GEO-Plant</span>
+    <span>Tài liệu đầy đủ: <code class="k">README.md</code> · <code class="k">doc/01-cai-dat.md</code> · <code class="k">doc/02-cau-lenh.md</code> · <code class="k">doc/03-output-mau.md</code></span>
+    <span>Quyết định cuối luôn thuộc người dùng.</span>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll("button.copy").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var box = btn.closest(".prompt");
+      var pre = box && box.querySelector("pre");
+      if (!pre) return;
+      var text = pre.textContent;
+      var done = function (ok) {
+        btn.dataset.state = ok ? "ok" : "fail";
+        btn.textContent = ok ? "Đã copy ✓" : "Chọn & copy tay";
+        setTimeout(function () { delete btn.dataset.state; btn.textContent = "Copy"; }, 2200);
+      };
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () { done(true); }, function () { fallback(text, done); });
+        } else {
+          fallback(text, done);
+        }
+      } catch (e) { fallback(text, done); }
+    });
+  });
+
+  function fallback(text, done) {
+    try {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      done(ok);
+    } catch (e) { done(false); }
+  }
+</script>

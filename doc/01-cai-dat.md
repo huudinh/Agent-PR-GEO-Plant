@@ -10,7 +10,7 @@ Agent có **3 tầng**: bộ não (`SYSTEM-PROMPT.md`) · tri thức (`knowledge
 |---|---|---|
 | **Tên / Name** | `Agent-PR-GEO-Plant` | — |
 | **Mô tả / Description** | `Chuyên gia nghiên cứu và lập kế hoạch triển khai SEO/GEO cho thương hiệu Nha khoa Paris (nhakhoaparis.vn). Xuất kế hoạch theo tháng dưới dạng file Excel 2 TAB: KPI + Công việc triển khai.` | mục *MÔ TẢ NGẮN* trong [`SYSTEM-PROMPT.md`](../SYSTEM-PROMPT.md) |
-| **Chỉ dẫn / Instructions** | Toàn bộ khối giữa hai vạch ▼▲ | [`SYSTEM-PROMPT.md`](../SYSTEM-PROMPT.md) |
+| **Chỉ dẫn / Instructions** | Khối giữa hai vạch ▼▲ — **bản đầy đủ** cho Claude & Gemini, **bản rút gọn** cho ChatGPT | [`SYSTEM-PROMPT.md`](../SYSTEM-PROMPT.md) |
 
 > Ô **Mô tả** tách riêng khỏi Instructions và **không thay thế** nó. Mô tả chỉ để người khác biết Agent này làm gì khi nhìn vào danh sách; luật hành xử nằm hết trong Instructions.
 
@@ -34,9 +34,11 @@ Agent có **3 tầng**: bộ não (`SYSTEM-PROMPT.md`) · tri thức (`knowledge
 1. **Create a GPT** → tab *Configure*.
 2. **Name:** `Agent-PR-GEO-Plant`.
 3. **Description:** dán **mô tả ngắn** (187 ký tự, vừa giới hạn 300 ký tự của ô này).
-4. **Instructions:** dán khối ▼▲.
+4. **Instructions:** dán **BẢN RÚT GỌN** (7.937 ký tự). ⚠ **Không dán bản đầy đủ** — ô này giới hạn **8.000 ký tự**, bản đầy đủ dài 22.681 ký tự sẽ bị cắt cụt giữa chừng.
 5. **Knowledge:** upload 6 file `knowledge/*.md` + **2 file mẫu** `.xlsx` trong `template/`.
 6. **Capabilities:** bật **Code Interpreter & Data Analysis** — bắt buộc để sinh `.xlsx`.
+
+> ⚠ **Bản rút gọn giữ nguyên 100% các luật nhưng cắt bảng tra** — nó trông cậy vào Tri thức để bù. Không nạp đủ 6 file `knowledge/` thì nó sẽ bắt đầu đoán, và đoán sai ở chỗ pháp lý.
 
 ## Claude (Project)
 
@@ -153,3 +155,5 @@ Dữ liệu nguồn là JSON nên sửa trực tiếp được, **không cần E
 | Gemini không tải được file | Gemini không sinh `.xlsx` | Dùng bảng phẳng + *Export to Sheets*, hoặc chạy script cục bộ |
 | File Excel mở ra vỡ font / mất dấu | Agent dùng font web của Paris | Nhắc §13: **font Arial toàn file**, không dùng Bricolage/Be Vietnam Pro trong Excel |
 | `build-index.py` báo lỗi "tổng % điểm = 102" | Sửa JSON làm lệch bất biến | Sửa lại `pct` cho tổng = 100 rồi chạy lại |
+| ChatGPT báo Instructions quá dài | Dán nhầm bản đầy đủ | Dán **bản rút gọn** giữa hai vạch ▼▲ BẢN RÚT GỌN |
+| ChatGPT trả lời đúng luật nhưng sai số liệu | Bản rút gọn chưa được bù bằng Tri thức | Upload đủ 6 file `knowledge/` — bản rút gọn đã cắt bảng tra |

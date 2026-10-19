@@ -48,8 +48,9 @@ KNOWLEDGE = [
 # ── thư viện prompt ──────────────────────────────────────────────────────
 PROMPTS = [
     ("test", "Smoke test — chạy đầu tiên", "Kiểm tra",
-     "Bạn là ai, làm được gì? Nêu trục 6 bước, ba rào cản chốt của khách nha khoa,\n"
-     "và cho biết Nha khoa Paris có bao nhiêu bộ truy vấn, bao nhiêu cụm, bao nhiêu bài cần sản xuất.",
+     "Bạn là ai và giúp được tôi việc gì? Nói qua cách bạn làm việc,\n"
+     "ba rào cản lớn nhất của khách nha khoa là gì,\n"
+     "và hiện Nha khoa Paris có bao nhiêu bài cần sản xuất.",
      "Đúng: 10 bộ · 150 cụm · 389 bài, và nói được SỢ · NGỜ · NGẠI"),
     ("test", "Test rào R7 — chữ “chính hãng”", "Kiểm tra",
      "Trụ Implant ở Nha khoa Paris có chính hãng không? Viết cho tôi một câu quảng cáo.",
@@ -62,84 +63,97 @@ PROMPTS = [
      "Đúng: cảnh báo Paris không có cơ sở ở Cần Thơ, không dựng trang local"),
 
     ("plan", "Toàn hệ thống · 6 tháng", "Lập kế hoạch",
-     "Lập kế hoạch GEO toàn hệ thống Nha khoa Paris trong 6 tháng, bắt đầu từ tháng 01/2027.\n"
-     "Xuất file 2 TAB theo mẫu.",
+     "Tôi muốn làm kế hoạch GEO cho toàn bộ Nha khoa Paris trong 6 tháng, bắt đầu từ tháng 01/2027.\n"
+     "Xuất cho tôi file Excel gồm bảng KPI và bảng giao việc theo đúng mẫu.",
      "389 bài · 6 business line · ~65 bài/tháng"),
-    ("plan", "Một business line", "Lập kế hoạch",
-     "Lập kế hoạch GEO cho line NKI — Implant & Phục hình mất răng (2 bộ: Implant và All-On 4/6)\n"
-     "trong 4 tháng từ tháng 11/2026. Chỉ chạy Tầng A và B, Tầng C đẩy sang quý sau.",
-     "77 bài · chu kỳ vắt qua năm"),
-    ("plan", "Bốn dịch vụ giá trị lớn", "Lập kế hoạch",
-     "Quý tới Paris muốn dồn lực vào 4 dịch vụ giá trị lớn: Implant, All-On 4/6, Invisalign,\n"
-     "răng sứ toàn hàm. Lập kế hoạch 3 tháng từ 01/2027, nêu rõ cụm nào bị đẩy sang backlog và vì sao.",
-     "Agent phải nói rõ cụm bị cắt, không im lặng bỏ"),
-    ("plan", "Có ràng buộc năng lực đội", "Lập kế hoạch",
-     "Lập kế hoạch GEO 3 tháng từ 01/2027 cho line NKT — Nha khoa thẩm mỹ.\n"
-     "Đội content chỉ sản xuất được tối đa 20 bài/tháng — hãy cắt phạm vi cho khớp\n"
-     "và nói rõ cụm nào bị đẩy sang backlog, vì sao.",
+    ("plan", "Dồn lực một mảng dịch vụ", "Lập kế hoạch",
+     "Quý này tôi muốn tập trung vào mảng trồng răng — cả Implant lẻ lẫn All-On toàn hàm —\n"
+     "trong 4 tháng từ tháng 11/2026. Làm các cụm quan trọng nhất trước,\n"
+     "phần xây uy tín giữ chân khách thì để sang quý sau.",
+     "77 bài · chu kỳ vắt qua năm · Agent tự hiểu “quan trọng nhất” = Tầng A, B"),
+    ("plan", "Bốn dịch vụ doanh thu cao nhất", "Lập kế hoạch",
+     "Quý tới chúng tôi muốn dồn lực vào 4 dịch vụ doanh thu cao nhất: Implant, All-On 4/6,\n"
+     "Invisalign và răng sứ toàn hàm. Làm kế hoạch 3 tháng từ 01/2027,\n"
+     "và nói rõ những gì phải cắt bỏ để đổi lấy việc dồn lực này.",
+     "Agent phải nói thẳng cái gì bị cắt, không im lặng bỏ"),
+    ("plan", "Khi đội không kham nổi", "Lập kế hoạch",
+     "Làm kế hoạch 3 tháng từ 01/2027 cho mảng nha khoa thẩm mỹ (răng sứ và Veneer).\n"
+     "Đội content của tôi chỉ viết được tối đa 20 bài mỗi tháng — hãy cắt phạm vi cho vừa sức,\n"
+     "và nói rõ phần nào phải để lại kỳ sau cùng lý do.",
      "Agent cảnh báo nếu chỉ tiêu vượt năng lực, không im lặng nhận"),
-    ("plan", "Dồn lực vào một rào cản", "Lập kế hoạch",
-     "Quý tới Paris muốn chiếm lĩnh toàn bộ chủ đề rào cản NGỜ về vật liệu trên AI Search\n"
-     "— trụ Implant, phôi sứ, khay Invisalign có chính hãng không.\n"
-     "Lập kế hoạch 3 tháng chỉ tập trung cụm C03 và C14 của cả 10 bộ.",
-     "Cắt ngang 10 bộ theo mã cụm"),
+    ("plan", "Chiếm một nỗi lo của khách", "Lập kế hoạch",
+     "Khách của chúng tôi hay nghi ngờ chuyện vật liệu — trụ Implant, phôi sứ, khay niềng\n"
+     "có đúng hàng chính hãng không. Quý tới tôi muốn chiếm lĩnh đúng chủ đề này trên AI.\n"
+     "Làm kế hoạch 3 tháng, cắt ngang cả 10 dịch vụ, chỉ tập trung vật liệu và bằng chứng thương hiệu.",
+     "Agent tự ánh xạ sang cụm C03 và C14 của cả 10 bộ"),
     ("plan", "Chiếm khoảng trống đối thủ", "Lập kế hoạch",
-     "Lập kế hoạch 4 tháng từ 02/2027 cho hai bộ Nha khoa tổng quát và Nha chu\n"
-     "— hai bộ đối thủ bỏ trống nhiều nhất. Giải thích vì sao đáng làm dù doanh thu thấp.",
+     "Tôi thấy mảng nha khoa tổng quát và nha chu gần như không ai làm nội dung tử tế.\n"
+     "Làm kế hoạch 4 tháng từ 02/2027 cho hai mảng này,\n"
+     "và thuyết phục giúp tôi vì sao đáng đầu tư dù doanh thu hai mảng đó thấp.",
      "Agent phải giải thích theo điểm ưu tiên, không theo doanh thu"),
-    ("plan", "Trang local 7 cơ sở", "Lập kế hoạch",
-     "Lập kế hoạch 4 tháng chỉ cho 7 trang cơ sở (Hà Nội, Hải Phòng, Quảng Ninh, Vinh,\n"
-     "Đà Nẵng, TP.HCM, Bình Dương) từ 01/2027. Nêu rõ dữ liệu nào phải lấy từ /tim-phong-kham.html\n"
-     "và rào pháp lý nào áp cho từng trang.",
+    ("plan", "Trang riêng cho 7 cơ sở", "Lập kế hoạch",
+     "Tôi muốn làm trang riêng cho cả 7 cơ sở: Hà Nội, Hải Phòng, Quảng Ninh, Vinh,\n"
+     "Đà Nẵng, TP.HCM, Bình Dương. Làm kế hoạch 4 tháng từ 01/2027,\n"
+     "chỉ rõ thông tin nào bắt buộc phải lấy mới từ trang tìm phòng khám,\n"
+     "và mỗi trang phải tránh điều gì về pháp lý.",
      "Mỗi trang gắn giấy phép của chính cơ sở đó (R3)"),
 
-    ("ask", "Brief sản xuất một cụm", "Hỏi đáp",
-     "Cho tôi brief sản xuất cụm C06 Mài răng & chết tuỷ của bộ Bọc răng sứ:\n"
-     "cần bao nhiêu bài, dạng gì, trang đích nào, gỡ rào cản nào, rào pháp lý nào.",
+    ("ask", "Brief giao việc cho đội content", "Hỏi đáp",
+     "Tôi sắp giao cho đội content viết về chuyện mài răng và chết tuỷ khi bọc sứ.\n"
+     "Cho tôi brief đầy đủ: cần bao nhiêu bài, dạng bài gì, đăng ở trang nào,\n"
+     "gỡ được nỗi lo nào của khách, và phải tránh gì về pháp lý.",
      "9 bài · Tầng A · S3 · gỡ rào SỢ · R1 + R9"),
     ("ask", "Hiểu thứ tự ưu tiên", "Hỏi đáp",
-     "Vì sao cụm C03 Vật liệu nằm Tầng A ở bộ Implant trong khi ở bộ Nha chu chỉ ở Tầng B?",
+     "Vì sao chủ đề vật liệu lại được ưu tiên cao nhất ở Implant,\n"
+     "trong khi ở Nha chu thì xếp sau? Giải thích giúp tôi logic đằng sau.",
      "Trả lời theo rào cản NGỜ, không theo doanh thu"),
-    ("ask", "Nỗi sợ theo giai đoạn", "Hỏi đáp",
-     "Khách ở giai đoạn S3 của dịch vụ Invisalign đang sợ điều gì?\n"
-     "Paris phải có nội dung gì để trả lời?",
-     "S3 là điểm quyết định, ~50% điểm ưu tiên"),
-    ("ask", "Giao thức đo GEO", "Hỏi đáp",
-     "Ba bộ prompt đo GEO của Paris gồm những gì? Chạy thế nào cho đúng giao thức?",
+    ("ask", "Khách sắp quyết định thì sợ gì", "Hỏi đáp",
+     "Khách đang cân nhắc niềng Invisalign, gần quyết định rồi nhưng vẫn chần chừ.\n"
+     "Lúc đó họ sợ điều gì nhất, và Paris phải có sẵn nội dung gì để trả lời?",
+     "Agent tự nhận ra đây là giai đoạn S3 — điểm quyết định, ~50% điểm ưu tiên"),
+    ("ask", "Đo xem AI có nhắc Paris không", "Hỏi đáp",
+     "Tôi muốn đo xem AI có nhắc tới Nha khoa Paris không.\n"
+     "Cần chuẩn bị những bộ câu hỏi nào, và chạy thế nào cho ra số liệu tin được?",
      "20 dịch vụ · 7 hub · 10 thương hiệu; ẩn danh, 3 lần lấy đa số"),
-    ("ask", "Dữ liệu còn thiếu", "Hỏi đáp",
-     "Những dữ liệu nào Nha khoa Paris chưa cung cấp, và nó đang chặn trụ cột KPI nào?",
+    ("ask", "Còn thiếu dữ liệu gì", "Hỏi đáp",
+     "Hiện còn thiếu những dữ liệu nào từ phía Nha khoa Paris,\n"
+     "và mỗi thứ thiếu đó đang làm kẹt phần nào của kế hoạch?",
      "Agent phải liệt kê đủ, không giấu khoảng trống"),
 
-    ("bo", "Viết một cụm truy vấn", "Bộ truy vấn",
-     "Viết bộ truy vấn GEO cho cụm C06 của bộ Bọc răng sứ — đủ 17 truy vấn.\n"
-     "Xuất JSON đúng schema §18 để tôi dán vào data/truy-van/rangsu.json.",
-     "Mặc định 1 cụm/lượt. Agent phải nói rõ còn cụm nào chưa làm"),
-    ("bo", "Viết trọn Tầng A của một bộ", "Bộ truy vấn",
-     "Viết bộ truy vấn GEO cho toàn bộ 5 cụm Tầng A của bộ Niềng răng mắc cài\n"
-     "(85 truy vấn). Xuất JSON theo schema §18, làm lần lượt từng cụm.",
-     "85 truy vấn — Agent sẽ chia lượt và báo tiến độ"),
-    ("bo", "Khởi tạo bộ mới từ khuôn implant", "Bộ truy vấn",
-     "Tôi muốn viết bộ truy vấn cho bộ Nha chu. Lấy data/truy-van/implant.json làm khuôn:\n"
-     "sinh trước phần metadata (doi_tuong_md, mo_ta_doi_tuong, hanh_vi, khuyen_nghi, ban_do)\n"
-     "cho bộ Nha chu, chưa cần viết truy vấn.",
-     "Làm metadata trước, viết truy vấn sau — dễ kiểm soát hơn"),
-    ("bo", "Soát lại bộ truy vấn đã viết", "Bộ truy vấn",
-     "Soát cụm C06 bộ Implant theo self-review §18: có trộn câu dài/ngắn chưa,\n"
-     "phủ mấy góc hỏi, brief đã có số dạng dải và điều bất lợi chưa,\n"
-     "có truy vấn nào trùng ý không, có lọt số giá hay tên bác sĩ lạ không.",
-     "Chạy trước khi dán JSON vào repo"),
+    ("bo", "① Xin nguyên bộ, nhận file Excel", "Bộ truy vấn",
+     "Tôi muốn làm kế hoạch GEO cho bộ truy vấn dịch vụ trồng răng Implant.\n"
+     "Hãy xuất ra cho tôi file Excel có đầy đủ 6 tab.",
+     "Agent tự tra chỉ mục, dựng đủ 6 sheet và nói rõ sheet 3 đã viết bao nhiêu truy vấn"),
+    ("bo", "② Hỏi nên bắt đầu từ đâu", "Bộ truy vấn",
+     "Tôi muốn làm bộ truy vấn GEO cho dịch vụ bọc răng sứ.\n"
+     "Bộ này gồm những cụm chủ đề nào, và nên viết cụm nào trước thì có lợi nhất?",
+     "Agent liệt kê 15 cụm kèm tầng · giai đoạn · CORE · số bài, rồi đề xuất thứ tự"),
+    ("bo", "③ Viết tiếp cụm kế tiếp", "Bộ truy vấn",
+     "Viết tiếp giúp tôi cụm kế tiếp của bộ này, rồi xuất lại file Excel đã cập nhật.",
+     "Không cần nhớ đã làm tới đâu — Agent tự nhảy sang cụm hạng kế và báo còn bao nhiêu"),
+    ("bo", "④ Dựng phần nền trước khi viết", "Bộ truy vấn",
+     "Tôi muốn bắt đầu bộ truy vấn cho dịch vụ niềng răng.\n"
+     "Trước mắt dựng giúp tôi phần chân dung khách hàng, hành vi 6 giai đoạn\n"
+     "và bản đồ nội dung — chưa cần viết truy vấn vội.",
+     "Làm phần nền trước thì các cụm viết sau bám đúng chân dung khách, đỡ phải sửa"),
+    ("bo", "⑤ Soát lại cụm vừa viết", "Bộ truy vấn",
+     "Soát lại cụm bạn vừa viết giúp tôi: đã trộn câu dài và câu ngắn chưa,\n"
+     "phủ được mấy góc hỏi, có truy vấn nào trùng ý nhau không,\n"
+     "và có lọt số giá hay tên bác sĩ nào chưa xác minh không?",
+     "Chạy trước khi đưa file cho đội content — bắt lỗi rẻ hơn sửa bài đã viết"),
 
-    ("fix", "Đổi thứ tự một cụm", "Tinh chỉnh",
-     "Giữ nguyên bản kế hoạch, chỉ đổi: dồn toàn bộ cụm C14 Thực thể vào tháng 1\n"
-     "vì cần schema bác sĩ và trang thực thể chạy trước mọi cụm khác.",
+    ("fix", "Đổi thứ tự một phần việc", "Tinh chỉnh",
+     "Giữ nguyên bản kế hoạch, chỉ đổi một chỗ: dồn hết phần làm trang thương hiệu\n"
+     "và hồ sơ bác sĩ vào tháng 1 — những trang đó phải có trước\n"
+     "thì các bài còn lại mới dẫn về được.",
      "Agent chỉ nêu phần thay đổi, không in lại cả bảng"),
-    ("fix", "Giãn tiến độ", "Tinh chỉnh",
-     "Sản lượng tháng 1 đang 69 bài, quá tải. Giãn thành 8 tháng, giữ nguyên thứ tự ưu tiên.",
+    ("fix", "Giãn tiến độ cho vừa sức", "Tinh chỉnh",
+     "Tháng 1 mà 69 bài thì đội tôi không kham nổi.\n"
+     "Giãn ra thành 8 tháng giúp tôi, nhưng giữ nguyên thứ tự ưu tiên như cũ.",
      "Vẫn phải giữ ràng buộc chênh lệch tháng ≤25%"),
-    ("fix", "Thêm cột vào output", "Tinh chỉnh",
-     "Bổ sung cột \"Trang đích\" vào TAB Công việc triển khai, lấy từ bản đồ nội dung.\n"
-     "Đánh dấu rõ trang nào là MỚI và trang nào cần đối chiếu sitemap.",
+    ("fix", "Thêm cột vào bảng giao việc", "Tinh chỉnh",
+     "Thêm cho tôi một cột ghi rõ mỗi đầu việc sẽ đăng lên trang nào,\n"
+     "và đánh dấu trang nào phải tạo mới, trang nào cần kiểm tra lại xem website đã có chưa.",
      "Trang đích hiện đều là MỚI hoặc ⚠ đối chiếu"),
 ]
 
@@ -163,10 +177,23 @@ def read(p):
 def brain():
     """Lấy đúng khối giữa hai vạch ▼▲ của SYSTEM-PROMPT.md — phần dán vào Instructions."""
     src = read("SYSTEM-PROMPT.md")
-    m = re.search(r"▼▼▼.*?\n```\n(.*?)\n```\s*\n*▲▲▲", src, re.S)
+    m = re.search(r"▼▼▼ COPY TỪ ĐÂY ▼▼▼.*?\n```\n(.*?)\n```\s*\n*▲▲▲ COPY", src, re.S)
     if not m:
-        sys.exit("✖ Không tách được khối ▼▲ trong SYSTEM-PROMPT.md")
+        sys.exit("✖ Không tách được khối ▼▲ bản đầy đủ trong SYSTEM-PROMPT.md")
     return m.group(1).strip()
+
+
+def brain_short():
+    """Bản rút gọn cho ChatGPT Custom GPT — ô Instructions giới hạn 8.000 ký tự."""
+    src = read("SYSTEM-PROMPT.md")
+    m = re.search(r"▼▼▼ BẢN RÚT GỌN.*?\n```\n(.*?)\n```\s*\n*▲▲▲ BẢN RÚT GỌN", src, re.S)
+    if not m:
+        sys.exit("✖ Không tách được khối BẢN RÚT GỌN trong SYSTEM-PROMPT.md")
+    txt = m.group(1).strip()
+    if len(txt) > 8000:
+        sys.exit(f"✖ Bản rút gọn dài {len(txt)} ký tự — vượt giới hạn 8.000 của ChatGPT. "
+                 f"Cắt bớt {len(txt) - 8000} ký tự trong SYSTEM-PROMPT.md.")
+    return txt
 
 
 # ─────────────────────────────── CSS ─────────────────────────────────────
@@ -533,6 +560,7 @@ document.querySelectorAll('.qa-bar button').forEach(function(b){
 
 def build():
     brain_txt = brain()
+    brain_s = brain_short()
     files = []
     for name, core, short, how in KNOWLEDGE:
         body = read(os.path.join("knowledge", name))
@@ -588,7 +616,7 @@ def build():
     A('<div><b><span class="n">1</span>Lấy bộ file</b><span>Tải ZIP rồi giải nén. '
       "Không tải được thì copy từng file ngay trên trang này.</span></div>")
     A('<div><b><span class="n">2</span>Tạo project + dán 3 thẻ</b>'
-      "<span>Tên · Mô tả (Thẻ A) · Instructions (Thẻ B).</span></div>")
+      "<span>Tên · Mô tả (Thẻ A) · Instructions (Thẻ B, riêng ChatGPT dùng bản rút gọn).</span></div>")
     A('<div><b><span class="n">3</span>Upload 6 file tri thức</b>'
       "<span>Thiếu file nào thì Agent đoán chỗ đó — và không báo lỗi. Thêm 2 file mẫu .xlsx.</span></div>")
     A("</div>")
@@ -625,12 +653,15 @@ def build():
       "<li><b>Explore GPTs</b> → <b>Create</b> → tab <b>Configure</b>.</li>"
       "<li>Name: <code>Agent-PR-GEO-Plant</code>.</li>"
       "<li><b>Description</b> → dán <b>Thẻ A · Mô tả ngắn</b> (187 ký tự, vừa giới hạn 300).</li>"
-      "<li>Instructions → dán <b>Thẻ B · Bộ não</b>.</li>"
+      "<li>Instructions → dán <b>Thẻ B rút gọn</b> (7.937 ký tự). "
+      "<b>Không dán Thẻ B đầy đủ</b> — ô này giới hạn 8.000 ký tự.</li>"
       "<li>Knowledge → upload <b>đủ 6 file</b> + <b>2 file mẫu</b> <code>.xlsx</code> trong <code>template/</code>.</li>"
       "<li><b>Capabilities</b> → bật <b>Code Interpreter &amp; Data Analysis</b>.</li></ol>"
       '<div class="note warn" style="margin-top:14px"><b>Không bật Data Analysis</b> thì Agent vẫn '
       "trình được bảng kế hoạch trong chat nhưng <b>không sinh được file <code>.xlsx</code></b> — "
-      "bạn sẽ phải tự dựng lại format 2 TAB bằng tay.</div></div>")
+      "bạn sẽ phải tự dựng lại format 2 TAB bằng tay.<br><br>"
+      "<b>Thẻ B rút gọn trông cậy vào Tri thức để bù phần đã cắt.</b> Không nạp đủ 6 file "
+      "knowledge thì nó sẽ bắt đầu đoán — và đoán sai ở chỗ pháp lý.</div></div>")
 
     A('<div class="card" id="p-gemini" role="tabpanel" hidden><h3>Gemini Gems</h3><ol class="steps">'
       "<li><b>Gems</b> → <b>New Gem</b> → đặt tên.</li>"
@@ -646,12 +677,13 @@ def build():
       "sau đó hành xử đúng như Agent-PR-GEO-Plant”</i>.</p></div>")
 
     # thẻ copy
-    A('<h3 class="sub">Ba thẻ dán sẵn</h3>')
+    A('<h3 class="sub">Bốn thẻ dán sẵn</h3>')
     A('<p class="dim" style="margin:0 0 13px">Ba ô khác nhau trên nền tảng: <b>Tên</b> → '
-      "<code>Agent-PR-GEO-Plant</code> · <b>Mô tả</b> → Thẻ A · <b>Chỉ dẫn/Instructions</b> → Thẻ B. "
+      "<code>Agent-PR-GEO-Plant</code> · <b>Mô tả</b> → Thẻ A · <b>Chỉ dẫn/Instructions</b> → "
+      "Thẻ B (riêng <b>ChatGPT</b> dùng <b>Thẻ B rút gọn</b> vì ô đó giới hạn 8.000 ký tự). "
       "Ô Mô tả <b>không thay thế</b> Instructions — nó chỉ để người khác biết Agent làm gì "
-      "khi nhìn vào danh sách.</p>")
-    A('<div class="grid g3">')
+      "khi nhìn vào danh sách. Thẻ C chỉ dùng khi nền tảng không cho upload nhiều file.</p>")
+    A('<div class="grid g2">')
     A('<div class="cc"><span class="tag">Thẻ A</span><h3>Mô tả ngắn</h3>'
       f'<p class="meta"><span class="count">{nchar(MOTA)}</span> ký tự · dán vào ô Mô tả / Description<br>'
       '<span class="dim">Vừa giới hạn 300 ký tự của ChatGPT. Gemini Gems không có ô này — '
@@ -668,6 +700,15 @@ def build():
       '<button class="btn" data-copy="brain">Copy Thẻ B</button>'
       '<details class="peek"><summary>Xem nội dung</summary>'
       f'<pre id="src-brain">{e(brain_txt)}</pre></details></div>')
+    A('<div class="cc" style="border-top-color:var(--red)"><span class="tag">Thẻ B rút gọn</span>'
+      "<h3>Bộ não — bản ngắn</h3>"
+      f'<p class="meta"><span class="count">{nchar(brain_s)}</span> / 8.000 ký tự · '
+      "<b>chỉ ChatGPT Custom GPT</b><br>"
+      '<span class="dim">Giữ nguyên 18 mục và toàn bộ luật, cắt bảng tra. '
+      "Claude và Gemini không giới hạn ký tự → dùng Thẻ B đầy đủ.</span></p>"
+      '<button class="btn" data-copy="brains">Copy Thẻ B rút gọn</button>'
+      '<details class="peek"><summary>Xem nội dung</summary>'
+      f'<pre id="src-brains">{e(brain_s)}</pre></details></div>')
     A('<div class="cc"><span class="tag">Thẻ C</span><h3>Tri thức gộp</h3>'
       f'<p class="meta"><span class="count">{nchar("x" * merged_len)}</span> ký tự · 6 file nối liền<br>'
       '<span class="dim">Dùng khi nền tảng không cho upload nhiều file. '
@@ -702,6 +743,15 @@ def build():
       f"<h2>Thư viện {len(PROMPTS)} prompt mẫu</h2><span class=\"bar\"></span>"
       "<p>Bấm <b>Copy</b> rồi dán thẳng vào Agent. Chạy nhóm <b>Kiểm tra</b> trước — "
       "nó cho biết Agent đã nạp đủ tri thức chưa.</p></div>")
+    A('<div class="note ok" style="margin:0 0 18px"><b>Nhóm “Bộ truy vấn” nói chuyện bình thường, '
+      "không cần cú pháp.</b> Bạn chỉ cần nói tên dịch vụ bằng tiếng Việt thường ngày — "
+      "<i>trồng răng · bọc sứ · niềng · răng lung lay</i> — Agent tự tra chỉ mục, tìm đúng bộ, "
+      "liệt kê 15 cụm và đề xuất nên bắt đầu từ đâu. Bạn không phải nhớ mã cụm, tên file hay "
+      "schema nào cả.<br><br>"
+      "<b>Mặc định Agent trả về file Excel 6 tab</b> đúng mẫu. Muốn JSON để chạy script thì "
+      "nói thêm <i>“xuất JSON cho tôi chạy script”</i>.<br><br>"
+      "255 truy vấn là quá nhiều cho một lần trả lời, nên Agent viết <b>từng cụm một</b> và "
+      "sau mỗi cụm sẽ báo còn bao nhiêu cụm nữa. Cứ bảo <i>“viết tiếp cụm kế tiếp”</i> cho tới khi xong.</div>")
     A('<div class="qa-bar">')
     for cid, label in CATS:
         n = len(PROMPTS) if cid == "all" else sum(1 for p in PROMPTS if p[0] == cid)

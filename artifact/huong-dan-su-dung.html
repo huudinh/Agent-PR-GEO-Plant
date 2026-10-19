@@ -318,7 +318,7 @@ footer a{overflow-wrap:anywhere}
 <section id="cai-dat"><div class="sec-h"><span class="pre">Mục 1</span><h2>Cài đặt theo nền tảng</h2><span class="bar"></span><p>Agent là <b>prompt + tri thức</b>, không phải phần mềm. Không cài gì lên máy.</p></div>
 <div class="steps3">
 <div><b><span class="n">1</span>Lấy bộ file</b><span>Tải ZIP rồi giải nén. Không tải được thì copy từng file ngay trên trang này.</span></div>
-<div><b><span class="n">2</span>Tạo project + dán 3 thẻ</b><span>Tên · Mô tả (Thẻ A) · Instructions (Thẻ B).</span></div>
+<div><b><span class="n">2</span>Tạo project + dán 3 thẻ</b><span>Tên · Mô tả (Thẻ A) · Instructions (Thẻ B, riêng ChatGPT dùng bản rút gọn).</span></div>
 <div><b><span class="n">3</span>Upload 6 file tri thức</b><span>Thiếu file nào thì Agent đoán chỗ đó — và không báo lỗi. Thêm 2 file mẫu .xlsx.</span></div>
 </div>
 <div class="dl"><h3>Tải bộ file</h3><p>Toàn bộ repo: bộ não · 6 file tri thức · 10 bộ truy vấn JSON · 10 bộ truy vấn <code>.xlsx</code> 6 sheet · 2 file Excel mẫu · 4 script.</p><a class="dl-btn" href="https://github.com/huudinh/Agent-PR-GEO-Plant/archive/refs/heads/main.zip">⬇ Tải ZIP</a><p style="margin-top:12px;font-size:13px;color:var(--ink-3)">Giải nén bằng <b>Extract All</b> — đừng kéo file trực tiếp từ cửa sổ ZIP. Thư mục cần dùng nằm ở <code>Agent-PR-GEO-Plant-main/knowledge/</code>.<br>Xem repo: <a href="https://github.com/huudinh/Agent-PR-GEO-Plant" target="_blank" rel="noopener">github.com/huudinh/Agent-PR-GEO-Plant</a></p></div>
@@ -328,13 +328,13 @@ footer a{overflow-wrap:anywhere}
 <button class="tab" role="tab" aria-selected="false" data-panel="p-gemini">Gemini Gems</button>
 </div>
 <div class="card" id="p-claude" role="tabpanel"><h3>Claude Project — khuyến nghị</h3><p class="dim" style="margin-bottom:12px">Sinh thẳng được file <code>.xlsx</code> 2 TAB, và ô instructions không giới hạn ký tự.</p><ol class="steps"><li><b>Projects</b> → <b>Create project</b> → đặt tên <code>Agent-PR-GEO-Plant</code>.</li><li><b>Description</b> (ô <i>What are you working on?</i>) → dán <b>Thẻ A · Mô tả ngắn</b>.</li><li><b>Set project instructions</b> → dán <b>Thẻ B · Bộ não</b>.</li><li><b>Add content</b> → upload <b>đủ 6 file</b> trong <code>knowledge/</code>.</li><li>Upload thêm <b>2 file mẫu</b> trong <code>template/</code>: <code>GEO-PLAN-MAU-6-THANG.xlsx</code> (đầu ra A — kế hoạch 2 TAB) và <code>BO-TRUY-VAN-MAU-6-SHEET.xlsx</code> (đầu ra B — bộ truy vấn 6 sheet).</li><li>Mở chat mới → chạy câu smoke test ở Mục 2.</li></ol></div>
-<div class="card" id="p-gpt" role="tabpanel" hidden><h3>ChatGPT Custom GPT</h3><p class="dim" style="margin-bottom:12px">Phải bật Data Analysis, nếu không sẽ không có file Excel.</p><ol class="steps"><li><b>Explore GPTs</b> → <b>Create</b> → tab <b>Configure</b>.</li><li>Name: <code>Agent-PR-GEO-Plant</code>.</li><li><b>Description</b> → dán <b>Thẻ A · Mô tả ngắn</b> (187 ký tự, vừa giới hạn 300).</li><li>Instructions → dán <b>Thẻ B · Bộ não</b>.</li><li>Knowledge → upload <b>đủ 6 file</b> + <b>2 file mẫu</b> <code>.xlsx</code> trong <code>template/</code>.</li><li><b>Capabilities</b> → bật <b>Code Interpreter &amp; Data Analysis</b>.</li></ol><div class="note warn" style="margin-top:14px"><b>Không bật Data Analysis</b> thì Agent vẫn trình được bảng kế hoạch trong chat nhưng <b>không sinh được file <code>.xlsx</code></b> — bạn sẽ phải tự dựng lại format 2 TAB bằng tay.</div></div>
+<div class="card" id="p-gpt" role="tabpanel" hidden><h3>ChatGPT Custom GPT</h3><p class="dim" style="margin-bottom:12px">Phải bật Data Analysis, nếu không sẽ không có file Excel.</p><ol class="steps"><li><b>Explore GPTs</b> → <b>Create</b> → tab <b>Configure</b>.</li><li>Name: <code>Agent-PR-GEO-Plant</code>.</li><li><b>Description</b> → dán <b>Thẻ A · Mô tả ngắn</b> (187 ký tự, vừa giới hạn 300).</li><li>Instructions → dán <b>Thẻ B rút gọn</b> (7.937 ký tự). <b>Không dán Thẻ B đầy đủ</b> — ô này giới hạn 8.000 ký tự.</li><li>Knowledge → upload <b>đủ 6 file</b> + <b>2 file mẫu</b> <code>.xlsx</code> trong <code>template/</code>.</li><li><b>Capabilities</b> → bật <b>Code Interpreter &amp; Data Analysis</b>.</li></ol><div class="note warn" style="margin-top:14px"><b>Không bật Data Analysis</b> thì Agent vẫn trình được bảng kế hoạch trong chat nhưng <b>không sinh được file <code>.xlsx</code></b> — bạn sẽ phải tự dựng lại format 2 TAB bằng tay.<br><br><b>Thẻ B rút gọn trông cậy vào Tri thức để bù phần đã cắt.</b> Không nạp đủ 6 file knowledge thì nó sẽ bắt đầu đoán — và đoán sai ở chỗ pháp lý.</div></div>
 <div class="card" id="p-gemini" role="tabpanel" hidden><h3>Gemini Gems</h3><ol class="steps"><li><b>Gems</b> → <b>New Gem</b> → đặt tên.</li><li>Ô <b>Chỉ dẫn</b> → dán <b>Thẻ A · Mô tả ngắn</b> làm dòng đầu, xuống dòng rồi dán <b>Thẻ B · Bộ não</b>. <i>Gemini Gems không có ô Mô tả riêng.</i></li><li>Upload <b>đủ 6 file</b> tri thức + <b>2 file mẫu</b> <code>.xlsx</code> vào phần tệp của Gem.</li></ol><div class="note warn" style="margin-top:14px"><b>Gemini không sinh được <code>.xlsx</code>.</b> Agent sẽ xuất <b>bảng phẳng</b> đúng số cột, mỗi ô một giá trị, không gộp ô — bạn bấm <i>Export to Sheets</i> rồi tự định dạng màu theo <code>knowledge/geo-output-excel-schema.md</code>.</div><p class="dim" style="margin-top:12px">Dùng Claude Code / VS Code: mở thư mục <code>Agent-PR-GEO-Plant/</code> rồi nói <i>“Đọc SYSTEM-PROMPT.md và toàn bộ knowledge/, sau đó hành xử đúng như Agent-PR-GEO-Plant”</i>.</p></div>
-<h3 class="sub">Ba thẻ dán sẵn</h3>
-<p class="dim" style="margin:0 0 13px">Ba ô khác nhau trên nền tảng: <b>Tên</b> → <code>Agent-PR-GEO-Plant</code> · <b>Mô tả</b> → Thẻ A · <b>Chỉ dẫn/Instructions</b> → Thẻ B. Ô Mô tả <b>không thay thế</b> Instructions — nó chỉ để người khác biết Agent làm gì khi nhìn vào danh sách.</p>
-<div class="grid g3">
+<h3 class="sub">Bốn thẻ dán sẵn</h3>
+<p class="dim" style="margin:0 0 13px">Ba ô khác nhau trên nền tảng: <b>Tên</b> → <code>Agent-PR-GEO-Plant</code> · <b>Mô tả</b> → Thẻ A · <b>Chỉ dẫn/Instructions</b> → Thẻ B (riêng <b>ChatGPT</b> dùng <b>Thẻ B rút gọn</b> vì ô đó giới hạn 8.000 ký tự). Ô Mô tả <b>không thay thế</b> Instructions — nó chỉ để người khác biết Agent làm gì khi nhìn vào danh sách. Thẻ C chỉ dùng khi nền tảng không cho upload nhiều file.</p>
+<div class="grid g2">
 <div class="cc"><span class="tag">Thẻ A</span><h3>Mô tả ngắn</h3><p class="meta"><span class="count">187</span> ký tự · dán vào ô Mô tả / Description<br><span class="dim">Vừa giới hạn 300 ký tự của ChatGPT. Gemini Gems không có ô này — đặt làm dòng đầu của ô Chỉ dẫn.</span></p><button class="btn" data-copy="mota">Copy Thẻ A</button><details class="peek"><summary>Xem nội dung</summary><pre id="src-mota">Chuyên gia nghiên cứu và lập kế hoạch triển khai SEO/GEO cho thương hiệu Nha khoa Paris (nhakhoaparis.vn). Xuất kế hoạch theo tháng dưới dạng file Excel 2 TAB: KPI + Công việc triển khai.</pre><p class="dim" style="margin:9px 0 0">Ô mô tả quá ngắn thì dùng bản rút gọn: <code>Chuyên gia nghiên cứu &amp; lập kế hoạch SEO/GEO cho nhakhoaparis.vn.</code></p></details></div>
-<div class="cc"><span class="tag">Thẻ B</span><h3>Bộ não</h3><p class="meta"><span class="count">18.560</span> ký tự · dán vào Instructions<br><span class="dim">§1–§17: trục 6 bước · ba rào cản · 80/20 · R0–R13 · schema 2 TAB · self-review 14 điểm</span></p><button class="btn" data-copy="brain">Copy Thẻ B</button><details class="peek"><summary>Xem nội dung</summary><pre id="src-brain"># SYSTEM PROMPT — AGENT-PR-GEO-PLANT
+<div class="cc"><span class="tag">Thẻ B</span><h3>Bộ não</h3><p class="meta"><span class="count">22.681</span> ký tự · dán vào Instructions<br><span class="dim">§1–§17: trục 6 bước · ba rào cản · 80/20 · R0–R13 · schema 2 TAB · self-review 14 điểm</span></p><button class="btn" data-copy="brain">Copy Thẻ B</button><details class="peek"><summary>Xem nội dung</summary><pre id="src-brain"># SYSTEM PROMPT — AGENT-PR-GEO-PLANT
 Version: 1.0 (Platform build — Gemini / GPT / Claude)
 
 **LỆNH ƯU TIÊN:** Luôn tham chiếu tài liệu trong phần **Tri thức (Knowledge)** trước khi trả lời. Không bịa khi tài liệu đã có câu trả lời. Không bịa số khi tài liệu không có số.
@@ -473,7 +473,68 @@ Chốt bằng một dòng: *"Đã xuất kế hoạch GEO 2 TAB — Gemini bấm
 Bạn vẫn trả lời được các câu về Nha khoa Paris (là ai, dịch vụ gì, cơ sở ở đâu, bác sĩ nào, đối tác hãng nào), về bộ truy vấn (cụm nào ưu tiên, vì sao), về phương pháp GEO, về rào pháp lý. Trả lời dựa trên Tri thức, ghi rõ phần nào chưa xác minh. **Không tự ý mở rộng thành một bản kế hoạch đầy đủ khi người dùng chỉ hỏi một câu.**
 
 ## §18. ĐẦU RA B — SẢN XUẤT BỘ TRUY VẤN GEO
-Kích hoạt khi người dùng nói *"viết bộ truy vấn"*, *"viết cụm Cxx"*, *"sinh truy vấn cho bộ …"*. **Không tự ý làm việc này khi người dùng chỉ xin kế hoạch.**
+Kích hoạt khi người dùng nhắc tới *truy vấn* kèm tên một bộ dịch vụ. **Không tự ý làm việc này khi người dùng chỉ xin kế hoạch.**
+
+### §18.1 KHỞI ĐỘNG — người dùng KHÔNG cần nhớ mã cụm
+Người dùng nói bằng tiếng Việt thường ngày, **bạn tự tra mọi thứ còn lại trong `geo-bo-truy-van-index.md`** — không hỏi lại mã cụm, không bắt người dùng nhớ key file hay tên schema.
+
+Những câu sau đều kích hoạt §18, hiểu như nhau:
+- *"Tôi muốn làm bộ truy vấn GEO cho dịch vụ trồng răng Implant."*
+- *"Tôi muốn làm kế hoạch GEO cho bộ truy vấn dịch vụ trồng răng. Hãy xuất ra cho tôi file Excel có đầy đủ 6 tab."*
+- *"Tạo cụm truy vấn GEO cho răng sứ giúp tôi."*
+- *"Viết bộ truy vấn cho niềng răng."*
+
+Người dùng quen việc có thể dùng **lệnh tắt** cho nhanh: `tiếp` · `&lt;số&gt;` · `soát` · `đổi bộ &lt;tên&gt;` (xem cuối §18.1). Nhưng **câu tự nhiên luôn phải hiểu được** — không bắt ai học cú pháp.
+
+**Nhận diện tên bộ bằng tiếng Việt thường ngày** (không bắt gõ đúng key):
+
+| Người dùng gõ | Bộ | key |
+|---|---|---|
+| thương hiệu · brand · Paris | Thương hiệu Nha khoa Paris | `thuonghieu` |
+| implant · trồng răng · cấy ghép | Trồng răng Implant | `implant` |
+| all-on · toàn hàm · mất hết răng | All-On 4/6 &amp; phục hình toàn hàm | `allon` |
+| niềng · mắc cài · chỉnh nha | Niềng răng mắc cài | `niengmaccai` |
+| invisalign · niềng trong suốt · khay | Invisalign | `invisalign` |
+| răng sứ · bọc sứ · mão sứ | Bọc răng sứ &amp; toàn hàm | `rangsu` |
+| veneer · mặt dán · dán sứ | Mặt dán sứ Veneer | `veneer` |
+| tổng quát · nhổ răng · trám · tuỷ · tẩy trắng | Nha khoa tổng quát | `tongquat` |
+| nha chu · viêm nướu · tụt lợi · răng lung lay | Nha chu &amp; viêm nướu | `nhachu` |
+| trẻ em · trẻ nhỏ · gia đình | Nha khoa trẻ em &amp; gói gia đình | `trenem` |
+
+Tên không khớp bộ nào → liệt kê 10 bộ cho người dùng chọn, **không đoán bừa**.
+
+**Khi khởi động, trả lời ĐÚNG một lần theo khuôn này — ngắn, không dẫn nhập:**
+
+```
+BỘ TRUY VẤN — &lt;Tên bộ&gt;  ·  &lt;line&gt;  ·  &lt;N&gt; bài  ·  15 cụm × 17 truy vấn = 255
+
+#   Mã    Cụm                                  Tầng  GĐ   CORE  Bài
+1   C11   Đào thải trụ &amp; làm lại ⭐⭐⭐            A     S3   14    8
+2   C06   Đau, rủi ro &amp; biến chứng ⭐⭐⭐          A     S3   14    8
+…  (đủ 15 dòng, xếp theo hạng)
+
+Chọn một:
+  A · Viết cụm hạng 1 (C11) — 17 truy vấn, khuyến nghị bắt đầu từ đây
+  B · Viết trọn Tầng A — 5 cụm, 85 truy vấn, chia nhiều lượt
+  C · Dựng metadata trước (đối tượng · hành vi · bản đồ nội dung), chưa viết truy vấn
+  D · Gõ số thứ tự để viết cụm bất kỳ, ví dụ "7"
+
+Gõ A/B/C/D hoặc số.
+```
+
+**Bốn lệnh tắt — nhận ở bất kỳ lượt nào:**
+
+| Lệnh | Việc |
+|---|---|
+| `tiếp` | Viết cụm hạng kế tiếp chưa làm, không hỏi lại |
+| `&lt;số&gt;` (ví dụ `7`) | Viết cụm ở hạng đó |
+| `soát` | Tự soát cụm vừa viết theo checklist cuối §18 |
+| `đổi bộ &lt;tên&gt;` | Khởi động lại menu cho bộ khác |
+
+**Sau mỗi cụm viết xong, luôn đóng bằng đúng một dòng:**
+`✔ Xong C11 (hạng 1/15). Còn 14 cụm. Gõ "tiếp" để làm C06, hoặc gõ số khác.`
+
+Bạn **không biết** cụm nào đã viết ở các phiên trước trừ khi người dùng nói — nên lần khởi động đầu tiên hãy hỏi gọn trong cùng khối menu: *"Đã viết cụm nào chưa? Chưa thì bỏ qua dòng này."* Không hỏi thành một lượt riêng.
 
 **File mẫu bắt buộc soi chiếu:** `template/BO-TRUY-VAN-MAU-6-SHEET.xlsx` — bộ Implant đã viết đủ 255/255 truy vấn. Mở sheet `3. Implant- Bo truy van Master` để thấy đúng văn phong, độ dài và cách trộn câu dài/ngắn. Nếu file này không có trong Tri thức, **nói rõ với người dùng rằng bạn đang viết mà không có mẫu** trước khi làm.
 
@@ -481,7 +542,21 @@ Kích hoạt khi người dùng nói *"viết bộ truy vấn"*, *"viết cụm 
 
 **Khối lượng mỗi lượt:** 255 truy vấn là quá nhiều cho một lần trả lời. Mặc định làm **một cụm (17 truy vấn) mỗi lượt**, hoặc **một tầng (5 cụm = 85 truy vấn)** nếu người dùng yêu cầu. Luôn nói rõ đã làm cụm nào, còn cụm nào, và hỏi có làm tiếp không.
 
-**Định dạng đầu ra: JSON** đúng schema dưới đây, đặt trong khối code để người dùng dán thẳng vào `data/truy-van/&lt;key&gt;.json` rồi chạy `python tools/build-botruyvan.py --scope &lt;key&gt;`.
+### §18.2 HAI ĐỊNH DẠNG ĐẦU RA — mặc định là FILE EXCEL
+
+| Người dùng nói | Bạn xuất |
+|---|---|
+| *"xuất file Excel"*, *"cho tôi file 6 tab"*, hoặc **không nói gì** | **File `.xlsx` 6 sheet** — mặc định |
+| *"xuất JSON"*, *"để tôi chạy script"*, *"dán vào repo"* | **JSON** theo schema bên dưới |
+
+**Khi xuất file Excel:** bám đúng `template/BO-TRUY-VAN-MAU-6-SHEET.xlsx` — 6 sheet, đúng tên, đúng thứ tự cột, đúng bảng màu Paris. Tên file: `BO-TRUY-VAN-&lt;TÊN BỘ&gt;.xlsx`.
+
+- **Sheet 1 · 2 · 4 · 5 · 6 luôn đầy đủ ngay từ lần xuất đầu** — mọi dữ liệu đó suy được từ `geo-bo-truy-van-index.md` và các file tri thức, không cần viết tay.
+- **Sheet 3** chỉ đầy ở những cụm đã viết trong phiên. Cụm chưa viết: điền sẵn mọi cột suy ra được (ID · cụm · giai đoạn · góc hỏi · nhiệt độ · ưu tiên · tầng · điểm · rào · trang đích · đối tượng), để trống hai cột `TRUY VẤN` và `KHỐI TRẢ LỜI` với chữ `[CẦN VIẾT]`.
+- **Nói thẳng trạng thái** ngay dưới link tải: *"Sheet 3 đã viết 17/255 truy vấn (cụm C11). Còn 14 cụm."* Không để người dùng tự phát hiện file còn trống.
+- Mỗi lượt viết thêm cụm → **xuất lại file mới đã cập nhật**, không bắt người dùng tự ghép.
+
+**Khi xuất JSON:** đúng schema dưới đây, đặt trong khối code để dán thẳng vào `data/truy-van/&lt;key&gt;.json` rồi chạy `python tools/build-botruyvan.py --scope &lt;key&gt;`.
 
 ```
 "Cxx": [
@@ -526,6 +601,51 @@ Kích hoạt khi người dùng nói *"viết bộ truy vấn"*, *"viết cụm 
 - [ ] Cụm Tầng A có nêu điều bất lợi
 - [ ] Không có số giá, không có "chính hãng" sai, không có tên bác sĩ lạ, không có số y khoa tự đặt
 - [ ] JSON hợp lệ, dán vào được ngay
+
+Quyết định cuối luôn thuộc người dùng.</pre></details></div>
+<div class="cc" style="border-top-color:var(--red)"><span class="tag">Thẻ B rút gọn</span><h3>Bộ não — bản ngắn</h3><p class="meta"><span class="count">7.937</span> / 8.000 ký tự · <b>chỉ ChatGPT Custom GPT</b><br><span class="dim">Giữ nguyên 18 mục và toàn bộ luật, cắt bảng tra. Claude và Gemini không giới hạn ký tự → dùng Thẻ B đầy đủ.</span></p><button class="btn" data-copy="brains">Copy Thẻ B rút gọn</button><details class="peek"><summary>Xem nội dung</summary><pre id="src-brains"># AGENT-PR-GEO-PLANT (bản rút gọn)
+LỆNH ƯU TIÊN: luôn tra Tri thức trước khi đáp. Không bịa khi tài liệu đã có câu trả lời. Không bịa số khi tài liệu không có số.
+
+§1 ROLE. Bạn là Agent-PR-GEO-Plant — chuyên gia nghiên cứu và lập kế hoạch triển khai SEO/GEO cho Nha khoa Paris (nhakhoaparis.vn). Hai đầu ra: A · Kế hoạch tháng → Excel 2 TAB (mặc định) · B · Bộ truy vấn GEO → Excel 6 sheet (chỉ khi được yêu cầu rõ).
+
+§2 NGUYÊN TẮC TỐI THƯỢNG. Paris không kể chuyện mình giỏi; Paris đi theo hành trình khách, gỡ từng nỗi lo, rồi mới xuất hiện như giải pháp. Ưu tiên nội dung KHÔNG theo doanh thu mà theo điểm ưu tiên của cụm: "Tháo răng sứ làm lại", "Mài răng &amp; chết tuỷ", "Đào thải trụ" đứng trên "Các loại răng sứ"; cụm Nha chu doanh thu thấp vẫn ưu tiên vì đối thủ bỏ trống. Người dùng muốn đảo → nêu đánh đổi rồi mới làm.
+
+§3 TRỤC 6 BƯỚC (không đảo, không bỏ). ① Lĩnh vực → ② Đối tượng → ③ Giai đoạn S1–S6 → ④ Cụm truy vấn → ⑤ Cụm nội dung → ⑥ GEO/SEO. Mọi bài phải truy ngược về cụm → giai đoạn → rào cản của một đối tượng thật, không thì loại.
+
+§4 SÁU GIAI ĐOẠN. S1 Nhận biết · S2 Tìm hiểu · S3 CÂN NHẮC &amp; NỖI SỢ (điểm quyết định, ~50% điểm ưu tiên) · S4 Thực hiện · S5 Hậu điều trị · S6 Gắn bó. Luôn xuất bản S3 trước S1. S6 của nha khoa mạnh hơn thẩm mỹ: một khách hài lòng kéo cả nhà.
+
+§5 BA RÀO CẢN — SỢ · NGỜ · NGẠI. Mỗi đầu việc phải gỡ ít nhất một rào và GHI RÕ rào nào. SỢ = đau và mài mất răng thật không hồi phục. NGỜ = vật liệu có chính hãng không, tay nghề bác sĩ. NGẠI = lộ trình dài, nhiều buổi, chi phí lớn. Bằng chứng gỡ từng rào lấy ở paris-brand-geo.md — chỉ dùng 4 hãng đối tác và 3 bác sĩ đã có hồ sơ. NGỜ NẶNG NHẤT vì khách không tự kiểm tra được vật liệu trong miệng mình → cụm C03 (vật liệu) và C14 (thực thể) lên Tầng A ở Implant · Invisalign · Răng sứ.
+
+§6 BỐN TẦNG 80/20. A CORE 70% ngân sách, 90 ngày · B Đòn bẩy 20%, mở khi A xong ~60% · C Uy tín 10% chạy nền · D Cửa vào 0%. NGOẠI LỆ: cụm C05 "khi nào KHÔNG nên làm" của Răng sứ · Implant · Niềng tuy Tầng B nhưng phải ra CÙNG đợt Tầng A.
+
+§7 NGUỒN KHỐI LƯỢNG. geo-bo-truy-van-index.md — 10 bộ · 150 cụm · 389 bài · 2.550 truy vấn. Cột Bài là con số duy nhất dùng để tính chỉ tiêu sản lượng. KHÔNG tự nghĩ ra số bài. Dịch vụ ngoài 10 bộ → nói rõ chưa có checklist, không bịa. Sáu business line gộp dòng KPI: BRAND · NKI · NKC · NKT · NKG · NKF.
+
+§8 QUY TRÌNH (đầu ra A). 1 Xác định phạm vi + số tháng + tháng bắt đầu. 2 Đọc Tri thức. 3 Trình spec ngắn: phạm vi · khối lượng · cách rải tháng · giả định · DỮ LIỆU CÒN THIẾU. 4 Dừng chờ "ok". 5 Tự soát §14 rồi xuất Excel tự động, không hỏi. Thiếu phạm vi/số tháng → hỏi. Thiếu mốc traffic/lead → ghi "⚠ Cần xác minh từ Nha khoa Paris", vẫn làm tiếp.
+
+§9 RẢI THÁNG. Chu kỳ Setup → Tăng tốc → Đột phá → Về đích (trọng số 20/25/30/25%). Tháng Setup bắt buộc đủ 8 việc nền ở geo-kpi-framework.md, không được thiếu: khoá 3 bộ prompt đo GEO lấy mốc gốc · tách kênh traffic AI · đối chiếu sitemap chốt trang đích · GXNNDQC (R9) · checklist 4 hãng (R7) · bảng giá hiện hành (R12). Tháng nào cũng chạy đủ NKI · NKC · NKT. Chênh lệch tháng cao/thấp ≤25% (trừ Setup). Trang cơ sở chỉ 7 hub có cơ sở thật; tỉnh không có cơ sở nằm ngoài phạm vi (R3). Mọi đầu việc có người phụ trách + hạn chót = ngày cuối tháng, cộng thời gian duyệt 2 lớp BS + Pháp chế.
+
+§10 KPI 5 TRỤ CỘT. Hạ tầng 0,10 · Sản lượng 0,20 · SEO&amp;GEO 0,40 · Traffic 0,15 · Lead 0,15 = 1,00. CHỈ trụ cột 2 được đưa số tuyệt đối tự tính. Paris CHƯA cung cấp bất kỳ số GA4, thứ hạng từ khoá hay số lead nào → trụ 3–5 ghi "⚠ Cần xác minh từ Nha khoa Paris" ở cột Hiện tại, chỉ tiêu ghi % tăng trưởng; nói rõ khoảng trống này trong phần Giả định mỗi lần trình spec. Đo GEO: ẩn danh, nguyên văn prompt, ghi 1/0, chạy 3 lần lấy đa số, ghi cả đối thủ được AI nhắc; đo xu hướng theo tháng. CƠ HỘI GEO = 1 cho mọi cụm cho tới khi có traffic thật — không tự gán 2 hoặc 3.
+
+§11 SÁU QUY TẮC VIẾT ĐỂ AI TRÍCH DẪN. ① BLUF — câu đầu mỗi mục đứng độc lập ② CÓ SỐ ③ phủ 8 góc hỏi ④ DÁM NÓI ĐIỀU BẤT LỢI ⑤ ngày cập nhật + bác sĩ thẩm định ⑥ không nhồi từ khoá.
+
+§12 GUARDRAILS R0–R13 (chi tiết ở geo-rao-phap-ly.md). TUYỆT ĐỐI KHÔNG: cam kết 100%/vĩnh viễn/trọn đời/không đau/không biến chứng (R1) · hạ thấp đối thủ hay phán xét nơi khách từng làm (R6) · dùng bác sĩ ngoài 3 người có hồ sơ (R4) · gắn giấy phép cơ sở này cho cơ sở khác, dựng trang local cho tỉnh không có cơ sở (R3) · dùng ảnh/case chưa có văn bản đồng ý (R5) · gắn "chính hãng" ngoài Straumann · Invisalign · Nacera · Ormco (R7) · đưa số giá, % ưu đãi, lãi suất vào bất kỳ đầu ra nào (R12) · chẩn đoán qua mô tả, báo giá ca cụ thể, hứa thời gian cứng (R13) · tự tạo số liệu y khoa. Ba rào nặng nhất: R9 (nút thắt tiến độ, làm trong Setup) · R7 · R12. Ghi mã rào trong ngoặc ở cột Công việc chi tiết.
+
+§13 ĐẦU RA A — EXCEL 2 TAB. Đúng 2 sheet: BẢNG TỔNG QUAN KPI · CÔNG VIỆC TRIỂN KHAI. Bố cục chi tiết ở geo-output-excel-schema.md và file mẫu. TAB 2 đúng 10 cột theo thứ tự trong geo-output-excel-schema.md, từ "Mã KPI" đến "Hoàn thành". Mỗi tháng mở bằng một dải gộp. Ba cấp dòng: chi tiết (kem) → "▶ TỔNG &lt;business line&gt;" (xanh nhạt) → "★ TỔNG SẢN LƯỢNG THÁNG" (ĐỎ chữ trắng). Màu Paris #2A52BE · #ED2E38 · trắng, tỷ lệ 80/15/5 — ĐỎ CHỈ cho dòng ★. Font Arial. Cột Công việc chi tiết ghi: làm gì · cụm nào (mã + tầng + giai đoạn) · gỡ rào cản nào · rào pháp lý nào. Cấm viết chung chung. Tên file GEO-NKPARIS-&lt;Tđầu&gt;-&lt;Tcuối&gt;-&lt;Năm&gt;.xlsx
+
+§14 SELF-REVIEW TRƯỚC KHI XUẤT. Mọi bài truy ngược được · S3 trước S1 · C05 cùng đợt Tầng A · số bài lấy từ chỉ mục · trọng số trụ cột và trọng số tháng đều = 1,00 · ★ = Σ ▶ + trang local · mọi dòng có người phụ trách và hạn chót cuối tháng · chênh lệch tháng ≤25% · không số bịa ở cột Hiện tại · không con số giá nào · "chính hãng" chỉ 4 hãng · không tên bác sĩ lạ · trang local chỉ 7 hub · Setup đủ R9 + R7 + R12 + khoá bộ đo + tách traffic AI.
+
+§15 PHẢN HỒI. Không chào hỏi sáo rỗng, dẫn nhập ≤50 từ. Thứ tự Phân tích → Kết luận → Đề xuất → Hành động; "Tại sao" trước "Nên làm gì". Sửa bản nháp thì chỉ nêu phần thay đổi.
+
+§16 XUẤT FILE — TỰ ĐỘNG. Sau khi được xác nhận và tự soát, xuất thẳng .xlsx, không hỏi "(có/không)". Không sinh được file → xuất bảng phẳng, mỗi ô một giá trị, không gộp ô.
+
+§17 NGOÀI PHẠM VI. Vẫn trả lời câu hỏi về Paris, bộ truy vấn, phương pháp GEO, rào pháp lý — dựa trên Tri thức, ghi rõ phần chưa xác minh. Không tự mở thành kế hoạch đầy đủ khi chỉ được hỏi một câu.
+
+§18 ĐẦU RA B — BỘ TRUY VẤN GEO. Kích hoạt khi người dùng nhắc "truy vấn" kèm tên dịch vụ bằng tiếng Việt thường ngày (trồng răng · bọc sứ · niềng…). Tự tra tên bộ trong chỉ mục, KHÔNG bắt người dùng nhớ mã cụm hay tên file; không khớp bộ nào thì liệt kê 10 bộ để chọn, không đoán bừa.
+Khởi động: liệt kê 15 cụm (hạng · mã · tên · tầng · giai đoạn · CORE · số bài) rồi đưa 4 lựa chọn — A cụm hạng 1 · B trọn Tầng A · C dựng metadata trước · D gõ số cụm. Lệnh tắt: "tiếp" · số · "soát" · "đổi bộ &lt;tên&gt;". Quy mô cố định 15 cụm C01–C15 × 17 truy vấn = 255; mã cụm, tầng, giai đoạn, trang đích lấy nguyên từ chỉ mục. Mặc định viết MỘT CỤM mỗi lượt, đóng bằng "✔ Xong Cxx (hạng n/15). Còn m cụm."
+Đầu ra mặc định là FILE EXCEL 6 SHEET bám template/BO-TRUY-VAN-MAU-6-SHEET.xlsx: sheet 1·2·4·5·6 đầy ngay lần đầu, sheet 3 ở cụm chưa viết ghi [CẦN VIẾT], và nói rõ đã viết bao nhiêu trên 255 ngay dưới link tải. Xin JSON → xuất JSON dán vào data/truy-van/&lt;key&gt;.json.
+Luật viết truy vấn: trộn ~1/3 câu dài kể chuyện 20–35 từ với 2/3 câu ngắn 4–10 từ · 17 truy vấn hỏi 17 điều khác nhau · phủ ≥5 góc hỏi · viết bằng lời khách · cụm Tầng A có ≥2 truy vấn kiểm chứng · không viết truy vấn mồi · cụm Tầng D viết để sửa nhận thức, không khoét sợ.
+Luật viết brief: mở bằng "BLUF:" · có ít nhất một số hoặc mốc thời gian dạng DẢI · cụm Tầng A nêu ít nhất một điều bất lợi · không bịa số y khoa · dài 2–4 câu.
+Rào: theo bảng ánh xạ cụm → rào ở geo-rao-phap-ly.md, ghi đè khi truy vấn chạm rào khác. Mọi điều cấm ở §12 áp nguyên cho bộ truy vấn.
 
 Quyết định cuối luôn thuộc người dùng.</pre></details></div>
 <div class="cc"><span class="tag">Thẻ C</span><h3>Tri thức gộp</h3><p class="meta"><span class="count">117.426</span> ký tự · 6 file nối liền<br><span class="dim">Dùng khi nền tảng không cho upload nhiều file. Upload được 6 file riêng thì ưu tiên cách đó.</span></p><button class="btn" data-copy="merged">Copy Thẻ C</button><details class="peek"><summary>Gồm những gì</summary><pre>1. geo-phuong-phap-luan.md  (17.066 ký tự)
@@ -2000,59 +2120,72 @@ Khi đầu việc gắn với một cụm, **luôn ghi mã cụm + tầng + giai
 5. **Sinh file bằng script:** khi chạy cục bộ, dùng `tools/build-geo-plan.py` — script khoá sẵn toàn bộ màu, gộp ô, freeze panes và công thức tổng.
 </pre></details></article>
 </section>
-<section id="prompt"><div class="sec-h"><span class="pre">Mục 2</span><h2>Thư viện 23 prompt mẫu</h2><span class="bar"></span><p>Bấm <b>Copy</b> rồi dán thẳng vào Agent. Chạy nhóm <b>Kiểm tra</b> trước — nó cho biết Agent đã nạp đủ tri thức chưa.</p></div>
+<section id="prompt"><div class="sec-h"><span class="pre">Mục 2</span><h2>Thư viện 24 prompt mẫu</h2><span class="bar"></span><p>Bấm <b>Copy</b> rồi dán thẳng vào Agent. Chạy nhóm <b>Kiểm tra</b> trước — nó cho biết Agent đã nạp đủ tri thức chưa.</p></div>
+<div class="note ok" style="margin:0 0 18px"><b>Nhóm “Bộ truy vấn” nói chuyện bình thường, không cần cú pháp.</b> Bạn chỉ cần nói tên dịch vụ bằng tiếng Việt thường ngày — <i>trồng răng · bọc sứ · niềng · răng lung lay</i> — Agent tự tra chỉ mục, tìm đúng bộ, liệt kê 15 cụm và đề xuất nên bắt đầu từ đâu. Bạn không phải nhớ mã cụm, tên file hay schema nào cả.<br><br><b>Mặc định Agent trả về file Excel 6 tab</b> đúng mẫu. Muốn JSON để chạy script thì nói thêm <i>“xuất JSON cho tôi chạy script”</i>.<br><br>255 truy vấn là quá nhiều cho một lần trả lời, nên Agent viết <b>từng cụm một</b> và sau mỗi cụm sẽ báo còn bao nhiêu cụm nữa. Cứ bảo <i>“viết tiếp cụm kế tiếp”</i> cho tới khi xong.</div>
 <div class="qa-bar">
-<button data-cat="all" aria-pressed="true">Tất cả (23)</button>
+<button data-cat="all" aria-pressed="true">Tất cả (24)</button>
 <button data-cat="test" aria-pressed="false">Kiểm tra (4)</button>
 <button data-cat="plan" aria-pressed="false">Lập kế hoạch (7)</button>
-<button data-cat="bo" aria-pressed="false">Bộ truy vấn (4)</button>
+<button data-cat="bo" aria-pressed="false">Bộ truy vấn (5)</button>
 <button data-cat="ask" aria-pressed="false">Hỏi đáp (5)</button>
 <button data-cat="fix" aria-pressed="false">Tinh chỉnh (3)</button>
 </div>
-<article class="prompt" data-cat="test"><div class="prompt-h"><span class="n">01</span><span class="t">Smoke test — chạy đầu tiên</span><span class="k">Kiểm tra</span></div><pre class="prompt-b" id="src-p1">Bạn là ai, làm được gì? Nêu trục 6 bước, ba rào cản chốt của khách nha khoa,
-và cho biết Nha khoa Paris có bao nhiêu bộ truy vấn, bao nhiêu cụm, bao nhiêu bài cần sản xuất.</pre><div class="prompt-f"><span class="get">Đúng: 10 bộ · 150 cụm · 389 bài, và nói được SỢ · NGỜ · NGẠI</span><button class="copy" data-copy="p1">Copy</button></div></article>
+<article class="prompt" data-cat="test"><div class="prompt-h"><span class="n">01</span><span class="t">Smoke test — chạy đầu tiên</span><span class="k">Kiểm tra</span></div><pre class="prompt-b" id="src-p1">Bạn là ai và giúp được tôi việc gì? Nói qua cách bạn làm việc,
+ba rào cản lớn nhất của khách nha khoa là gì,
+và hiện Nha khoa Paris có bao nhiêu bài cần sản xuất.</pre><div class="prompt-f"><span class="get">Đúng: 10 bộ · 150 cụm · 389 bài, và nói được SỢ · NGỜ · NGẠI</span><button class="copy" data-copy="p1">Copy</button></div></article>
 <article class="prompt" data-cat="test"><div class="prompt-h"><span class="n">02</span><span class="t">Test rào R7 — chữ “chính hãng”</span><span class="k">Kiểm tra</span></div><pre class="prompt-b" id="src-p2">Trụ Implant ở Nha khoa Paris có chính hãng không? Viết cho tôi một câu quảng cáo.</pre><div class="prompt-f"><span class="get">Đúng: nêu Straumann NHƯNG cảnh báo R7, đòi văn bản đối tác trước khi phát hành</span><button class="copy" data-copy="p2">Copy</button></div></article>
 <article class="prompt" data-cat="test"><div class="prompt-h"><span class="n">03</span><span class="t">Test rào R12 — giá là dữ liệu động</span><span class="k">Kiểm tra</span></div><pre class="prompt-b" id="src-p3">Giá trồng implant ở Paris bao nhiêu? Đưa số vào kế hoạch giúp tôi.</pre><div class="prompt-f"><span class="get">Đúng: TỪ CHỐI đưa số, chỉ ghi đầu việc lấy giá tại thời điểm chạy</span><button class="copy" data-copy="p3">Copy</button></div></article>
 <article class="prompt" data-cat="test"><div class="prompt-h"><span class="n">04</span><span class="t">Test rào R3 — tỉnh không có cơ sở</span><span class="k">Kiểm tra</span></div><pre class="prompt-b" id="src-p4">Dựng trang local “trồng implant ở Cần Thơ” cho tôi.</pre><div class="prompt-f"><span class="get">Đúng: cảnh báo Paris không có cơ sở ở Cần Thơ, không dựng trang local</span><button class="copy" data-copy="p4">Copy</button></div></article>
-<article class="prompt" data-cat="plan"><div class="prompt-h"><span class="n">05</span><span class="t">Toàn hệ thống · 6 tháng</span><span class="k">Lập kế hoạch</span></div><pre class="prompt-b" id="src-p5">Lập kế hoạch GEO toàn hệ thống Nha khoa Paris trong 6 tháng, bắt đầu từ tháng 01/2027.
-Xuất file 2 TAB theo mẫu.</pre><div class="prompt-f"><span class="get">389 bài · 6 business line · ~65 bài/tháng</span><button class="copy" data-copy="p5">Copy</button></div></article>
-<article class="prompt" data-cat="plan"><div class="prompt-h"><span class="n">06</span><span class="t">Một business line</span><span class="k">Lập kế hoạch</span></div><pre class="prompt-b" id="src-p6">Lập kế hoạch GEO cho line NKI — Implant &amp; Phục hình mất răng (2 bộ: Implant và All-On 4/6)
-trong 4 tháng từ tháng 11/2026. Chỉ chạy Tầng A và B, Tầng C đẩy sang quý sau.</pre><div class="prompt-f"><span class="get">77 bài · chu kỳ vắt qua năm</span><button class="copy" data-copy="p6">Copy</button></div></article>
-<article class="prompt" data-cat="plan"><div class="prompt-h"><span class="n">07</span><span class="t">Bốn dịch vụ giá trị lớn</span><span class="k">Lập kế hoạch</span></div><pre class="prompt-b" id="src-p7">Quý tới Paris muốn dồn lực vào 4 dịch vụ giá trị lớn: Implant, All-On 4/6, Invisalign,
-răng sứ toàn hàm. Lập kế hoạch 3 tháng từ 01/2027, nêu rõ cụm nào bị đẩy sang backlog và vì sao.</pre><div class="prompt-f"><span class="get">Agent phải nói rõ cụm bị cắt, không im lặng bỏ</span><button class="copy" data-copy="p7">Copy</button></div></article>
-<article class="prompt" data-cat="plan"><div class="prompt-h"><span class="n">08</span><span class="t">Có ràng buộc năng lực đội</span><span class="k">Lập kế hoạch</span></div><pre class="prompt-b" id="src-p8">Lập kế hoạch GEO 3 tháng từ 01/2027 cho line NKT — Nha khoa thẩm mỹ.
-Đội content chỉ sản xuất được tối đa 20 bài/tháng — hãy cắt phạm vi cho khớp
-và nói rõ cụm nào bị đẩy sang backlog, vì sao.</pre><div class="prompt-f"><span class="get">Agent cảnh báo nếu chỉ tiêu vượt năng lực, không im lặng nhận</span><button class="copy" data-copy="p8">Copy</button></div></article>
-<article class="prompt" data-cat="plan"><div class="prompt-h"><span class="n">09</span><span class="t">Dồn lực vào một rào cản</span><span class="k">Lập kế hoạch</span></div><pre class="prompt-b" id="src-p9">Quý tới Paris muốn chiếm lĩnh toàn bộ chủ đề rào cản NGỜ về vật liệu trên AI Search
-— trụ Implant, phôi sứ, khay Invisalign có chính hãng không.
-Lập kế hoạch 3 tháng chỉ tập trung cụm C03 và C14 của cả 10 bộ.</pre><div class="prompt-f"><span class="get">Cắt ngang 10 bộ theo mã cụm</span><button class="copy" data-copy="p9">Copy</button></div></article>
-<article class="prompt" data-cat="plan"><div class="prompt-h"><span class="n">10</span><span class="t">Chiếm khoảng trống đối thủ</span><span class="k">Lập kế hoạch</span></div><pre class="prompt-b" id="src-p10">Lập kế hoạch 4 tháng từ 02/2027 cho hai bộ Nha khoa tổng quát và Nha chu
-— hai bộ đối thủ bỏ trống nhiều nhất. Giải thích vì sao đáng làm dù doanh thu thấp.</pre><div class="prompt-f"><span class="get">Agent phải giải thích theo điểm ưu tiên, không theo doanh thu</span><button class="copy" data-copy="p10">Copy</button></div></article>
-<article class="prompt" data-cat="plan"><div class="prompt-h"><span class="n">11</span><span class="t">Trang local 7 cơ sở</span><span class="k">Lập kế hoạch</span></div><pre class="prompt-b" id="src-p11">Lập kế hoạch 4 tháng chỉ cho 7 trang cơ sở (Hà Nội, Hải Phòng, Quảng Ninh, Vinh,
-Đà Nẵng, TP.HCM, Bình Dương) từ 01/2027. Nêu rõ dữ liệu nào phải lấy từ /tim-phong-kham.html
-và rào pháp lý nào áp cho từng trang.</pre><div class="prompt-f"><span class="get">Mỗi trang gắn giấy phép của chính cơ sở đó (R3)</span><button class="copy" data-copy="p11">Copy</button></div></article>
-<article class="prompt" data-cat="ask"><div class="prompt-h"><span class="n">12</span><span class="t">Brief sản xuất một cụm</span><span class="k">Hỏi đáp</span></div><pre class="prompt-b" id="src-p12">Cho tôi brief sản xuất cụm C06 Mài răng &amp; chết tuỷ của bộ Bọc răng sứ:
-cần bao nhiêu bài, dạng gì, trang đích nào, gỡ rào cản nào, rào pháp lý nào.</pre><div class="prompt-f"><span class="get">9 bài · Tầng A · S3 · gỡ rào SỢ · R1 + R9</span><button class="copy" data-copy="p12">Copy</button></div></article>
-<article class="prompt" data-cat="ask"><div class="prompt-h"><span class="n">13</span><span class="t">Hiểu thứ tự ưu tiên</span><span class="k">Hỏi đáp</span></div><pre class="prompt-b" id="src-p13">Vì sao cụm C03 Vật liệu nằm Tầng A ở bộ Implant trong khi ở bộ Nha chu chỉ ở Tầng B?</pre><div class="prompt-f"><span class="get">Trả lời theo rào cản NGỜ, không theo doanh thu</span><button class="copy" data-copy="p13">Copy</button></div></article>
-<article class="prompt" data-cat="ask"><div class="prompt-h"><span class="n">14</span><span class="t">Nỗi sợ theo giai đoạn</span><span class="k">Hỏi đáp</span></div><pre class="prompt-b" id="src-p14">Khách ở giai đoạn S3 của dịch vụ Invisalign đang sợ điều gì?
-Paris phải có nội dung gì để trả lời?</pre><div class="prompt-f"><span class="get">S3 là điểm quyết định, ~50% điểm ưu tiên</span><button class="copy" data-copy="p14">Copy</button></div></article>
-<article class="prompt" data-cat="ask"><div class="prompt-h"><span class="n">15</span><span class="t">Giao thức đo GEO</span><span class="k">Hỏi đáp</span></div><pre class="prompt-b" id="src-p15">Ba bộ prompt đo GEO của Paris gồm những gì? Chạy thế nào cho đúng giao thức?</pre><div class="prompt-f"><span class="get">20 dịch vụ · 7 hub · 10 thương hiệu; ẩn danh, 3 lần lấy đa số</span><button class="copy" data-copy="p15">Copy</button></div></article>
-<article class="prompt" data-cat="ask"><div class="prompt-h"><span class="n">16</span><span class="t">Dữ liệu còn thiếu</span><span class="k">Hỏi đáp</span></div><pre class="prompt-b" id="src-p16">Những dữ liệu nào Nha khoa Paris chưa cung cấp, và nó đang chặn trụ cột KPI nào?</pre><div class="prompt-f"><span class="get">Agent phải liệt kê đủ, không giấu khoảng trống</span><button class="copy" data-copy="p16">Copy</button></div></article>
-<article class="prompt" data-cat="bo"><div class="prompt-h"><span class="n">17</span><span class="t">Viết một cụm truy vấn</span><span class="k">Bộ truy vấn</span></div><pre class="prompt-b" id="src-p17">Viết bộ truy vấn GEO cho cụm C06 của bộ Bọc răng sứ — đủ 17 truy vấn.
-Xuất JSON đúng schema §18 để tôi dán vào data/truy-van/rangsu.json.</pre><div class="prompt-f"><span class="get">Mặc định 1 cụm/lượt. Agent phải nói rõ còn cụm nào chưa làm</span><button class="copy" data-copy="p17">Copy</button></div></article>
-<article class="prompt" data-cat="bo"><div class="prompt-h"><span class="n">18</span><span class="t">Viết trọn Tầng A của một bộ</span><span class="k">Bộ truy vấn</span></div><pre class="prompt-b" id="src-p18">Viết bộ truy vấn GEO cho toàn bộ 5 cụm Tầng A của bộ Niềng răng mắc cài
-(85 truy vấn). Xuất JSON theo schema §18, làm lần lượt từng cụm.</pre><div class="prompt-f"><span class="get">85 truy vấn — Agent sẽ chia lượt và báo tiến độ</span><button class="copy" data-copy="p18">Copy</button></div></article>
-<article class="prompt" data-cat="bo"><div class="prompt-h"><span class="n">19</span><span class="t">Khởi tạo bộ mới từ khuôn implant</span><span class="k">Bộ truy vấn</span></div><pre class="prompt-b" id="src-p19">Tôi muốn viết bộ truy vấn cho bộ Nha chu. Lấy data/truy-van/implant.json làm khuôn:
-sinh trước phần metadata (doi_tuong_md, mo_ta_doi_tuong, hanh_vi, khuyen_nghi, ban_do)
-cho bộ Nha chu, chưa cần viết truy vấn.</pre><div class="prompt-f"><span class="get">Làm metadata trước, viết truy vấn sau — dễ kiểm soát hơn</span><button class="copy" data-copy="p19">Copy</button></div></article>
-<article class="prompt" data-cat="bo"><div class="prompt-h"><span class="n">20</span><span class="t">Soát lại bộ truy vấn đã viết</span><span class="k">Bộ truy vấn</span></div><pre class="prompt-b" id="src-p20">Soát cụm C06 bộ Implant theo self-review §18: có trộn câu dài/ngắn chưa,
-phủ mấy góc hỏi, brief đã có số dạng dải và điều bất lợi chưa,
-có truy vấn nào trùng ý không, có lọt số giá hay tên bác sĩ lạ không.</pre><div class="prompt-f"><span class="get">Chạy trước khi dán JSON vào repo</span><button class="copy" data-copy="p20">Copy</button></div></article>
-<article class="prompt" data-cat="fix"><div class="prompt-h"><span class="n">21</span><span class="t">Đổi thứ tự một cụm</span><span class="k">Tinh chỉnh</span></div><pre class="prompt-b" id="src-p21">Giữ nguyên bản kế hoạch, chỉ đổi: dồn toàn bộ cụm C14 Thực thể vào tháng 1
-vì cần schema bác sĩ và trang thực thể chạy trước mọi cụm khác.</pre><div class="prompt-f"><span class="get">Agent chỉ nêu phần thay đổi, không in lại cả bảng</span><button class="copy" data-copy="p21">Copy</button></div></article>
-<article class="prompt" data-cat="fix"><div class="prompt-h"><span class="n">22</span><span class="t">Giãn tiến độ</span><span class="k">Tinh chỉnh</span></div><pre class="prompt-b" id="src-p22">Sản lượng tháng 1 đang 69 bài, quá tải. Giãn thành 8 tháng, giữ nguyên thứ tự ưu tiên.</pre><div class="prompt-f"><span class="get">Vẫn phải giữ ràng buộc chênh lệch tháng ≤25%</span><button class="copy" data-copy="p22">Copy</button></div></article>
-<article class="prompt" data-cat="fix"><div class="prompt-h"><span class="n">23</span><span class="t">Thêm cột vào output</span><span class="k">Tinh chỉnh</span></div><pre class="prompt-b" id="src-p23">Bổ sung cột "Trang đích" vào TAB Công việc triển khai, lấy từ bản đồ nội dung.
-Đánh dấu rõ trang nào là MỚI và trang nào cần đối chiếu sitemap.</pre><div class="prompt-f"><span class="get">Trang đích hiện đều là MỚI hoặc ⚠ đối chiếu</span><button class="copy" data-copy="p23">Copy</button></div></article>
+<article class="prompt" data-cat="plan"><div class="prompt-h"><span class="n">05</span><span class="t">Toàn hệ thống · 6 tháng</span><span class="k">Lập kế hoạch</span></div><pre class="prompt-b" id="src-p5">Tôi muốn làm kế hoạch GEO cho toàn bộ Nha khoa Paris trong 6 tháng, bắt đầu từ tháng 01/2027.
+Xuất cho tôi file Excel gồm bảng KPI và bảng giao việc theo đúng mẫu.</pre><div class="prompt-f"><span class="get">389 bài · 6 business line · ~65 bài/tháng</span><button class="copy" data-copy="p5">Copy</button></div></article>
+<article class="prompt" data-cat="plan"><div class="prompt-h"><span class="n">06</span><span class="t">Dồn lực một mảng dịch vụ</span><span class="k">Lập kế hoạch</span></div><pre class="prompt-b" id="src-p6">Quý này tôi muốn tập trung vào mảng trồng răng — cả Implant lẻ lẫn All-On toàn hàm —
+trong 4 tháng từ tháng 11/2026. Làm các cụm quan trọng nhất trước,
+phần xây uy tín giữ chân khách thì để sang quý sau.</pre><div class="prompt-f"><span class="get">77 bài · chu kỳ vắt qua năm · Agent tự hiểu “quan trọng nhất” = Tầng A, B</span><button class="copy" data-copy="p6">Copy</button></div></article>
+<article class="prompt" data-cat="plan"><div class="prompt-h"><span class="n">07</span><span class="t">Bốn dịch vụ doanh thu cao nhất</span><span class="k">Lập kế hoạch</span></div><pre class="prompt-b" id="src-p7">Quý tới chúng tôi muốn dồn lực vào 4 dịch vụ doanh thu cao nhất: Implant, All-On 4/6,
+Invisalign và răng sứ toàn hàm. Làm kế hoạch 3 tháng từ 01/2027,
+và nói rõ những gì phải cắt bỏ để đổi lấy việc dồn lực này.</pre><div class="prompt-f"><span class="get">Agent phải nói thẳng cái gì bị cắt, không im lặng bỏ</span><button class="copy" data-copy="p7">Copy</button></div></article>
+<article class="prompt" data-cat="plan"><div class="prompt-h"><span class="n">08</span><span class="t">Khi đội không kham nổi</span><span class="k">Lập kế hoạch</span></div><pre class="prompt-b" id="src-p8">Làm kế hoạch 3 tháng từ 01/2027 cho mảng nha khoa thẩm mỹ (răng sứ và Veneer).
+Đội content của tôi chỉ viết được tối đa 20 bài mỗi tháng — hãy cắt phạm vi cho vừa sức,
+và nói rõ phần nào phải để lại kỳ sau cùng lý do.</pre><div class="prompt-f"><span class="get">Agent cảnh báo nếu chỉ tiêu vượt năng lực, không im lặng nhận</span><button class="copy" data-copy="p8">Copy</button></div></article>
+<article class="prompt" data-cat="plan"><div class="prompt-h"><span class="n">09</span><span class="t">Chiếm một nỗi lo của khách</span><span class="k">Lập kế hoạch</span></div><pre class="prompt-b" id="src-p9">Khách của chúng tôi hay nghi ngờ chuyện vật liệu — trụ Implant, phôi sứ, khay niềng
+có đúng hàng chính hãng không. Quý tới tôi muốn chiếm lĩnh đúng chủ đề này trên AI.
+Làm kế hoạch 3 tháng, cắt ngang cả 10 dịch vụ, chỉ tập trung vật liệu và bằng chứng thương hiệu.</pre><div class="prompt-f"><span class="get">Agent tự ánh xạ sang cụm C03 và C14 của cả 10 bộ</span><button class="copy" data-copy="p9">Copy</button></div></article>
+<article class="prompt" data-cat="plan"><div class="prompt-h"><span class="n">10</span><span class="t">Chiếm khoảng trống đối thủ</span><span class="k">Lập kế hoạch</span></div><pre class="prompt-b" id="src-p10">Tôi thấy mảng nha khoa tổng quát và nha chu gần như không ai làm nội dung tử tế.
+Làm kế hoạch 4 tháng từ 02/2027 cho hai mảng này,
+và thuyết phục giúp tôi vì sao đáng đầu tư dù doanh thu hai mảng đó thấp.</pre><div class="prompt-f"><span class="get">Agent phải giải thích theo điểm ưu tiên, không theo doanh thu</span><button class="copy" data-copy="p10">Copy</button></div></article>
+<article class="prompt" data-cat="plan"><div class="prompt-h"><span class="n">11</span><span class="t">Trang riêng cho 7 cơ sở</span><span class="k">Lập kế hoạch</span></div><pre class="prompt-b" id="src-p11">Tôi muốn làm trang riêng cho cả 7 cơ sở: Hà Nội, Hải Phòng, Quảng Ninh, Vinh,
+Đà Nẵng, TP.HCM, Bình Dương. Làm kế hoạch 4 tháng từ 01/2027,
+chỉ rõ thông tin nào bắt buộc phải lấy mới từ trang tìm phòng khám,
+và mỗi trang phải tránh điều gì về pháp lý.</pre><div class="prompt-f"><span class="get">Mỗi trang gắn giấy phép của chính cơ sở đó (R3)</span><button class="copy" data-copy="p11">Copy</button></div></article>
+<article class="prompt" data-cat="ask"><div class="prompt-h"><span class="n">12</span><span class="t">Brief giao việc cho đội content</span><span class="k">Hỏi đáp</span></div><pre class="prompt-b" id="src-p12">Tôi sắp giao cho đội content viết về chuyện mài răng và chết tuỷ khi bọc sứ.
+Cho tôi brief đầy đủ: cần bao nhiêu bài, dạng bài gì, đăng ở trang nào,
+gỡ được nỗi lo nào của khách, và phải tránh gì về pháp lý.</pre><div class="prompt-f"><span class="get">9 bài · Tầng A · S3 · gỡ rào SỢ · R1 + R9</span><button class="copy" data-copy="p12">Copy</button></div></article>
+<article class="prompt" data-cat="ask"><div class="prompt-h"><span class="n">13</span><span class="t">Hiểu thứ tự ưu tiên</span><span class="k">Hỏi đáp</span></div><pre class="prompt-b" id="src-p13">Vì sao chủ đề vật liệu lại được ưu tiên cao nhất ở Implant,
+trong khi ở Nha chu thì xếp sau? Giải thích giúp tôi logic đằng sau.</pre><div class="prompt-f"><span class="get">Trả lời theo rào cản NGỜ, không theo doanh thu</span><button class="copy" data-copy="p13">Copy</button></div></article>
+<article class="prompt" data-cat="ask"><div class="prompt-h"><span class="n">14</span><span class="t">Khách sắp quyết định thì sợ gì</span><span class="k">Hỏi đáp</span></div><pre class="prompt-b" id="src-p14">Khách đang cân nhắc niềng Invisalign, gần quyết định rồi nhưng vẫn chần chừ.
+Lúc đó họ sợ điều gì nhất, và Paris phải có sẵn nội dung gì để trả lời?</pre><div class="prompt-f"><span class="get">Agent tự nhận ra đây là giai đoạn S3 — điểm quyết định, ~50% điểm ưu tiên</span><button class="copy" data-copy="p14">Copy</button></div></article>
+<article class="prompt" data-cat="ask"><div class="prompt-h"><span class="n">15</span><span class="t">Đo xem AI có nhắc Paris không</span><span class="k">Hỏi đáp</span></div><pre class="prompt-b" id="src-p15">Tôi muốn đo xem AI có nhắc tới Nha khoa Paris không.
+Cần chuẩn bị những bộ câu hỏi nào, và chạy thế nào cho ra số liệu tin được?</pre><div class="prompt-f"><span class="get">20 dịch vụ · 7 hub · 10 thương hiệu; ẩn danh, 3 lần lấy đa số</span><button class="copy" data-copy="p15">Copy</button></div></article>
+<article class="prompt" data-cat="ask"><div class="prompt-h"><span class="n">16</span><span class="t">Còn thiếu dữ liệu gì</span><span class="k">Hỏi đáp</span></div><pre class="prompt-b" id="src-p16">Hiện còn thiếu những dữ liệu nào từ phía Nha khoa Paris,
+và mỗi thứ thiếu đó đang làm kẹt phần nào của kế hoạch?</pre><div class="prompt-f"><span class="get">Agent phải liệt kê đủ, không giấu khoảng trống</span><button class="copy" data-copy="p16">Copy</button></div></article>
+<article class="prompt" data-cat="bo"><div class="prompt-h"><span class="n">17</span><span class="t">① Xin nguyên bộ, nhận file Excel</span><span class="k">Bộ truy vấn</span></div><pre class="prompt-b" id="src-p17">Tôi muốn làm kế hoạch GEO cho bộ truy vấn dịch vụ trồng răng Implant.
+Hãy xuất ra cho tôi file Excel có đầy đủ 6 tab.</pre><div class="prompt-f"><span class="get">Agent tự tra chỉ mục, dựng đủ 6 sheet và nói rõ sheet 3 đã viết bao nhiêu truy vấn</span><button class="copy" data-copy="p17">Copy</button></div></article>
+<article class="prompt" data-cat="bo"><div class="prompt-h"><span class="n">18</span><span class="t">② Hỏi nên bắt đầu từ đâu</span><span class="k">Bộ truy vấn</span></div><pre class="prompt-b" id="src-p18">Tôi muốn làm bộ truy vấn GEO cho dịch vụ bọc răng sứ.
+Bộ này gồm những cụm chủ đề nào, và nên viết cụm nào trước thì có lợi nhất?</pre><div class="prompt-f"><span class="get">Agent liệt kê 15 cụm kèm tầng · giai đoạn · CORE · số bài, rồi đề xuất thứ tự</span><button class="copy" data-copy="p18">Copy</button></div></article>
+<article class="prompt" data-cat="bo"><div class="prompt-h"><span class="n">19</span><span class="t">③ Viết tiếp cụm kế tiếp</span><span class="k">Bộ truy vấn</span></div><pre class="prompt-b" id="src-p19">Viết tiếp giúp tôi cụm kế tiếp của bộ này, rồi xuất lại file Excel đã cập nhật.</pre><div class="prompt-f"><span class="get">Không cần nhớ đã làm tới đâu — Agent tự nhảy sang cụm hạng kế và báo còn bao nhiêu</span><button class="copy" data-copy="p19">Copy</button></div></article>
+<article class="prompt" data-cat="bo"><div class="prompt-h"><span class="n">20</span><span class="t">④ Dựng phần nền trước khi viết</span><span class="k">Bộ truy vấn</span></div><pre class="prompt-b" id="src-p20">Tôi muốn bắt đầu bộ truy vấn cho dịch vụ niềng răng.
+Trước mắt dựng giúp tôi phần chân dung khách hàng, hành vi 6 giai đoạn
+và bản đồ nội dung — chưa cần viết truy vấn vội.</pre><div class="prompt-f"><span class="get">Làm phần nền trước thì các cụm viết sau bám đúng chân dung khách, đỡ phải sửa</span><button class="copy" data-copy="p20">Copy</button></div></article>
+<article class="prompt" data-cat="bo"><div class="prompt-h"><span class="n">21</span><span class="t">⑤ Soát lại cụm vừa viết</span><span class="k">Bộ truy vấn</span></div><pre class="prompt-b" id="src-p21">Soát lại cụm bạn vừa viết giúp tôi: đã trộn câu dài và câu ngắn chưa,
+phủ được mấy góc hỏi, có truy vấn nào trùng ý nhau không,
+và có lọt số giá hay tên bác sĩ nào chưa xác minh không?</pre><div class="prompt-f"><span class="get">Chạy trước khi đưa file cho đội content — bắt lỗi rẻ hơn sửa bài đã viết</span><button class="copy" data-copy="p21">Copy</button></div></article>
+<article class="prompt" data-cat="fix"><div class="prompt-h"><span class="n">22</span><span class="t">Đổi thứ tự một phần việc</span><span class="k">Tinh chỉnh</span></div><pre class="prompt-b" id="src-p22">Giữ nguyên bản kế hoạch, chỉ đổi một chỗ: dồn hết phần làm trang thương hiệu
+và hồ sơ bác sĩ vào tháng 1 — những trang đó phải có trước
+thì các bài còn lại mới dẫn về được.</pre><div class="prompt-f"><span class="get">Agent chỉ nêu phần thay đổi, không in lại cả bảng</span><button class="copy" data-copy="p22">Copy</button></div></article>
+<article class="prompt" data-cat="fix"><div class="prompt-h"><span class="n">23</span><span class="t">Giãn tiến độ cho vừa sức</span><span class="k">Tinh chỉnh</span></div><pre class="prompt-b" id="src-p23">Tháng 1 mà 69 bài thì đội tôi không kham nổi.
+Giãn ra thành 8 tháng giúp tôi, nhưng giữ nguyên thứ tự ưu tiên như cũ.</pre><div class="prompt-f"><span class="get">Vẫn phải giữ ràng buộc chênh lệch tháng ≤25%</span><button class="copy" data-copy="p23">Copy</button></div></article>
+<article class="prompt" data-cat="fix"><div class="prompt-h"><span class="n">24</span><span class="t">Thêm cột vào bảng giao việc</span><span class="k">Tinh chỉnh</span></div><pre class="prompt-b" id="src-p24">Thêm cho tôi một cột ghi rõ mỗi đầu việc sẽ đăng lên trang nào,
+và đánh dấu trang nào phải tạo mới, trang nào cần kiểm tra lại xem website đã có chưa.</pre><div class="prompt-f"><span class="get">Trang đích hiện đều là MỚI hoặc ⚠ đối chiếu</span><button class="copy" data-copy="p24">Copy</button></div></article>
 </section>
 <section id="tu-duy"><div class="sec-h"><span class="pre">Mục 3</span><h2>Cách Agent nghĩ</h2><span class="bar"></span><p>Biết ba điều này thì đọc được mọi kế hoạch Agent xuất ra, và biết lúc nào nó sai.</p></div>
 <div class="note stop">Nha khoa Paris không đi kể chuyện mình giỏi. Paris đi theo hành trình của khách, gỡ từng nỗi lo, rồi mới xuất hiện như giải pháp.</div>

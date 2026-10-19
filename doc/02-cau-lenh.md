@@ -24,152 +24,226 @@ Lập kế hoạch GEO cho [PHẠM VI] trong [SỐ THÁNG] tháng, bắt đầu 
 
 # 2. Prompt mẫu theo tình huống
 
-## 2.1 Kế hoạch toàn hệ thống
+Viết như đang nói chuyện với một người làm GEO có nghề. Không cần dùng mã nội bộ — Agent tự ánh xạ sang tầng, cụm, giai đoạn.
+
+## 2.1 Toàn hệ thống
 
 ```
-Lập kế hoạch GEO toàn hệ thống Nha khoa Paris trong 6 tháng, bắt đầu từ tháng 01/2027.
-Xuất file 2 TAB theo mẫu.
+Tôi muốn làm kế hoạch GEO cho toàn bộ Nha khoa Paris trong 6 tháng, bắt đầu từ tháng 01/2027.
+Xuất cho tôi file Excel gồm bảng KPI và bảng giao việc theo đúng mẫu.
 ```
 
-## 2.2 Kế hoạch một business line
+## 2.2 Dồn lực một mảng dịch vụ
 
 ```
-Lập kế hoạch GEO cho line NKI — Implant & Phục hình mất răng (2 bộ: Implant và All-On 4/6)
-trong 4 tháng từ tháng 11/2026. Chỉ chạy Tầng A và B, Tầng C đẩy sang quý sau.
+Quý này tôi muốn tập trung vào mảng trồng răng — cả Implant lẻ lẫn All-On toàn hàm —
+trong 4 tháng từ tháng 11/2026. Làm các cụm quan trọng nhất trước,
+phần xây uy tín giữ chân khách thì để sang quý sau.
 ```
 
-## 2.3 Kế hoạch dịch vụ giá trị lớn
+## 2.3 Bốn dịch vụ doanh thu cao nhất
 
 ```
-Quý tới Paris muốn dồn lực vào 4 dịch vụ giá trị lớn: Implant, All-On 4/6, Invisalign,
-răng sứ toàn hàm. Lập kế hoạch 3 tháng từ 01/2027, nêu rõ cụm nào bị đẩy sang backlog.
+Quý tới chúng tôi muốn dồn lực vào 4 dịch vụ doanh thu cao nhất: Implant, All-On 4/6,
+Invisalign và răng sứ toàn hàm. Làm kế hoạch 3 tháng từ 01/2027,
+và nói rõ những gì phải cắt bỏ để đổi lấy việc dồn lực này.
 ```
 
-## 2.4 Kế hoạch có ràng buộc năng lực
+## 2.4 Khi đội không kham nổi
 
 ```
-Lập kế hoạch GEO 3 tháng từ 01/2027 cho line NKT — Nha khoa thẩm mỹ.
-Đội content chỉ sản xuất được tối đa 20 bài/tháng — hãy cắt phạm vi cho khớp
-và nói rõ cụm nào bị đẩy sang backlog, vì sao.
+Làm kế hoạch 3 tháng từ 01/2027 cho mảng nha khoa thẩm mỹ (răng sứ và Veneer).
+Đội content của tôi chỉ viết được tối đa 20 bài mỗi tháng — hãy cắt phạm vi cho vừa sức,
+và nói rõ phần nào phải để lại kỳ sau cùng lý do.
 ```
 
-## 2.5 Kế hoạch ưu tiên một rào cản
+## 2.5 Chiếm một nỗi lo của khách
 
 ```
-Quý tới Paris muốn chiếm lĩnh toàn bộ chủ đề rào cản NGỜ về vật liệu trên AI Search
-— trụ Implant, phôi sứ, khay Invisalign có chính hãng không.
-Lập kế hoạch 3 tháng chỉ tập trung cụm C03 và C14 của cả 10 bộ.
+Khách của chúng tôi hay nghi ngờ chuyện vật liệu — trụ Implant, phôi sứ, khay niềng
+có đúng hàng chính hãng không. Quý tới tôi muốn chiếm lĩnh đúng chủ đề này trên AI.
+Làm kế hoạch 3 tháng, cắt ngang cả 10 dịch vụ, chỉ tập trung vật liệu và bằng chứng thương hiệu.
 ```
 
-## 2.6 Kế hoạch chiếm khoảng trống đối thủ
+## 2.6 Chiếm khoảng trống đối thủ
 
 ```
-Lập kế hoạch 4 tháng từ 02/2027 cho hai bộ Nha khoa tổng quát và Nha chu
-— hai bộ đối thủ bỏ trống nhiều nhất. Giải thích vì sao đáng làm dù doanh thu thấp.
+Tôi thấy mảng nha khoa tổng quát và nha chu gần như không ai làm nội dung tử tế.
+Làm kế hoạch 4 tháng từ 02/2027 cho hai mảng này,
+và thuyết phục giúp tôi vì sao đáng đầu tư dù doanh thu hai mảng đó thấp.
 ```
 
-## 2.7 Kế hoạch thương hiệu tổng (GEO Entity)
+## 2.7 Trang riêng cho 7 cơ sở
 
 ```
-Lập kế hoạch 3 tháng chỉ cho bộ Thương hiệu tổng (01-thuonghieu),
-mục tiêu để AI trả lời đúng "Nha khoa Paris là ai, có mấy cơ sở, có giấy phép gì,
-vật liệu có chính hãng không".
-```
-
-## 2.8 Kế hoạch LTV / gói gia đình
-
-```
-Lập kế hoạch 4 tháng cho line NKF — Nha khoa trẻ em & Gia đình, từ 03/2027.
-Mục tiêu: biến một khách hài lòng thành cả gia đình. Nêu rõ đầu việc nào gắn CRM/Zalo OA.
-```
-
-## 2.9 Kế hoạch trang local
-
-```
-Lập kế hoạch 4 tháng chỉ cho 7 trang cơ sở (Hà Nội, Hải Phòng, Quảng Ninh, Vinh,
-Đà Nẵng, TP.HCM, Bình Dương) từ 01/2027. Nêu rõ dữ liệu nào phải lấy từ /tim-phong-kham.html
-và rào pháp lý nào áp cho từng trang.
+Tôi muốn làm trang riêng cho cả 7 cơ sở: Hà Nội, Hải Phòng, Quảng Ninh, Vinh,
+Đà Nẵng, TP.HCM, Bình Dương. Làm kế hoạch 4 tháng từ 01/2027,
+chỉ rõ thông tin nào bắt buộc phải lấy mới từ trang tìm phòng khám,
+và mỗi trang phải tránh điều gì về pháp lý.
 ```
 
 ---
 
-# 2B. Prompt sản xuất BỘ TRUY VẤN (đầu ra B — §18)
+# 2B. Sản xuất BỘ TRUY VẤN (đầu ra B — §18)
 
-Đây là đầu ra thứ hai của Agent, **khác hẳn** kế hoạch tháng. Agent chỉ làm khi bạn yêu cầu rõ.
+Đây là đầu ra thứ hai của Agent, **khác hẳn** kế hoạch tháng. Bạn **nói chuyện bình thường**, không cần cú pháp — chỉ cần nêu tên dịch vụ bằng tiếng Việt thường ngày, Agent tự tra chỉ mục và tìm đúng bộ.
 
-> Mỗi bộ cố định **15 cụm C01–C15 × 17 truy vấn = 255**. Agent mặc định làm **1 cụm/lượt** và báo còn cụm nào chưa làm. Đầu ra là **JSON** dán thẳng vào `data/truy-van/<key>.json`, rồi chạy `python tools/build-botruyvan.py --scope <key>`.
+**Mặc định Agent trả về file Excel 6 tab.** Muốn JSON để chạy script thì nói thêm *"xuất JSON cho tôi chạy script"*.
 
-## 2B.1 Viết một cụm
+255 truy vấn là quá nhiều cho một lần trả lời, nên Agent viết **từng cụm một** và sau mỗi cụm báo còn bao nhiêu. Cứ bảo *"viết tiếp cụm kế tiếp"* cho tới khi xong.
 
-```
-Viết bộ truy vấn GEO cho cụm C06 của bộ Bọc răng sứ — đủ 17 truy vấn.
-Xuất JSON đúng schema §18 để tôi dán vào data/truy-van/rangsu.json.
-```
-
-## 2B.2 Viết trọn Tầng A của một bộ
+## 2B.1 Xin nguyên bộ, nhận file Excel
 
 ```
-Viết bộ truy vấn GEO cho toàn bộ 5 cụm Tầng A của bộ Niềng răng mắc cài
-(85 truy vấn). Xuất JSON theo schema §18, làm lần lượt từng cụm.
+Tôi muốn làm kế hoạch GEO cho bộ truy vấn dịch vụ trồng răng Implant.
+Hãy xuất ra cho tôi file Excel có đầy đủ 6 tab.
 ```
 
-## 2B.3 Khởi tạo metadata cho bộ mới
+Agent dựng đủ 6 sheet. Sheet 1·2·4·5·6 đầy ngay từ lần xuất đầu. Sheet 3 đầy ở những cụm đã viết, cụm chưa viết để `[CẦN VIẾT]` — và Agent **nói rõ** đã viết bao nhiêu trên 255.
+
+## 2B.2 Hỏi nên bắt đầu từ đâu
 
 ```
-Tôi muốn viết bộ truy vấn cho bộ Nha chu. Lấy data/truy-van/implant.json làm khuôn:
-sinh trước phần metadata (doi_tuong_md, mo_ta_doi_tuong, hanh_vi, khuyen_nghi, ban_do)
-cho bộ Nha chu, chưa cần viết truy vấn.
+Tôi muốn làm bộ truy vấn GEO cho dịch vụ bọc răng sứ.
+Bộ này gồm những cụm chủ đề nào, và nên viết cụm nào trước thì có lợi nhất?
 ```
 
-## 2B.4 Soát lại bộ đã viết
+## 2B.3 Viết tiếp cụm kế tiếp
 
 ```
-Soát cụm C06 bộ Implant theo self-review §18: có trộn câu dài/ngắn chưa,
-phủ mấy góc hỏi, brief đã có số dạng dải và điều bất lợi chưa,
-có truy vấn nào trùng ý không, có lọt số giá hay tên bác sĩ lạ không.
+Viết tiếp giúp tôi cụm kế tiếp của bộ này, rồi xuất lại file Excel đã cập nhật.
 ```
 
-**Thứ tự đề xuất khi viết 9 bộ còn lại:** `rangsu` (47 bài, khoảng trống AI lớn nhất) → `niengmaccai` → `thuonghieu` (cụm C14 nuôi 9 bộ kia) → `invisalign` → `tongquat` → `allon` → `nhachu` → `veneer` → `trenem`.
+## 2B.4 Dựng phần nền trước khi viết truy vấn
+
+```
+Tôi muốn bắt đầu bộ truy vấn cho dịch vụ niềng răng.
+Trước mắt dựng giúp tôi phần chân dung khách hàng, hành vi 6 giai đoạn
+và bản đồ nội dung — chưa cần viết truy vấn vội.
+```
+
+## 2B.5 Soát lại cụm vừa viết
+
+```
+Soát lại cụm bạn vừa viết giúp tôi: đã trộn câu dài và câu ngắn chưa,
+phủ được mấy góc hỏi, có truy vấn nào trùng ý nhau không,
+và có lọt số giá hay tên bác sĩ nào chưa xác minh không?
+```
+
+## Tên dịch vụ — gõ kiểu gì Agent cũng hiểu
+
+| Bạn nói | Agent hiểu là bộ |
+|---|---|
+| `trồng răng` · `implant` · `cấy ghép` | Trồng răng Implant |
+| `bọc sứ` · `răng sứ` · `mão sứ` | Bọc răng sứ |
+| `niềng` · `mắc cài` · `chỉnh nha` | Niềng răng mắc cài |
+| `niềng trong suốt` · `khay` · `invisalign` | Invisalign |
+| `mặt dán` · `dán sứ` · `veneer` | Mặt dán sứ Veneer |
+| `toàn hàm` · `mất hết răng` · `all-on` | All-On 4/6 |
+| `nhổ răng` · `trám` · `tuỷ` · `tẩy trắng` | Nha khoa tổng quát |
+| `răng lung lay` · `viêm nướu` · `nha chu` | Nha chu & viêm nướu |
+| `trẻ em` · `trẻ nhỏ` · `gia đình` | Nha khoa trẻ em |
+| `thương hiệu` · `brand` · `Paris` | Thương hiệu Nha khoa Paris |
+
+Tên không khớp bộ nào → Agent liệt kê 10 bộ cho bạn chọn, **không đoán bừa**.
+
+## Lệnh tắt cho người quen việc
+
+Không bắt buộc, chỉ để gõ nhanh: `tiếp` · `<số>` (chọn cụm theo hạng) · `soát` · `đổi bộ răng sứ`.
+
+## Nếu bạn tự chạy script
+
+Xin JSON thay vì Excel, dán vào `data/truy-van/<key>.json` rồi chạy:
+
+```bash
+python tools/build-botruyvan.py --scope implant
+```
+
+**Thứ tự đề xuất viết 9 bộ còn lại:** `răng sứ` (47 bài, khoảng trống AI lớn nhất) → `niềng` → `thương hiệu` (cụm C14 nuôi 9 bộ kia) → `invisalign` → `tổng quát` → `all-on` → `nha chu` → `veneer` → `trẻ em`.
 
 ---
 
 # 3. Prompt hỏi đáp (không lập kế hoạch)
 
-| Mục đích | Prompt |
+## 3.1 Brief giao việc cho đội content
+
+```
+Tôi sắp giao cho đội content viết về chuyện mài răng và chết tuỷ khi bọc sứ.
+Cho tôi brief đầy đủ: cần bao nhiêu bài, dạng bài gì, đăng ở trang nào,
+gỡ được nỗi lo nào của khách, và phải tránh gì về pháp lý.
+```
+
+## 3.2 Hiểu thứ tự ưu tiên
+
+```
+Vì sao chủ đề vật liệu lại được ưu tiên cao nhất ở Implant,
+trong khi ở Nha chu thì xếp sau? Giải thích giúp tôi logic đằng sau.
+```
+
+## 3.3 Khách sắp quyết định thì sợ gì
+
+```
+Khách đang cân nhắc niềng Invisalign, gần quyết định rồi nhưng vẫn chần chừ.
+Lúc đó họ sợ điều gì nhất, và Paris phải có sẵn nội dung gì để trả lời?
+```
+
+## 3.4 Đo xem AI có nhắc Paris không
+
+```
+Tôi muốn đo xem AI có nhắc tới Nha khoa Paris không.
+Cần chuẩn bị những bộ câu hỏi nào, và chạy thế nào cho ra số liệu tin được?
+```
+
+## 3.5 Còn thiếu dữ liệu gì
+
+```
+Hiện còn thiếu những dữ liệu nào từ phía Nha khoa Paris,
+và mỗi thứ thiếu đó đang làm kẹt phần nào của kế hoạch?
+```
+
+## 3.6 Các câu hỏi nhanh khác
+
+| Mục đích | Hỏi thế nào |
 |---|---|
-| Hiểu ưu tiên | `Vì sao cụm C03 Vật liệu lại nằm Tầng A ở bộ Implant trong khi ở bộ Nha chu chỉ ở Tầng B?` |
-| Brief một cụm | `Cho tôi brief sản xuất cụm C06 Mài răng & chết tuỷ của bộ Bọc răng sứ: cần bao nhiêu bài, dạng gì, trang đích nào, gỡ rào cản nào, rào pháp lý nào.` |
-| Đối tượng khách | `Khách ở giai đoạn S3 của dịch vụ Invisalign đang sợ điều gì? Paris phải có nội dung gì để trả lời?` |
-| Rào cản | `Ba rào cản chốt của khách nha khoa là gì? Rào nào nặng nhất và vì sao nặng hơn ngành thẩm mỹ?` |
-| Đo lường | `Ba bộ prompt đo GEO của Paris gồm những gì? Chạy thế nào cho đúng giao thức?` |
-| Pháp lý | `Rào R7 "chính hãng" áp cho những cụm nào? Phải có gì trong tay trước khi phát hành?` |
-| Pháp lý | `Rào R12 nói gì về giá? Vì sao không được đưa số giá vào kế hoạch?` |
-| Thương hiệu | `Paris có mấy cơ sở, ở đâu? Hub nào nằm trong phạm vi chu kỳ và vì sao tỉnh khác thì không?` |
-| Bác sĩ | `Paris có mấy bác sĩ đã có hồ sơ xác minh? Gắn ai vào dịch vụ nào?` |
-| Khoảng trống | `Bộ dịch vụ nào của Paris đang có khoảng trống AI lớn nhất? Vì sao nên lấp trước?` |
-| Dữ liệu thiếu | `Những dữ liệu nào Paris chưa cung cấp và nó chặn trụ cột KPI nào?` |
+| Rào cản khách | `Ba rào cản lớn nhất của khách nha khoa là gì, và cái nào nặng nhất?` |
+| Chữ "chính hãng" | `Khi nào tôi được phép dùng chữ "chính hãng", và cần có gì trong tay trước đã?` |
+| Giá | `Vì sao không được đưa số giá vào kế hoạch hay vào bài viết?` |
+| Cơ sở | `Paris có mấy cơ sở, ở đâu? Tỉnh không có cơ sở thì làm nội dung kiểu gì?` |
+| Bác sĩ | `Tôi được nhắc tên bác sĩ nào trong bài, và gắn ai vào dịch vụ nào?` |
+| Khoảng trống | `Mảng nào của Paris đang bị đối thủ bỏ trống nhiều nhất trên AI?` |
 
 ---
 
 # 4. Prompt tinh chỉnh sau khi có bản nháp
 
-```
-Giữ nguyên bản kế hoạch, chỉ đổi: dồn toàn bộ cụm C14 Thực thể vào tháng 1
-vì cần schema bác sĩ và trang thực thể chạy trước mọi cụm khác.
-```
+## 4.1 Đổi thứ tự một phần việc
 
 ```
-Sản lượng tháng 1 đang 69 bài, quá tải. Giãn thành 8 tháng, giữ nguyên thứ tự ưu tiên.
+Giữ nguyên bản kế hoạch, chỉ đổi một chỗ: dồn hết phần làm trang thương hiệu
+và hồ sơ bác sĩ vào tháng 1 — những trang đó phải có trước
+thì các bài còn lại mới dẫn về được.
 ```
 
-```
-Bổ sung cột "Trang đích" vào TAB Công việc triển khai, lấy từ bản đồ nội dung.
-Đánh dấu rõ trang nào là MỚI và trang nào cần đối chiếu sitemap.
-```
+## 4.2 Giãn tiến độ cho vừa sức
 
 ```
-Tách riêng một dòng KPI cho micro-conversion của 4 công cụ kiểm tra online
-(răng miệng, niềng, răng sứ, trồng răng).
+Tháng 1 mà 69 bài thì đội tôi không kham nổi.
+Giãn ra thành 8 tháng giúp tôi, nhưng giữ nguyên thứ tự ưu tiên như cũ.
+```
+
+## 4.3 Thêm cột vào bảng giao việc
+
+```
+Thêm cho tôi một cột ghi rõ mỗi đầu việc sẽ đăng lên trang nào,
+và đánh dấu trang nào phải tạo mới, trang nào cần kiểm tra lại xem website đã có chưa.
+```
+
+## 4.4 Tách riêng một chỉ số
+
+```
+Tách riêng một dòng KPI để theo dõi 4 công cụ kiểm tra răng online
+(răng miệng, niềng, răng sứ, trồng răng) — tôi muốn biết bao nhiêu người
+dùng công cụ rồi mới điền form.
 ```
 
 > Agent chỉ nêu phần thay đổi, không in lại toàn bộ bảng trừ khi bạn yêu cầu.

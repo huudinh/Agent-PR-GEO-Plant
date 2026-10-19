@@ -120,19 +120,29 @@ Viết thêm một bộ: tạo `data/truy-van/<key>.json` theo đúng cấu trú
 
 → Chi tiết từng nền tảng + smoke test: [doc/01-cai-dat.md](doc/01-cai-dat.md)
 
-**Câu lệnh đầu tiên để test:**
+**Câu đầu tiên để test:**
 
 ```
-Bạn là ai, làm được gì? Nêu trục 6 bước, ba rào cản chốt của khách nha khoa,
-và cho biết Nha khoa Paris có bao nhiêu bài cần sản xuất.
+Bạn là ai và giúp được tôi việc gì? Nói qua cách bạn làm việc,
+ba rào cản lớn nhất của khách nha khoa là gì,
+và hiện Nha khoa Paris có bao nhiêu bài cần sản xuất.
 ```
 
-**Câu lệnh lập kế hoạch:**
+**Xin một bản kế hoạch:**
 
 ```
-Lập kế hoạch GEO toàn hệ thống Nha khoa Paris trong 6 tháng, bắt đầu từ tháng 01/2027.
-Xuất file 2 TAB theo mẫu.
+Tôi muốn làm kế hoạch GEO cho toàn bộ Nha khoa Paris trong 6 tháng, bắt đầu từ tháng 01/2027.
+Xuất cho tôi file Excel gồm bảng KPI và bảng giao việc theo đúng mẫu.
 ```
+
+**Xin một bộ truy vấn:**
+
+```
+Tôi muốn làm kế hoạch GEO cho bộ truy vấn dịch vụ trồng răng Implant.
+Hãy xuất ra cho tôi file Excel có đầy đủ 6 tab.
+```
+
+> Nói chuyện bình thường là đủ — không cần dùng mã nội bộ như `Tầng A`, `cụm C06` hay `giai đoạn S3`. Agent tự ánh xạ.
 
 → Thư viện prompt mẫu đầy đủ: [doc/02-cau-lenh.md](doc/02-cau-lenh.md)
 → **Trang hướng dẫn tra cứu nhanh (bấm Copy từng prompt):** https://claude.ai/artifact/1P7KAhxMwAzoBEMi2TqsYo — mã nguồn tại [artifact/huong-dan-su-dung.html](artifact/huong-dan-su-dung.html)

@@ -33,9 +33,19 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC_CUM = os.path.join(ROOT, "data", "bo-truy-van")
 SRC_TV = os.path.join(ROOT, "data", "truy-van")
 OUT_DIR = os.path.join(ROOT, "doc", "BotruyvanGEO-Paris")
-# Bộ đã viết đầy đủ nhất được nhân bản sang đây làm FILE MẪU để upload vào Knowledge —
-# đầu ra B (§18 bộ não) cần mẫu soi chiếu đúng như đầu ra A có GEO-PLAN-MAU-6-THANG.xlsx.
-TEMPLATE_OUT = os.path.join(ROOT, "template", "BO-TRUY-VAN-MAU-6-SHEET.xlsx")
+
+# CẤU TRÚC CHUẨN: template/Mau-Truy-Van-Geo.xlsx (bản v3 đầy đủ nhất của bộ Kangnam).
+# Mọi file sinh ra phải khớp mẫu này về số sheet, thứ tự sheet, thứ tự cột và cách đọc.
+# Script KHÔNG ghi đè file mẫu — nó do người dùng cung cấp và là nguồn đối chiếu.
+#
+# Hai chỗ cố ý khác mẫu, đều có lý do:
+#   ① Hậu tố tên sheet rút ngắn ("- Huong dan" thay vì "- Huong dan & Chien luoc").
+#      Excel cấm tên sheet quá 31 ký tự; mẫu vừa đủ vì "Mũi" chỉ 3 ký tự, còn tên bộ
+#      của Paris dài tới 8 ("Tongquat") nên dùng hậu tố đầy đủ sẽ vượt giới hạn.
+#   ② Thêm cột ĐỐI TƯỢNG ở sheet 3 (cột Q). Mẫu `mui.xlsx` không có cột này nhưng
+#      `nhakhoa.xlsx` — bộ nha khoa, gần Paris nhất — thì có, và mục 3 của sheet 1
+#      (thống kê theo nhóm đối tượng) đếm trực tiếp từ cột đó.
+TEMPLATE_CHUAN = os.path.join(ROOT, "template", "Mau-Truy-Van-Geo.xlsx")
 
 TV_MOI_CUM = 17  # mỗi cụm 17 truy vấn — quy ước của mẫu chuẩn
 
@@ -359,7 +369,85 @@ def sheet1(wb, d, rows):
         put(ws, r, 1, t, size=9.5)
         ws.row_dimensions[r].height = 28
 
-    widths(ws, {1: 30, 2: 11, 3: 13, 4: 12, 5: 14, 6: 92})
+    r += 2
+    band(ws, r, 1, 6, "6 · CẢNH BÁO — ĐỌC TRƯỚC KHI TRIỂN KHAI", RED)
+    for t in [
+        "• Mọi nội dung dịch vụ khám chữa bệnh phải qua quy trình duyệt 2 lớp: Content soạn → tự kiểm checklist R0–R13 → BS thẩm định chuyên môn → Pháp chế duyệt → (nếu là quảng cáo dịch vụ KCB) xin GXNNDQC tại Sở Y tế.",
+        "• Tuyệt đối không dùng: “cam kết 100%”, “vĩnh viễn”, “trọn đời”, “không đau”, “không biến chứng”, “đẹp như ý hoặc hoàn tiền” (R1).",
+        "• Chữ “CHÍNH HÃNG” chỉ được gắn cho đúng 4 hãng có văn bản đối tác: Straumann · Invisalign · Nacera · Ormco. Vật liệu khác → ghi ⚠ Cần xác minh (R7).",
+        "• Chỉ gắn tên bác sĩ đã có hồ sơ xác minh VÀ đã đăng ký hành nghề tại đúng cơ sở (R4).",
+        "• Giá, % ưu đãi, lãi suất trả góp là DỮ LIỆU ĐỘNG — lấy tại thời điểm chạy, không ghi số vào file này (R12).",
+        "• Mỗi trang local gắn đúng số giấy phép của chính cơ sở đó; tỉnh không có cơ sở thì không dựng trang local (R3).",
+        "• Mọi ảnh/video khách hàng phải có văn bản đồng ý minh thị. Thoả thuận miệng không có giá trị (R5).",
+        "• Không nêu tên, không so sánh trực tiếp, không hạ thấp đối thủ; với khách sửa lại ca cũ thì không phán xét nơi cũ (R6).",
+    ]:
+        r += 1
+        ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=6)
+        put(ws, r, 1, t, size=9.5, fill=RED_WASH)
+        ws.row_dimensions[r].height = 26
+
+    r += 2
+    band(ws, r, 1, 6, "7 · BẢNG ĐẾM TỰ ĐỘNG (tính từ sheet 3 — chạy lại script là cập nhật)", BLUE)
+    r += 1
+    header_row(ws, r, ["Chỉ số", "Số lượng", "% bộ", "", "", ""])
+    tv_all = len(rows)
+
+    def dem(label, n, nhan=False):
+        nonlocal r
+        r += 1
+        put(ws, r, 1, label, bold=nhan, fill=RED_WASH if nhan else None)
+        put(ws, r, 2, n, ha="center", bold=nhan, fill=RED_WASH if nhan else None)
+        put(ws, r, 3, round(n / tv_all, 4), ha="center", fill=RED_WASH if nhan else None)
+
+    dem("Tổng số truy vấn", tv_all, True)
+    for ut in ("P1", "P2", "P3"):
+        dem(f"Ưu tiên {ut}", sum(1 for x in rows if x["ut"] == ut))
+    for nh, nhan in (("Hot", "Truy vấn HOT (sát chuyển đổi)"), ("Warm", "Truy vấn WARM"),
+                     ("Existing", "Truy vấn EXISTING"), ("Cold", "Truy vấn COLD")):
+        dem(nhan, sum(1 for x in rows if x["nhiet"] == nh))
+    for dt in ("Cao", "TB", "Thấp"):
+        n = sum(1 for x in rows if x["dt"] == dt)
+        if n:
+            dem(f"Giá trị doanh thu {dt.upper()}", n)
+    dem("NHÓM CORE 80/20", sum(1 for x in rows if x["core"]), True)
+    for gd in ("S1", "S2", "S3", "S4", "S5", "S6"):
+        dem(GIAI_DOAN[gd], sum(1 for x in rows if x["cum"]["gd"] == gd), gd == "S3")
+    r += 1
+    put(ws, r, 1, "Đã viết truy vấn", bold=True)
+    put(ws, r, 2, sum(1 for x in rows if x["truy_van"]), ha="center", bold=True)
+    put(ws, r, 3, round(sum(1 for x in rows if x["truy_van"]) / tv_all, 4), ha="center")
+    put(ws, r, 4, f"còn {tv_all - sum(1 for x in rows if x['truy_van'])} ô [CẦN VIẾT]", size=9)
+
+    r += 2
+    band(ws, r, 1, 6, "8 · NHÂN BẢN CHO BỘ DỊCH VỤ KHÁC — 6 bước", BLUE)
+    for t in [
+        "① Nhân bản `data/bo-truy-van/02-implant.json`, đổi `key` · `ten` · `line` · `line_ten`, viết lại 15 cụm C01–C15. Giữ ba bất biến: 15 cụm · tổng % điểm = 100 · tầng A/B/C/D = 5/5/3/2.",
+        "② Chạy `python tools/build-index.py` — script tự soát ba bất biến và DỪNG nếu lệch. Upload lại chỉ mục vào Tri thức.",
+        "③ Nhân bản `data/truy-van/implant.json`, viết metadata trước (đối tượng · hành vi 6 giai đoạn · khuyến nghị cụm · bản đồ nội dung), chưa cần truy vấn.",
+        "④ Viết truy vấn theo từng cụm, mỗi cụm đúng 17 dòng. Trộn ~1/3 câu dài kể chuyện 20–35 từ với 2/3 câu ngắn 4–10 từ; phủ ≥5 góc hỏi; cụm Tầng A có ≥2 truy vấn kiểm chứng.",
+        "⑤ Mỗi brief mở bằng “BLUF:”, có ít nhất một số dạng DẢI, và cụm Tầng A phải nêu ít nhất một điều bất lợi.",
+        "⑥ Chạy `python tools/build-botruyvan.py --scope <key>` để sinh lại file 6 sheet. Đối chiếu với `template/Mau-Truy-Van-Geo.xlsx` trước khi giao việc.",
+    ]:
+        r += 1
+        ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=6)
+        put(ws, r, 1, t, size=9.5)
+        ws.row_dimensions[r].height = 28
+
+    r += 2
+    band(ws, r, 1, 6, "9 · NGUỒN & GHI CHÚ CẤU TRÚC", BLUE)
+    for t in [
+        "— Cấu trúc chuẩn: `template/Mau-Truy-Van-Geo.xlsx` (bản v3 đầy đủ nhất của bộ Kangnam). File này sinh tự động bằng `tools/build-botruyvan.py`, bám đúng số sheet, thứ tự sheet và thứ tự cột của mẫu.",
+        "— ⚠ Hai chỗ cố ý khác mẫu: (a) hậu tố tên sheet rút ngắn vì Excel cấm tên sheet quá 31 ký tự, mà tên bộ của Paris dài hơn “Mũi” của mẫu; (b) thêm cột ĐỐI TƯỢNG ở sheet 3 — mẫu `mui.xlsx` không có nhưng `nhakhoa.xlsx` thì có, và mục 3 của sheet này đếm trực tiếp từ cột đó.",
+        "— ⚠ CƠ HỘI GEO = 1 cho mọi cụm vì Nha khoa Paris chưa có mốc traffic AI nào. Mẫu Kangnam chấm được 1–3 nhờ có GA4 thật. Sau tháng Setup đo xong mốc gốc thì phải chấm lại và chạy lại script.",
+        "— Query fan-out: AI bung một câu hỏi thành 8–20 truy vấn con; 68% trang được trích nằm ngoài top 10 Google. Truy vấn vào LLM trung bình ~23 từ, dài gấp ~6 lần truy vấn tìm kiếm truyền thống. Nội dung có số liệu tăng 30–40% khả năng hiển thị; nhồi từ khoá cho kết quả dưới mức nền.",
+        "— Nội bộ: `geo-phuong-phap-luan.md` · `geo-bo-truy-van-index.md` · `paris-brand-geo.md` · `geo-kpi-framework.md` · `geo-output-excel-schema.md` · `geo-rao-phap-ly.md`.",
+    ]:
+        r += 1
+        ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=6)
+        put(ws, r, 1, t, size=9)
+        ws.row_dimensions[r].height = 30
+
+    widths(ws, {1: 44, 2: 11, 3: 13, 4: 26, 5: 14, 6: 92})
     ws.freeze_panes = "A5"
 
 
@@ -697,17 +785,16 @@ def main():
               f"{da} đã viết · {len(rows)-da} chờ viết · "
               f"{sum(1 for r in rows if r['core'])} CORE")
 
-    # Nhân bản bộ viết đầy đủ nhất làm file mẫu. Chỉ làm khi có bộ viết xong 255/255 —
-    # file mẫu còn ô [CẦN VIẾT] thì Agent sẽ học nhầm là để trống cũng được.
+    # Cấu trúc chuẩn là template/Mau-Truy-Van-Geo.xlsx — do người dùng cung cấp,
+    # script KHÔNG ghi đè. Bộ Paris đã viết đủ đóng vai VÍ DỤ ĐÃ ĐIỀN, nằm luôn
+    # trong doc/BotruyvanGEO-Paris/ chứ không nhân bản sang template/.
     da_viet.sort(key=lambda x: -x[0])
+    if not os.path.exists(TEMPLATE_CHUAN):
+        print(f"⚠ Thiếu cấu trúc chuẩn {os.path.basename(TEMPLATE_CHUAN)} trong template/ "
+              f"— không đối chiếu được cột và tên sheet.")
     if da_viet and da_viet[0][0] >= TV_MOI_CUM * 15:
         n, src, ten = da_viet[0]
-        os.makedirs(os.path.dirname(TEMPLATE_OUT), exist_ok=True)
-        shutil.copy2(src, TEMPLATE_OUT)
-        print(f"✔ {os.path.basename(TEMPLATE_OUT):26} file mẫu ← bộ {ten} ({n}/255 truy vấn)")
-    elif scope == ["all"]:
-        print("⚠ Chưa bộ nào viết đủ 255/255 → không cập nhật file mẫu "
-              f"{os.path.basename(TEMPLATE_OUT)}")
+        print(f"  Ví dụ đã điền đủ: {os.path.basename(src)} — bộ {ten} ({n}/255 truy vấn)")
 
 
 if __name__ == "__main__":

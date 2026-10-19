@@ -90,16 +90,40 @@ và mỗi trang phải tránh điều gì về pháp lý.
 
 **Mặc định Agent trả về file Excel 6 tab.** Muốn JSON để chạy script thì nói thêm *"xuất JSON cho tôi chạy script"*.
 
-255 truy vấn là quá nhiều cho một lần trả lời, nên Agent viết **từng cụm một** và sau mỗi cụm báo còn bao nhiêu. Cứ bảo *"viết tiếp cụm kế tiếp"* cho tới khi xong.
+## ⚠ Vì sao không có prompt nào ép Agent trả đủ 255 truy vấn một lượt
 
-## 2B.1 Xin nguyên bộ, nhận file Excel
+| | Số chữ |
+|---|---|
+| Một bộ đầy đủ 255 truy vấn (riêng cột truy vấn + brief) | **58.027 ký tự** |
+| Một cụm 17 truy vấn | 3.868 ký tự — vừa đúng một lượt |
+
+Không mô hình nào xuất 58.000 ký tự trong một lần trả lời. Đây **không phải lỗi prompt** — đổi câu chữ kiểu gì cũng không khác.
+
+**Cách đúng: 1 cụm mỗi lượt, ~15 lượt là xong một bộ.** Agent phải báo khối lượng này **trước khi viết** (§18.0). Nếu nó im lặng trả file có sheet 3 gần trống rồi coi như xong thì là nó làm sai — nhắc lại §18.0.
+
+**Hai đường tắt:**
+① Xin **JSON** thay vì Excel (gọn hơn mỗi lượt), rồi chạy `python tools/build-botruyvan.py --scope <key>` để tự ghép thành file 6 sheet.
+② Chỉ làm **5 cụm Tầng A** — 85 truy vấn, ~5 lượt. Phần này chiếm ~50% điểm ưu tiên và là việc của 90 ngày đầu; 10 cụm còn lại để kỳ sau.
+
+## 2B.1 Mở việc — bắt Agent báo khối lượng trước
 
 ```
-Tôi muốn làm kế hoạch GEO cho bộ truy vấn dịch vụ trồng răng Implant.
-Hãy xuất ra cho tôi file Excel có đầy đủ 6 tab.
+Tôi muốn làm bộ truy vấn GEO cho dịch vụ trồng răng Implant,
+giống hệt cấu trúc chuẩn Mau-Truy-Van-Geo.xlsx.
+Trước khi viết, cho tôi biết bộ này bao nhiêu truy vấn, cần mấy lượt mới xong,
+và nên bắt đầu từ cụm nào.
 ```
 
-Agent dựng đủ 6 sheet. Sheet 1·2·4·5·6 đầy ngay từ lần xuất đầu. Sheet 3 đầy ở những cụm đã viết, cụm chưa viết để `[CẦN VIẾT]` — và Agent **nói rõ** đã viết bao nhiêu trên 255.
+Agent phải trả lời đại ý: *"255 truy vấn, cần ~15 lượt, mỗi lượt 1 cụm. Bắt đầu từ cụm hạng 1 nhé?"* — rồi mới viết.
+
+## 2B.1b Viết cụm đầu tiên
+
+```
+Bắt đầu đi. Viết đủ 17 truy vấn của cụm hạng 1,
+rồi xuất file Excel 6 tab với cụm đó đã đầy.
+```
+
+Sheet 1·2·4·5·6 đầy ngay từ lần xuất đầu. Sheet 3 đầy ở cụm vừa viết, cụm chưa viết để `[CẦN VIẾT]`.
 
 ## 2B.2 Hỏi nên bắt đầu từ đâu
 

@@ -26,7 +26,7 @@ Agent có **3 tầng**: bộ não (`SYSTEM-PROMPT.md`) · tri thức (`knowledge
 3. **Tri thức:** upload 6 file trong [`knowledge/`](../knowledge/).
 4. Upload thêm **2 file mẫu** trong [`template/`](../template/) để Agent bám đúng format cả hai đầu ra:
    · [`GEO-PLAN-MAU-6-THANG.xlsx`](../template/GEO-PLAN-MAU-6-THANG.xlsx) — đầu ra **A** kế hoạch 2 TAB
-   · [`BO-TRUY-VAN-MAU-6-SHEET.xlsx`](../template/BO-TRUY-VAN-MAU-6-SHEET.xlsx) — đầu ra **B** bộ truy vấn 6 sheet
+   · [`Mau-Truy-Van-Geo.xlsx`](../template/Mau-Truy-Van-Geo.xlsx) — **cấu trúc chuẩn** của bộ truy vấn 6 sheet (đầu ra **B**)
 5. Gemini **không sinh `.xlsx`** — Agent sẽ xuất bảng phẳng để bạn bấm *Export to Sheets*.
 
 ## ChatGPT (Custom GPT)
@@ -60,7 +60,8 @@ Agent có **3 tầng**: bộ não (`SYSTEM-PROMPT.md`) · tri thức (`knowledge
 | `knowledge/geo-output-excel-schema.md` | ✅ | Khoá format 2 TAB + bảng màu bộ nhận diện Paris |
 | `knowledge/geo-rao-phap-ly.md` | ✅ | 14 rào R0–R13, bảng ánh xạ cụm → rào, quy trình duyệt |
 | `template/GEO-PLAN-MAU-6-THANG.xlsx` | Khuyến nghị | Mẫu **đầu ra A** — kế hoạch 2 TAB. Thiếu thì Agent dễ sai bố cục và bảng màu |
-| `template/BO-TRUY-VAN-MAU-6-SHEET.xlsx` | Khuyến nghị | Mẫu **đầu ra B** — bộ truy vấn 6 sheet (bộ Implant, 255/255 truy vấn đã viết). Bắt buộc nếu bạn định dùng §18 để viết bộ truy vấn |
+| `template/Mau-Truy-Van-Geo.xlsx` | Khuyến nghị | **CẤU TRÚC CHUẨN** của bộ truy vấn 6 sheet — nguồn sự thật về số sheet, thứ tự sheet và thứ tự cột. Bắt buộc nếu bạn dùng §18 để viết bộ truy vấn |
+| `doc/BotruyvanGEO-Paris/02-implant.xlsx` | Khuyến nghị | **Ví dụ đã điền đủ** 255/255 truy vấn — cho Agent thấy văn phong và độ dài câu của Paris |
 | `data/bo-truy-van/*.json` | Tuỳ chọn | Upload **1–3 bộ** khi cần chi tiết hơn chỉ mục. **Không upload cả 10** — làm loãng ngữ cảnh |
 
 > Chỉ mục `geo-bo-truy-van-index.md` đã cô đọng đủ để lập kế hoạch (nó được sinh ra chính từ 10 file JSON đó). Chỉ upload JSON gốc khi bạn muốn Agent đọc trường nào chưa có trong chỉ mục.

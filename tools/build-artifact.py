@@ -120,10 +120,16 @@ PROMPTS = [
      "và mỗi thứ thiếu đó đang làm kẹt phần nào của kế hoạch?",
      "Agent phải liệt kê đủ, không giấu khoảng trống"),
 
-    ("bo", "① Xin nguyên bộ, nhận file Excel", "Bộ truy vấn",
-     "Tôi muốn làm kế hoạch GEO cho bộ truy vấn dịch vụ trồng răng Implant.\n"
-     "Hãy xuất ra cho tôi file Excel có đầy đủ 6 tab.",
-     "Agent tự tra chỉ mục, dựng đủ 6 sheet và nói rõ sheet 3 đã viết bao nhiêu truy vấn"),
+    ("bo", "① Mở việc — Agent báo khối lượng trước", "Bộ truy vấn",
+     "Tôi muốn làm bộ truy vấn GEO cho dịch vụ trồng răng Implant,\n"
+     "giống hệt cấu trúc chuẩn Mau-Truy-Van-Geo.xlsx.\n"
+     "Trước khi viết, cho tôi biết bộ này bao nhiêu truy vấn, cần mấy lượt mới xong,\n"
+     "và nên bắt đầu từ cụm nào.",
+     "255 truy vấn ≈ 58.000 ký tự — không lượt nào trả hết được. Agent phải nói rõ rồi mới làm"),
+    ("bo", "①b Viết cụm đầu tiên", "Bộ truy vấn",
+     "Bắt đầu đi. Viết đủ 17 truy vấn của cụm hạng 1,\n"
+     "rồi xuất file Excel 6 tab với cụm đó đã đầy.",
+     "Mỗi lượt một cụm. Sheet 1·2·4·5·6 đầy ngay từ lần xuất đầu"),
     ("bo", "② Hỏi nên bắt đầu từ đâu", "Bộ truy vấn",
      "Tôi muốn làm bộ truy vấn GEO cho dịch vụ bọc răng sứ.\n"
      "Bộ này gồm những cụm chủ đề nào, và nên viết cụm nào trước thì có lợi nhất?",
@@ -181,6 +187,34 @@ def brain():
     if not m:
         sys.exit("✖ Không tách được khối ▼▲ bản đầy đủ trong SYSTEM-PROMPT.md")
     return m.group(1).strip()
+
+
+def trang_thai_bo():
+    """Đếm thật số truy vấn đã viết của từng bộ, để bảng trạng thái không bao giờ lệch."""
+    import glob
+    import json
+    out = []
+    for path in sorted(glob.glob(os.path.join(ROOT, "data", "bo-truy-van", "*.json"))):
+        with open(path, encoding="utf-8") as fh:
+            d = json.load(fh)
+        tong = len(d["cum"]) * 17
+        tv_path = os.path.join(ROOT, "data", "truy-van", d["key"] + ".json")
+        viet = 0
+        if os.path.exists(tv_path):
+            with open(tv_path, encoding="utf-8") as fh:
+                kho = json.load(fh).get("truy_van", {})
+            viet = sum(1 for v in kho.values() for q in v if q.get("q"))
+        xong = viet >= tong
+        out.append((
+            d["ten"],
+            f"<b>{viet} / {tong}</b>" if xong else f"{viet} / {tong}",
+            "✅ Đã viết đủ — dùng làm khuôn văn phong cho 9 bộ còn lại" if xong else
+            ("Đang viết dở" if viet else
+             "Đủ 6 sheet; sheet 3 đã điền sẵn mọi cột suy ra được, chỉ trống "
+             "<b>TRUY VẤN</b> và <b>KHỐI TRẢ LỜI</b>"),
+            xong,
+        ))
+    return out
 
 
 def brain_short():
@@ -424,6 +458,7 @@ thead th{font-size:11.5px;font-weight:800;letter-spacing:.07em;text-transform:up
   color:var(--on-blue);background:var(--blue);border-bottom:0;white-space:nowrap}
 tbody tr:last-child td{border-bottom:0}
 tbody tr:nth-child(even) td{background:var(--surface-2)}
+tbody tr.hl td{background:var(--ok-bg);font-weight:600}
 code.r{font-family:var(--mono);font-size:12px;font-weight:700;background:var(--red-wash);
   color:var(--red-dark);border:1px solid var(--red);padding:1px 5px;border-radius:4px;white-space:nowrap}
 
@@ -561,6 +596,7 @@ document.querySelectorAll('.qa-bar button').forEach(function(b){
 def build():
     brain_txt = brain()
     brain_s = brain_short()
+    bo_status = trang_thai_bo()
     files = []
     for name, core, short, how in KNOWLEDGE:
         body = read(os.path.join("knowledge", name))
@@ -601,7 +637,7 @@ def build():
     A('<nav class="bar"><div class="wrap">')
     for href, t in [("#cai-dat", "1 · Cài đặt"), ("#prompt", "2 · Prompt mẫu"),
                     ("#tu-duy", "3 · Cách Agent nghĩ"), ("#output", "4 · Đọc output"),
-                    ("#cong-cu", "5 · Công cụ")]:
+                    ("#bo-truy-van", "5 · Bộ truy vấn"), ("#cong-cu", "6 · Công cụ")]:
         A(f'<a href="{href}">{e(t)}</a>')
     A("</div></nav>")
 
@@ -644,7 +680,7 @@ def build():
       "<li><b>Add content</b> → upload <b>đủ 6 file</b> trong <code>knowledge/</code>.</li>"
       "<li>Upload thêm <b>2 file mẫu</b> trong <code>template/</code>: "
       "<code>GEO-PLAN-MAU-6-THANG.xlsx</code> (đầu ra A — kế hoạch 2 TAB) và "
-      "<code>BO-TRUY-VAN-MAU-6-SHEET.xlsx</code> (đầu ra B — bộ truy vấn 6 sheet).</li>"
+      "<code>Mau-Truy-Van-Geo.xlsx</code> (đầu ra B — <b>cấu trúc chuẩn</b> của bộ truy vấn 6 sheet).</li>"
       "<li>Mở chat mới → chạy câu smoke test ở Mục 2.</li></ol></div>")
 
     A('<div class="card" id="p-gpt" role="tabpanel" hidden><h3>ChatGPT Custom GPT</h3>'
@@ -749,9 +785,18 @@ def build():
       "liệt kê 15 cụm và đề xuất nên bắt đầu từ đâu. Bạn không phải nhớ mã cụm, tên file hay "
       "schema nào cả.<br><br>"
       "<b>Mặc định Agent trả về file Excel 6 tab</b> đúng mẫu. Muốn JSON để chạy script thì "
-      "nói thêm <i>“xuất JSON cho tôi chạy script”</i>.<br><br>"
-      "255 truy vấn là quá nhiều cho một lần trả lời, nên Agent viết <b>từng cụm một</b> và "
-      "sau mỗi cụm sẽ báo còn bao nhiêu cụm nữa. Cứ bảo <i>“viết tiếp cụm kế tiếp”</i> cho tới khi xong.</div>")
+      "nói thêm <i>“xuất JSON cho tôi chạy script”</i>.</div>")
+    A('<div class="note warn" style="margin:0 0 18px"><b>Vì sao Agent không trả đủ 255 truy vấn '
+      "trong một lượt — và không prompt nào ép được.</b><br><br>"
+      "Một bộ đầy đủ là <b>255 truy vấn ≈ 58.000 ký tự</b> nội dung viết tay. Không mô hình nào "
+      "xuất ngần đó trong một lần trả lời. Một cụm 17 truy vấn ≈ 3.900 ký tự — vừa đúng một lượt.<br><br>"
+      "<b>Nên: 1 cụm mỗi lượt, khoảng 15 lượt là xong một bộ.</b> Sau mỗi lượt Agent xuất lại file "
+      "Excel đã đầy thêm và báo còn bao nhiêu cụm. Agent phải nói rõ điều này <i>trước khi viết</i> — "
+      "nếu nó im lặng trả file có sheet 3 gần trống thì là nó làm sai, nhắc lại §18.0.<br><br>"
+      "<b>Hai đường tắt:</b> ① xin <b>JSON</b> thay vì Excel rồi chạy "
+      "<code>python tools/build-botruyvan.py --scope &lt;key&gt;</code> để tự ghép — gọn hơn mỗi lượt. "
+      "② chỉ làm <b>5 cụm Tầng A</b> (85 truy vấn, ~5 lượt) — phần này chiếm ~50% điểm ưu tiên và "
+      "là việc của 90 ngày đầu.</div>")
     A('<div class="qa-bar">')
     for cid, label in CATS:
         n = len(PROMPTS) if cid == "all" else sum(1 for p in PROMPTS if p[0] == cid)
@@ -895,8 +940,75 @@ def build():
       "Sau tháng Setup, chạy lại bước ④ để xếp lại Cơ hội GEO theo traffic thật.</p></div>")
     A("</section>")
 
-    # ── §5 CÔNG CỤ ───────────────────────────────────────────────────────
-    A('<section id="cong-cu"><div class="sec-h"><span class="pre">Mục 5</span>'
+    # ── §5 BỘ TRUY VẤN — CẤU TRÚC CHUẨN ──────────────────────────────────
+    A('<section id="bo-truy-van"><div class="sec-h"><span class="pre">Mục 5</span>'
+      "<h2>Bộ truy vấn GEO — cấu trúc chuẩn 6 sheet</h2><span class=\"bar\"></span>"
+      "<p>Đây là <b>đầu ra B</b> của Agent, khác hẳn kế hoạch tháng. Cấu trúc khoá theo "
+      "<code>template/Mau-Truy-Van-Geo.xlsx</code> — bản v3 đầy đủ nhất của bộ Kangnam.</p></div>")
+
+    A('<div class="tw"><table><thead><tr><th style="width:24%">Sheet</th><th>Nội dung</th>'
+      "<th style=\"width:18%\">Ai dùng</th></tr></thead><tbody>")
+    for ten, nd, ai in [
+        ("1 · Hướng dẫn", "Insight chiến lược · phân bổ 80/20 · nhóm đối tượng · cách dùng 6 sheet · "
+                          "6 quy tắc viết · cảnh báo pháp lý · <b>bảng đếm tự động</b> · checklist nhân bản · nguồn", "Leader"),
+        ("2 · Hành vi KH", "6 giai đoạn S1–S6: khách nghĩ gì · nỗi sợ chi phối · khát khao thật · "
+                           "trigger chuyển giai đoạn · Paris phải có gì. Kèm bảng 3 rào cản SỢ·NGỜ·NGẠI", "Content · Tư vấn"),
+        ("3 · Bộ truy vấn Master", "<b>255 truy vấn × 17 cột</b> + khối xếp hạng 15 cụm bên phải. "
+                                   "Đây là nguồn sự thật — mọi sheet khác đếm từ đây", "SEO · Content"),
+        ("4 · Bản đồ nội dung", "Mỗi cụm một dòng: dạng bài cần sản xuất · trang đích · sóng triển khai · "
+                                "phụ trách · trạng thái (ô vàng để Manager cập nhật hằng tuần)", "Manager"),
+        ("5 · Prompt đo lường", "20 prompt đo Share of Voice trong AI, có cột ChatGPT · Gemini · AI Overview "
+                                "và cột ghi đối thủ được AI nhắc", "SEO lead"),
+        ("6 · Rào pháp lý", "R0–R13, <b>tự đếm</b> số truy vấn và số CORE chịu từng rào — biết ngay rào nào "
+                            "là nút thắt tiến độ", "Pháp chế"),
+    ]:
+        A(f"<tr><td><b>{ten}</b></td><td>{nd}</td><td>{ai}</td></tr>")
+    A("</tbody></table></div>")
+
+    A('<h3 class="sub">17 cột của sheet 3 — thứ tự không đổi</h3>')
+    A('<pre class="cli">'
+      '<span class="c">// nhận dạng cụm</span>\n'
+      "ID · CỤM CHỦ ĐỀ · GIAI ĐOẠN\n\n"
+      '<span class="c">// nội dung viết tay — hai cột tốn công nhất</span>\n'
+      "TRUY VẤN KHÁCH GÕ VÀO AI · GÓC HỎI (fan-out)\n\n"
+      '<span class="c">// chấm điểm, suy ra được từ chỉ mục</span>\n'
+      "NHIỆT ĐỘ · ƯU TIÊN · GIÁ TRỊ DT · NHÓM 80/20 · TẦNG ƯU TIÊN ·\n"
+      "THỨ TỰ TRIỂN KHAI (CORE) · ĐIỂM ƯU TIÊN\n\n"
+      '<span class="c">// giao việc</span>\n'
+      "TỪ KHOÁ ƯU TIÊN · KHỐI TRẢ LỜI CẦN CÓ · TRANG ĐÍCH PARIS ·\n"
+      "RÀO PHÁP LÝ · ĐỐI TƯỢNG\n\n"
+      '<span class="c">// khối xếp hạng 15 cụm, cách một cột trống</span>\n'
+      "HẠNG · MÃ · CỤM · TẦNG · CƠ HỘI GEO · SỐ TV · CORE ·\n"
+      "ĐIỂM CỤM · % ĐIỂM · % LŨY KẾ · KHUYẾN NGHỊ HÀNH ĐỘNG</pre>")
+
+    A('<h3 class="sub">Trạng thái 10 bộ</h3>')
+    A('<div class="tw"><table><thead><tr><th>Bộ dịch vụ</th><th style="width:16%">Truy vấn</th>'
+      "<th>Ghi chú</th></tr></thead><tbody>")
+    for ten, sl, gc, done in bo_status:
+        cls = ' class="hl"' if done else ""
+        A(f"<tr{cls}><td><b>{e(ten)}</b></td><td>{sl}</td><td>{gc}</td></tr>")
+    A("</tbody></table></div>")
+
+    A('<div class="note warn" style="margin-top:16px"><b>Hai chỗ cố ý khác mẫu Kangnam — và lý do.</b>'
+      "<br><br>"
+      "<b>① Hậu tố tên sheet ngắn hơn</b> (<code>- Huong dan</code> thay vì "
+      "<code>- Huong dan &amp; Chien luoc</code>). Excel cấm tên sheet quá 31 ký tự. Mẫu vừa đủ vì "
+      "<i>Mũi</i> chỉ 3 ký tự; tên bộ của Paris dài tới 8 (<i>Tongquat</i>) nên dùng hậu tố đầy đủ "
+      "sẽ thành 34 ký tự và Excel từ chối mở.<br><br>"
+      "<b>② Thêm cột ĐỐI TƯỢNG ở sheet 3.</b> Mẫu <code>mui.xlsx</code> không có cột này, nhưng "
+      "<code>nhakhoa.xlsx</code> — bộ nha khoa, gần Paris nhất — thì có. Và mục 3 của sheet 1 "
+      "đếm trực tiếp từ cột đó; bỏ cột là mất luôn bảng thống kê theo chân dung khách.<br><br>"
+      "Cả hai đều ghi rõ trong <b>mục 9 của chính file sinh ra</b>, để sau này ai mở file cũng biết "
+      "vì sao lệch chứ không tưởng là lỗi.</div>")
+
+    A('<div class="note warn" style="margin-top:10px"><b>⚠ CƠ HỘI GEO = 1 cho mọi cụm.</b> '
+      "Công thức điểm ưu tiên có một thừa số là <i>cơ hội GEO</i>, chấm 1–3 theo traffic AI thật của "
+      "trang đích. Bộ Kangnam chấm được nhờ có GA4; <b>Paris chưa có mốc nào nên mọi cụm tạm lấy 1</b>. "
+      "Sau tháng Setup đo xong mốc gốc thì phải chấm lại và chạy lại script — thứ tự ưu tiên có thể đổi.</div>")
+    A("</section>")
+
+    # ── §6 CÔNG CỤ ───────────────────────────────────────────────────────
+    A('<section id="cong-cu"><div class="sec-h"><span class="pre">Mục 6</span>'
       "<h2>Chạy công cụ cục bộ</h2><span class=\"bar\"></span>"
       "<p>Sinh file Excel mà không qua Agent. Dữ liệu nguồn là 10 file JSON trong "
       f'<a href="{GH}/tree/main/data/bo-truy-van" target="_blank" rel="noopener">'

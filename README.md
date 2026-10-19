@@ -116,7 +116,7 @@ Viết thêm một bộ: tạo `data/truy-van/<key>.json` theo đúng cấu trú
 
 1. **Instructions:** dán toàn bộ khối giữa hai vạch ▼▲ trong [`SYSTEM-PROMPT.md`](SYSTEM-PROMPT.md).
 2. **Knowledge:** upload 6 file `.md` trong [`knowledge/`](knowledge/).
-3. **Template:** upload **2 file mẫu** trong [`template/`](template/) — [`GEO-PLAN-MAU-6-THANG.xlsx`](template/GEO-PLAN-MAU-6-THANG.xlsx) cho đầu ra A (kế hoạch 2 TAB) và [`BO-TRUY-VAN-MAU-6-SHEET.xlsx`](template/BO-TRUY-VAN-MAU-6-SHEET.xlsx) cho đầu ra B (bộ truy vấn 6 sheet).
+3. **Template:** upload **2 file mẫu** trong [`template/`](template/) — [`GEO-PLAN-MAU-6-THANG.xlsx`](template/GEO-PLAN-MAU-6-THANG.xlsx) cho đầu ra A (kế hoạch 2 TAB) và [`Mau-Truy-Van-Geo.xlsx`](template/Mau-Truy-Van-Geo.xlsx) — **cấu trúc chuẩn** cho đầu ra B (bộ truy vấn 6 sheet).
 
 → Chi tiết từng nền tảng + smoke test: [doc/01-cai-dat.md](doc/01-cai-dat.md)
 

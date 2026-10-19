@@ -4,12 +4,25 @@ Agent có **3 tầng**: bộ não (`SYSTEM-PROMPT.md`) · tri thức (`knowledge
 
 ---
 
+# 0. Ba chuỗi cần dán — chuẩn bị trước
+
+| Ô trên nền tảng | Dán gì | Lấy ở đâu |
+|---|---|---|
+| **Tên / Name** | `Agent-PR-GEO-Plant` | — |
+| **Mô tả / Description** | `Chuyên gia nghiên cứu và lập kế hoạch triển khai SEO/GEO cho thương hiệu Nha khoa Paris (nhakhoaparis.vn). Xuất kế hoạch theo tháng dưới dạng file Excel 2 TAB: KPI + Công việc triển khai.` | mục *MÔ TẢ NGẮN* trong [`SYSTEM-PROMPT.md`](../SYSTEM-PROMPT.md) |
+| **Chỉ dẫn / Instructions** | Toàn bộ khối giữa hai vạch ▼▲ | [`SYSTEM-PROMPT.md`](../SYSTEM-PROMPT.md) |
+
+> Ô **Mô tả** tách riêng khỏi Instructions và **không thay thế** nó. Mô tả chỉ để người khác biết Agent này làm gì khi nhìn vào danh sách; luật hành xử nằm hết trong Instructions.
+
+---
+
 # 1. Cài lên nền tảng
 
 ## Gemini (Gems)
 
-1. **Tạo Gem mới** → đặt tên `Nha khoa Paris GEO Planner`.
-2. **Ô Chỉ dẫn:** dán toàn bộ khối giữa hai vạch ▼▲ trong [`SYSTEM-PROMPT.md`](../SYSTEM-PROMPT.md).
+1. **Tạo Gem mới** → đặt tên `Agent-PR-GEO-Plant`.
+2. **Ô Chỉ dẫn:** dán **mô tả ngắn làm dòng đầu tiên**, xuống dòng, rồi dán toàn bộ khối giữa hai vạch ▼▲ trong [`SYSTEM-PROMPT.md`](../SYSTEM-PROMPT.md).
+   *(Gemini Gems không có ô Mô tả riêng — đó là lý do phải gộp vào đầu ô Chỉ dẫn.)*
 3. **Tri thức:** upload 6 file trong [`knowledge/`](../knowledge/).
 4. Upload thêm [`template/GEO-PLAN-MAU-6-THANG.xlsx`](../template/GEO-PLAN-MAU-6-THANG.xlsx) để Agent bám format.
 5. Gemini **không sinh `.xlsx`** — Agent sẽ xuất bảng phẳng để bạn bấm *Export to Sheets*.
@@ -17,15 +30,18 @@ Agent có **3 tầng**: bộ não (`SYSTEM-PROMPT.md`) · tri thức (`knowledge
 ## ChatGPT (Custom GPT)
 
 1. **Create a GPT** → tab *Configure*.
-2. **Instructions:** dán khối ▼▲.
-3. **Knowledge:** upload 6 file `knowledge/*.md` + file mẫu `.xlsx`.
-4. **Capabilities:** bật **Code Interpreter & Data Analysis** — bắt buộc để sinh `.xlsx`.
+2. **Name:** `Agent-PR-GEO-Plant`.
+3. **Description:** dán **mô tả ngắn** (187 ký tự, vừa giới hạn 300 ký tự của ô này).
+4. **Instructions:** dán khối ▼▲.
+5. **Knowledge:** upload 6 file `knowledge/*.md` + file mẫu `.xlsx`.
+6. **Capabilities:** bật **Code Interpreter & Data Analysis** — bắt buộc để sinh `.xlsx`.
 
 ## Claude (Project)
 
-1. **Create Project** → `Nha khoa Paris GEO Planner`.
-2. **Custom instructions:** dán khối ▼▲.
-3. **Project knowledge:** upload 6 file `knowledge/*.md` + file mẫu `.xlsx`.
+1. **Create Project** → `Agent-PR-GEO-Plant`.
+2. **Description** (ô *What are you working on?*): dán **mô tả ngắn**.
+3. **Custom instructions:** dán khối ▼▲.
+4. **Project knowledge:** upload 6 file `knowledge/*.md` + file mẫu `.xlsx`.
 
 ---
 

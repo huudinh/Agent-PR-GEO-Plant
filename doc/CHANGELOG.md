@@ -2,7 +2,7 @@
 
 ## v1.0 — 19/10/2026
 
-Bản đầu tiên của **Nha khoa Paris GEO Planner**, kế thừa kiến trúc 3 tầng của [`Agent-KN-GEO-Plant`](../../Agent-KN-GEO-Plant).
+Bản đầu tiên của **Agent-PR-GEO-Plant**, kế thừa kiến trúc 3 tầng của [`Agent-KN-GEO-Plant`](../../Agent-KN-GEO-Plant).
 
 ### Những gì kế thừa từ Agent-KN-GEO-Plant
 

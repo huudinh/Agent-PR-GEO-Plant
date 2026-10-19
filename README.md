@@ -1,4 +1,4 @@
-# 🦷 Nha khoa Paris GEO Planner
+# 🦷 Agent-PR-GEO-Plant
 
 > Version 1.0 · AI lập **kế hoạch GEO (Generative Engine Optimization)** theo tháng cho **Hệ thống Nha khoa Paris** (`nhakhoaparis.vn`) — đầu ra là file Excel **2 TAB: KPI + Công việc triển khai**.
 
@@ -80,6 +80,14 @@ Bộ não biết *cách làm*; knowledge cấp *dữ liệu + luật*; file JSON
 
 ## Quick start (3 bước)
 
+**Ba chuỗi cần dán:**
+
+| Ô trên nền tảng | Dán gì |
+|---|---|
+| **Tên / Name** | `Agent-PR-GEO-Plant` |
+| **Mô tả / Description** | *Chuyên gia nghiên cứu và lập kế hoạch triển khai SEO/GEO cho thương hiệu Nha khoa Paris (nhakhoaparis.vn). Xuất kế hoạch theo tháng dưới dạng file Excel 2 TAB: KPI + Công việc triển khai.* |
+| **Chỉ dẫn / Instructions** | Khối giữa hai vạch ▼▲ trong [`SYSTEM-PROMPT.md`](SYSTEM-PROMPT.md) |
+
 1. **Instructions:** dán toàn bộ khối giữa hai vạch ▼▲ trong [`SYSTEM-PROMPT.md`](SYSTEM-PROMPT.md).
 2. **Knowledge:** upload 6 file `.md` trong [`knowledge/`](knowledge/).
 3. **Template:** upload [`template/GEO-PLAN-MAU-6-THANG.xlsx`](template/GEO-PLAN-MAU-6-THANG.xlsx) để Agent bám format.
@@ -100,7 +108,8 @@ Lập kế hoạch GEO toàn hệ thống Nha khoa Paris trong 6 tháng, bắt �
 Xuất file 2 TAB theo mẫu.
 ```
 
-→ Thư viện prompt mẫu đầy đủ: [doc/02-cau-lenh.md](doc/02-cau-lenh.md) · bản HTML tra cứu nhanh: [artifact/huong-dan-su-dung.html](artifact/huong-dan-su-dung.html)
+→ Thư viện prompt mẫu đầy đủ: [doc/02-cau-lenh.md](doc/02-cau-lenh.md)
+→ **Trang hướng dẫn tra cứu nhanh (bấm Copy từng prompt):** https://claude.ai/artifact/1P7KAhxMwAzoBEMi2TqsYo — mã nguồn tại [artifact/huong-dan-su-dung.html](artifact/huong-dan-su-dung.html)
 
 ---
 
@@ -147,7 +156,7 @@ python tools/build-geo-plan.py --start 2027-01 --months 12 --tiers A,B,C -o ke-h
 | [doc/02-cau-lenh.md](doc/02-cau-lenh.md) | Công thức ra lệnh · 14 prompt mẫu · điều Agent sẽ từ chối |
 | [doc/03-output-mau.md](doc/03-output-mau.md) | Output mẫu có số thật · dấu hiệu đúng/sai |
 | [doc/CHANGELOG.md](doc/CHANGELOG.md) | Lịch sử cập nhật · việc còn treo |
-| [artifact/huong-dan-su-dung.html](artifact/huong-dan-su-dung.html) | Trang hướng dẫn sử dụng + thư viện prompt mẫu (mở bằng trình duyệt) |
+| [artifact/huong-dan-su-dung.html](artifact/huong-dan-su-dung.html) | Mã nguồn trang hướng dẫn + thư viện 18 prompt mẫu. GitHub không render HTML — xem bản đã publish tại [claude.ai/artifact/1P7KAhxMwAzoBEMi2TqsYo](https://claude.ai/artifact/1P7KAhxMwAzoBEMi2TqsYo), hoặc tải file về mở bằng trình duyệt |
 
 ---
 

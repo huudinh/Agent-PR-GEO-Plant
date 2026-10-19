@@ -111,6 +111,25 @@ PROMPTS = [
      "Những dữ liệu nào Nha khoa Paris chưa cung cấp, và nó đang chặn trụ cột KPI nào?",
      "Agent phải liệt kê đủ, không giấu khoảng trống"),
 
+    ("bo", "Viết một cụm truy vấn", "Bộ truy vấn",
+     "Viết bộ truy vấn GEO cho cụm C06 của bộ Bọc răng sứ — đủ 17 truy vấn.\n"
+     "Xuất JSON đúng schema §18 để tôi dán vào data/truy-van/rangsu.json.",
+     "Mặc định 1 cụm/lượt. Agent phải nói rõ còn cụm nào chưa làm"),
+    ("bo", "Viết trọn Tầng A của một bộ", "Bộ truy vấn",
+     "Viết bộ truy vấn GEO cho toàn bộ 5 cụm Tầng A của bộ Niềng răng mắc cài\n"
+     "(85 truy vấn). Xuất JSON theo schema §18, làm lần lượt từng cụm.",
+     "85 truy vấn — Agent sẽ chia lượt và báo tiến độ"),
+    ("bo", "Khởi tạo bộ mới từ khuôn implant", "Bộ truy vấn",
+     "Tôi muốn viết bộ truy vấn cho bộ Nha chu. Lấy data/truy-van/implant.json làm khuôn:\n"
+     "sinh trước phần metadata (doi_tuong_md, mo_ta_doi_tuong, hanh_vi, khuyen_nghi, ban_do)\n"
+     "cho bộ Nha chu, chưa cần viết truy vấn.",
+     "Làm metadata trước, viết truy vấn sau — dễ kiểm soát hơn"),
+    ("bo", "Soát lại bộ truy vấn đã viết", "Bộ truy vấn",
+     "Soát cụm C06 bộ Implant theo self-review §18: có trộn câu dài/ngắn chưa,\n"
+     "phủ mấy góc hỏi, brief đã có số dạng dải và điều bất lợi chưa,\n"
+     "có truy vấn nào trùng ý không, có lọt số giá hay tên bác sĩ lạ không.",
+     "Chạy trước khi dán JSON vào repo"),
+
     ("fix", "Đổi thứ tự một cụm", "Tinh chỉnh",
      "Giữ nguyên bản kế hoạch, chỉ đổi: dồn toàn bộ cụm C14 Thực thể vào tháng 1\n"
      "vì cần schema bác sĩ và trang thực thể chạy trước mọi cụm khác.",
@@ -125,7 +144,7 @@ PROMPTS = [
 ]
 
 CATS = [("all", "Tất cả"), ("test", "Kiểm tra"), ("plan", "Lập kế hoạch"),
-        ("ask", "Hỏi đáp"), ("fix", "Tinh chỉnh")]
+        ("bo", "Bộ truy vấn"), ("ask", "Hỏi đáp"), ("fix", "Tinh chỉnh")]
 
 
 def e(s):
@@ -571,11 +590,11 @@ def build():
     A('<div><b><span class="n">2</span>Tạo project + dán 3 thẻ</b>'
       "<span>Tên · Mô tả (Thẻ A) · Instructions (Thẻ B).</span></div>")
     A('<div><b><span class="n">3</span>Upload 6 file tri thức</b>'
-      "<span>Thiếu file nào thì Agent đoán chỗ đó — và không báo lỗi.</span></div>")
+      "<span>Thiếu file nào thì Agent đoán chỗ đó — và không báo lỗi. Thêm 2 file mẫu .xlsx.</span></div>")
     A("</div>")
 
     A('<div class="dl"><h3>Tải bộ file</h3>'
-      "<p>Toàn bộ repo: bộ não · 6 file tri thức · 10 bộ truy vấn JSON · file Excel mẫu · 2 script.</p>"
+      "<p>Toàn bộ repo: bộ não · 6 file tri thức · 10 bộ truy vấn JSON · 10 bộ truy vấn <code>.xlsx</code> 6 sheet · 2 file Excel mẫu · 4 script.</p>"
       f'<a class="dl-btn" href="{GH}/archive/refs/heads/main.zip">⬇ Tải ZIP</a>'
       '<p style="margin-top:12px;font-size:13px;color:var(--ink-3)">Giải nén bằng <b>Extract All</b> — '
       "đừng kéo file trực tiếp từ cửa sổ ZIP. Thư mục cần dùng nằm ở "
@@ -595,7 +614,9 @@ def build():
       "<li><b>Description</b> (ô <i>What are you working on?</i>) → dán <b>Thẻ A · Mô tả ngắn</b>.</li>"
       "<li><b>Set project instructions</b> → dán <b>Thẻ B · Bộ não</b>.</li>"
       "<li><b>Add content</b> → upload <b>đủ 6 file</b> trong <code>knowledge/</code>.</li>"
-      "<li>Upload thêm <code>template/GEO-PLAN-MAU-6-THANG.xlsx</code> để Agent bám đúng format 2 TAB.</li>"
+      "<li>Upload thêm <b>2 file mẫu</b> trong <code>template/</code>: "
+      "<code>GEO-PLAN-MAU-6-THANG.xlsx</code> (đầu ra A — kế hoạch 2 TAB) và "
+      "<code>BO-TRUY-VAN-MAU-6-SHEET.xlsx</code> (đầu ra B — bộ truy vấn 6 sheet).</li>"
       "<li>Mở chat mới → chạy câu smoke test ở Mục 2.</li></ol></div>")
 
     A('<div class="card" id="p-gpt" role="tabpanel" hidden><h3>ChatGPT Custom GPT</h3>'
@@ -605,7 +626,7 @@ def build():
       "<li>Name: <code>Agent-PR-GEO-Plant</code>.</li>"
       "<li><b>Description</b> → dán <b>Thẻ A · Mô tả ngắn</b> (187 ký tự, vừa giới hạn 300).</li>"
       "<li>Instructions → dán <b>Thẻ B · Bộ não</b>.</li>"
-      "<li>Knowledge → upload <b>đủ 6 file</b> + file Excel mẫu.</li>"
+      "<li>Knowledge → upload <b>đủ 6 file</b> + <b>2 file mẫu</b> <code>.xlsx</code> trong <code>template/</code>.</li>"
       "<li><b>Capabilities</b> → bật <b>Code Interpreter &amp; Data Analysis</b>.</li></ol>"
       '<div class="note warn" style="margin-top:14px"><b>Không bật Data Analysis</b> thì Agent vẫn '
       "trình được bảng kế hoạch trong chat nhưng <b>không sinh được file <code>.xlsx</code></b> — "
@@ -615,7 +636,7 @@ def build():
       "<li><b>Gems</b> → <b>New Gem</b> → đặt tên.</li>"
       "<li>Ô <b>Chỉ dẫn</b> → dán <b>Thẻ A · Mô tả ngắn</b> làm dòng đầu, xuống dòng rồi dán "
       "<b>Thẻ B · Bộ não</b>. <i>Gemini Gems không có ô Mô tả riêng.</i></li>"
-      "<li>Upload <b>đủ 6 file</b> tri thức vào phần tệp của Gem.</li></ol>"
+      "<li>Upload <b>đủ 6 file</b> tri thức + <b>2 file mẫu</b> <code>.xlsx</code> vào phần tệp của Gem.</li></ol>"
       '<div class="note warn" style="margin-top:14px"><b>Gemini không sinh được <code>.xlsx</code>.</b> '
       "Agent sẽ xuất <b>bảng phẳng</b> đúng số cột, mỗi ô một giá trị, không gộp ô — "
       "bạn bấm <i>Export to Sheets</i> rồi tự định dạng màu theo "

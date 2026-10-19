@@ -93,6 +93,46 @@ và rào pháp lý nào áp cho từng trang.
 
 ---
 
+# 2B. Prompt sản xuất BỘ TRUY VẤN (đầu ra B — §18)
+
+Đây là đầu ra thứ hai của Agent, **khác hẳn** kế hoạch tháng. Agent chỉ làm khi bạn yêu cầu rõ.
+
+> Mỗi bộ cố định **15 cụm C01–C15 × 17 truy vấn = 255**. Agent mặc định làm **1 cụm/lượt** và báo còn cụm nào chưa làm. Đầu ra là **JSON** dán thẳng vào `data/truy-van/<key>.json`, rồi chạy `python tools/build-botruyvan.py --scope <key>`.
+
+## 2B.1 Viết một cụm
+
+```
+Viết bộ truy vấn GEO cho cụm C06 của bộ Bọc răng sứ — đủ 17 truy vấn.
+Xuất JSON đúng schema §18 để tôi dán vào data/truy-van/rangsu.json.
+```
+
+## 2B.2 Viết trọn Tầng A của một bộ
+
+```
+Viết bộ truy vấn GEO cho toàn bộ 5 cụm Tầng A của bộ Niềng răng mắc cài
+(85 truy vấn). Xuất JSON theo schema §18, làm lần lượt từng cụm.
+```
+
+## 2B.3 Khởi tạo metadata cho bộ mới
+
+```
+Tôi muốn viết bộ truy vấn cho bộ Nha chu. Lấy data/truy-van/implant.json làm khuôn:
+sinh trước phần metadata (doi_tuong_md, mo_ta_doi_tuong, hanh_vi, khuyen_nghi, ban_do)
+cho bộ Nha chu, chưa cần viết truy vấn.
+```
+
+## 2B.4 Soát lại bộ đã viết
+
+```
+Soát cụm C06 bộ Implant theo self-review §18: có trộn câu dài/ngắn chưa,
+phủ mấy góc hỏi, brief đã có số dạng dải và điều bất lợi chưa,
+có truy vấn nào trùng ý không, có lọt số giá hay tên bác sĩ lạ không.
+```
+
+**Thứ tự đề xuất khi viết 9 bộ còn lại:** `rangsu` (47 bài, khoảng trống AI lớn nhất) → `niengmaccai` → `thuonghieu` (cụm C14 nuôi 9 bộ kia) → `invisalign` → `tongquat` → `allon` → `nhachu` → `veneer` → `trenem`.
+
+---
+
 # 3. Prompt hỏi đáp (không lập kế hoạch)
 
 | Mục đích | Prompt |

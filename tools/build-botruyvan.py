@@ -21,6 +21,7 @@ import argparse
 import glob
 import json
 import os
+import shutil
 import sys
 from collections import OrderedDict
 
@@ -32,6 +33,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC_CUM = os.path.join(ROOT, "data", "bo-truy-van")
 SRC_TV = os.path.join(ROOT, "data", "truy-van")
 OUT_DIR = os.path.join(ROOT, "doc", "BotruyvanGEO-Paris")
+# Bộ đã viết đầy đủ nhất được nhân bản sang đây làm FILE MẪU để upload vào Knowledge —
+# đầu ra B (§18 bộ não) cần mẫu soi chiếu đúng như đầu ra A có GEO-PLAN-MAU-6-THANG.xlsx.
+TEMPLATE_OUT = os.path.join(ROOT, "template", "BO-TRUY-VAN-MAU-6-SHEET.xlsx")
 
 TV_MOI_CUM = 17  # mỗi cụm 17 truy vấn — quy ước của mẫu chuẩn
 
@@ -670,6 +674,7 @@ def main():
     if not bos:
         sys.exit("Không có bộ nào khớp --scope.")
 
+    da_viet = []  # (số truy vấn đã viết, đường dẫn file) để chọn file mẫu
     for d in bos:
         d["ten_ngan"] = TEN_NGAN.get(d["key"], d["key"][:8].capitalize())
         if len(d["ten_ngan"]) > 8:
@@ -687,9 +692,22 @@ def main():
         out = os.path.join(OUT_DIR, f"{d['_stem']}.xlsx")
         wb.save(out)
         da = sum(1 for r in rows if r["truy_van"])
+        da_viet.append((da, out, d["ten"]))
         print(f"✔ {os.path.basename(out):26} {len(rows)} truy vấn · "
               f"{da} đã viết · {len(rows)-da} chờ viết · "
               f"{sum(1 for r in rows if r['core'])} CORE")
+
+    # Nhân bản bộ viết đầy đủ nhất làm file mẫu. Chỉ làm khi có bộ viết xong 255/255 —
+    # file mẫu còn ô [CẦN VIẾT] thì Agent sẽ học nhầm là để trống cũng được.
+    da_viet.sort(key=lambda x: -x[0])
+    if da_viet and da_viet[0][0] >= TV_MOI_CUM * 15:
+        n, src, ten = da_viet[0]
+        os.makedirs(os.path.dirname(TEMPLATE_OUT), exist_ok=True)
+        shutil.copy2(src, TEMPLATE_OUT)
+        print(f"✔ {os.path.basename(TEMPLATE_OUT):26} file mẫu ← bộ {ten} ({n}/255 truy vấn)")
+    elif scope == ["all"]:
+        print("⚠ Chưa bộ nào viết đủ 255/255 → không cập nhật file mẫu "
+              f"{os.path.basename(TEMPLATE_OUT)}")
 
 
 if __name__ == "__main__":

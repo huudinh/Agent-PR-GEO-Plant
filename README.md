@@ -116,7 +116,7 @@ Viết thêm một bộ: tạo `data/truy-van/<key>.json` theo đúng cấu trú
 
 1. **Instructions:** dán toàn bộ khối giữa hai vạch ▼▲ trong [`SYSTEM-PROMPT.md`](SYSTEM-PROMPT.md).
 2. **Knowledge:** upload 6 file `.md` trong [`knowledge/`](knowledge/).
-3. **Template:** upload [`template/GEO-PLAN-MAU-6-THANG.xlsx`](template/GEO-PLAN-MAU-6-THANG.xlsx) để Agent bám format.
+3. **Template:** upload **2 file mẫu** trong [`template/`](template/) — [`GEO-PLAN-MAU-6-THANG.xlsx`](template/GEO-PLAN-MAU-6-THANG.xlsx) cho đầu ra A (kế hoạch 2 TAB) và [`BO-TRUY-VAN-MAU-6-SHEET.xlsx`](template/BO-TRUY-VAN-MAU-6-SHEET.xlsx) cho đầu ra B (bộ truy vấn 6 sheet).
 
 → Chi tiết từng nền tảng + smoke test: [doc/01-cai-dat.md](doc/01-cai-dat.md)
 
@@ -199,7 +199,7 @@ data/bo-truy-van/      10 bộ truy vấn cấp CỤM (.json) — NGUỒN SỰ T
 data/truy-van/         Truy vấn chi tiết từng dòng (.json) — hiện có bộ implant
 doc/BotruyvanGEO-Paris/ 10 bộ truy vấn .xlsx 6 sheet (sinh tự động)
 doc/                   Hướng dẫn cài đặt · câu lệnh · output mẫu · changelog
-template/              File mẫu Excel 2 TAB (sinh từ script)
+template/              2 file mẫu Excel (sinh từ script): kế hoạch 2 TAB + bộ truy vấn 6 sheet
 tools/                 build-index.py · build-geo-plan.py · build-botruyvan.py · build-artifact.py
 artifact/              Trang HTML hướng dẫn sử dụng + prompt mẫu
 ```

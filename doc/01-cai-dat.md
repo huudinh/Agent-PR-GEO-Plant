@@ -24,7 +24,9 @@ Agent có **3 tầng**: bộ não (`SYSTEM-PROMPT.md`) · tri thức (`knowledge
 2. **Ô Chỉ dẫn:** dán **mô tả ngắn làm dòng đầu tiên**, xuống dòng, rồi dán toàn bộ khối giữa hai vạch ▼▲ trong [`SYSTEM-PROMPT.md`](../SYSTEM-PROMPT.md).
    *(Gemini Gems không có ô Mô tả riêng — đó là lý do phải gộp vào đầu ô Chỉ dẫn.)*
 3. **Tri thức:** upload 6 file trong [`knowledge/`](../knowledge/).
-4. Upload thêm [`template/GEO-PLAN-MAU-6-THANG.xlsx`](../template/GEO-PLAN-MAU-6-THANG.xlsx) để Agent bám format.
+4. Upload thêm **2 file mẫu** trong [`template/`](../template/) để Agent bám đúng format cả hai đầu ra:
+   · [`GEO-PLAN-MAU-6-THANG.xlsx`](../template/GEO-PLAN-MAU-6-THANG.xlsx) — đầu ra **A** kế hoạch 2 TAB
+   · [`BO-TRUY-VAN-MAU-6-SHEET.xlsx`](../template/BO-TRUY-VAN-MAU-6-SHEET.xlsx) — đầu ra **B** bộ truy vấn 6 sheet
 5. Gemini **không sinh `.xlsx`** — Agent sẽ xuất bảng phẳng để bạn bấm *Export to Sheets*.
 
 ## ChatGPT (Custom GPT)
@@ -33,7 +35,7 @@ Agent có **3 tầng**: bộ não (`SYSTEM-PROMPT.md`) · tri thức (`knowledge
 2. **Name:** `Agent-PR-GEO-Plant`.
 3. **Description:** dán **mô tả ngắn** (187 ký tự, vừa giới hạn 300 ký tự của ô này).
 4. **Instructions:** dán khối ▼▲.
-5. **Knowledge:** upload 6 file `knowledge/*.md` + file mẫu `.xlsx`.
+5. **Knowledge:** upload 6 file `knowledge/*.md` + **2 file mẫu** `.xlsx` trong `template/`.
 6. **Capabilities:** bật **Code Interpreter & Data Analysis** — bắt buộc để sinh `.xlsx`.
 
 ## Claude (Project)
@@ -41,7 +43,7 @@ Agent có **3 tầng**: bộ não (`SYSTEM-PROMPT.md`) · tri thức (`knowledge
 1. **Create Project** → `Agent-PR-GEO-Plant`.
 2. **Description** (ô *What are you working on?*): dán **mô tả ngắn**.
 3. **Custom instructions:** dán khối ▼▲.
-4. **Project knowledge:** upload 6 file `knowledge/*.md` + file mẫu `.xlsx`.
+4. **Project knowledge:** upload 6 file `knowledge/*.md` + **2 file mẫu** `.xlsx` trong `template/`.
 
 ---
 
@@ -55,7 +57,8 @@ Agent có **3 tầng**: bộ não (`SYSTEM-PROMPT.md`) · tri thức (`knowledge
 | `knowledge/geo-kpi-framework.md` | ✅ | 5 trụ cột KPI, trọng số, cách đặt chỉ tiêu khi chưa có mốc gốc, 3 bộ prompt đo GEO |
 | `knowledge/geo-output-excel-schema.md` | ✅ | Khoá format 2 TAB + bảng màu bộ nhận diện Paris |
 | `knowledge/geo-rao-phap-ly.md` | ✅ | 14 rào R0–R13, bảng ánh xạ cụm → rào, quy trình duyệt |
-| `template/GEO-PLAN-MAU-6-THANG.xlsx` | Khuyến nghị | File mẫu đúng format để Agent soi chiếu |
+| `template/GEO-PLAN-MAU-6-THANG.xlsx` | Khuyến nghị | Mẫu **đầu ra A** — kế hoạch 2 TAB. Thiếu thì Agent dễ sai bố cục và bảng màu |
+| `template/BO-TRUY-VAN-MAU-6-SHEET.xlsx` | Khuyến nghị | Mẫu **đầu ra B** — bộ truy vấn 6 sheet (bộ Implant, 255/255 truy vấn đã viết). Bắt buộc nếu bạn định dùng §18 để viết bộ truy vấn |
 | `data/bo-truy-van/*.json` | Tuỳ chọn | Upload **1–3 bộ** khi cần chi tiết hơn chỉ mục. **Không upload cả 10** — làm loãng ngữ cảnh |
 
 > Chỉ mục `geo-bo-truy-van-index.md` đã cô đọng đủ để lập kế hoạch (nó được sinh ra chính từ 10 file JSON đó). Chỉ upload JSON gốc khi bạn muốn Agent đọc trường nào chưa có trong chỉ mục.

@@ -192,6 +192,7 @@ python tools/build-artifact.py                  # sinh lại trang hướng dẫ
 | [knowledge/geo-kpi-framework.md](knowledge/geo-kpi-framework.md) | 5 trụ cột KPI · cách đặt chỉ tiêu khi chưa có mốc gốc · 3 bộ prompt đo GEO · 17 mã KPI nền |
 | [knowledge/geo-output-excel-schema.md](knowledge/geo-output-excel-schema.md) | Khoá format 2 TAB + bảng màu Paris |
 | [knowledge/geo-rao-phap-ly.md](knowledge/geo-rao-phap-ly.md) | 14 rào R0–R13 · bảng ánh xạ cụm → rào |
+| [goi/](goi/) | **Bản gộp dự phòng** — 1 file thay cho 6 file rời, dùng khi chạm trần số file của nền tảng |
 | [doc/01-cai-dat.md](doc/01-cai-dat.md) | Cài Gemini/ChatGPT/Claude · chiến lược file · smoke test · xử lý sự cố |
 | [doc/02-cau-lenh.md](doc/02-cau-lenh.md) | Công thức ra lệnh · 14 prompt mẫu · điều Agent sẽ từ chối |
 | [doc/03-output-mau.md](doc/03-output-mau.md) | Output mẫu có số thật · dấu hiệu đúng/sai |
